@@ -1,0 +1,25 @@
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: black;
+    border-color: black;
+}
+
+.btn-outline-secondary {
+    border-width: 3;
+    border-color: black;
+    color: black;
+}
+
+.btn-outline-secondary:hover {
+    border-width: 3;
+    border-color: black;
+    color: black;
+    background-color: #fff136;
+}
+
+.navbar-custom {
+    background-color:#ff0000 !important;
+}
