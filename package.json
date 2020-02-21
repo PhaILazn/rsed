@@ -1,0 +1,23 @@
+{
+  "name": "rsed",
+  "version": "1.0.0",
+  "description": "Creating a web service for food delivery services and implementing the service onto an andoird app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhaILazn/rSed.git"
+  },
+  "author": "Grant Nasution, Taylor Pastor, Eugene Nguyen, Jenson Tran, Raul Pabian Cruz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PhaILazn/rSed/issues"
+  },
+  "homepage": "https://github.com/PhaILazn/rSed#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.1"
+  }
+}
