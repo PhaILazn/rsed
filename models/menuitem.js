@@ -5,4 +5,4 @@ var MenuItemSchema = new mongoose.Schema({
     price: Number,
 });
 
-module.exports = mongoose.model("MenuItemSchema", MenuItemSchema);
+module.exports = mongoose.model("MenuItem", MenuItemSchema);

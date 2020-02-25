@@ -5,9 +5,9 @@ Company Type: Non-Profit Organization
 
 Front End - Bootstrap
 
-Middleware - 
+Middleware - Node.js packed with npm
 
-Back End - 
+Back End - MongoDB Atlas
 
 Android - Android Studio
 

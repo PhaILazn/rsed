@@ -8,4 +8,4 @@ var OrderSchema = new mongoose.Schema({
     date: Date,
 });
 
-module.exports = mongoose.model("OrderSchema", OrderSchema);
+module.exports = mongoose.model("Order", OrderSchema);
