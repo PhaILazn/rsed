@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
     address: {type: mongoose.Schema.Types.ObjectId, ref: "Address"},
     phone: Number,
     orderHistory: [{type: mongoose.Schema.Types.ObjectId, ref: "Order"}],
-    preferences: [{type: mongoose.Schema.Types.ObjectId, ref: "Preference   "}]
+    preferences: {type: mongoose.Schema.Types.ObjectId, ref: "Preference"},
 });
 
 module.exports = mongoose.model("User", UserSchema);
