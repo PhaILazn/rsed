@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
     
 
 //Connect to mongodb server
-mongoose.connect("mongodb+srv://penny:159123@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://user:password@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority", {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
 db.once('open', function() {
