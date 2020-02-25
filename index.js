@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
     
 
 //Connect to mongodb server
-mongoose.connect("mongodb+srv://penny:159123@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://penny:jabubbly@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority", {useNewUrlParser: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
 db.once('open', function() {
@@ -43,8 +43,12 @@ app.post("/createTables", function(req, res) {
         name: "Fruit Roll-Up",
         price: 3.50,
     });
+    var menuitem1 = new MenuItem({
+        name: "Apple",
+        price: 3.50,
+    })
     var menu = new Menu({
-        menuItems: [menuitem._id],
+        menuItems: [menuitem._id, menuitem1._id],
     });
     var resaddress = new Address({
         houseNum: 626,
@@ -52,11 +56,31 @@ app.post("/createTables", function(req, res) {
         city: "Pacific",
         zipcode: 626626,
     });
-    // var restaurant = new Restaurant({
-    //     name: "Jungle Boys",
-    //     address: resaddress._id,
-    //     foodCategories: 
-    // });
+    var respreferences = new Preference({
+        foodCategories: ["Pizza", "Hoopla"],
+    })
+    var review = new Review({
+        rating: 3,
+        comment: "Decent place, no parking though",
+    });
+    var review1 = new Review({
+        rating: 4,
+        comment: "Nice place, to bad theres no parking",
+    });
+    var restaurant = new Restaurant({
+        name: "Jungle Boys",
+        address: resaddress._id,
+        foodCategories: respreferences._id,
+        menus: [menu._id],
+        reviews: [review._id, review1._id],
+    });
+    var order = new Order({
+        restaurants: [restaurant._id],
+        orderItems: [menuitem._id, menuitem1._id],
+        totalPrice: 7.00,
+    })
+
+    //Saving all to the database
     user.save(function(err) {
         if(err) handleError(err);
     });
@@ -65,6 +89,33 @@ app.post("/createTables", function(req, res) {
     });
     preference.save(function (err) {
         if(err) handleError(err);
+    });
+    menuitem.save(function(err){
+        if(err) handleError(err);
+    });
+    menuitem1.save(function(err){
+        if(err) handleError(err);
+    });
+    menu.save(function(err) {
+        if(err) handleError(err);
+    });
+    resaddress.save(function(err){
+        if(err) handleError(err);
+    });
+    respreferences.save(function(err){
+        if(err) handleError(err);
+    });
+    restaurant.save(function(err){
+        if(err) handleError(err);
+    });
+    review.save(function(err){
+        if(err) handleError(err);
+    });
+    review1.save(function(err){
+        if(err) handleError(err);
+    });
+    order.save(function(err0) {
+        if(err) handleEror(err);
     });
     res.send("Creatd");
 });
