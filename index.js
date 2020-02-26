@@ -15,7 +15,10 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:')); 
 db.once('open', function() {
     console.log("Connection Successful!");
-}); 
+});
+ 
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 app.use("/testingroutes", testingRoutes);
 app.get('/', (req, res) => res.send('Hello World!'));
