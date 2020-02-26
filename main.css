@@ -7,19 +7,22 @@
     border-color: black;
 }
 
+/* Sets the properties of buttons labeled with "btn-outline-secondary. (such as the "Search" button) */
 .btn-outline-secondary {
     border-width: 3;
     border-color: black;
     color: black;
 }
 
+/* Sets the properites of buttons labeled with "btn-outline-secondary when hovering over it. */
 .btn-outline-secondary:hover {
     border-width: 3;
     border-color: black;
     color: black;
-    background-color: #fff136;
+    background-color: #fff136; /* alternatively can set the color directly to "yellow" */
 }
 
+/* Sets the properties of navigation bar. In this case, we're just changing the color of it.*/
 .navbar-custom {
-    background-color:#ff0000 !important;
+    background-color:#ff0000 !important; /* the "!important" tag forces this to ignore any other pre-established rules
 }

@@ -2,22 +2,29 @@
 <html lang="en">
 
 <head>
-    <title>rSED-Proto</title>
+    <!-- Sets the title of the webpage as it shows up on the window/tab -->
+	<title>Omnom Foods - Main</title>
     <meta charset="utf-8">
-    <!--Set width to be width of device, Set zoom lvl be proportionally correct-->
+    <!-- Set page width to be width of device and set zoom lvl be proportionally correct-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--BootstrapCDN(content delivery network)-->
+    
+	<!--BootstrapCDN(content delivery network)-->
     <!--Compiled CSS-->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--Compiled JS-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
     <!--External CSS---->
     <link rel="stylesheet" type="text/css" href="main.css">
+	
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top justify-content-between navbar-custom">
-        <a class="navbar-brand py-0" ><img class="img-fluid my-0" src="images/logo.png" width="75" height="75" alt="logo"></a>
-        <form class="form-inline pt-3">
+    <!-- Creates a navigation bar with the properties of "Justify" text and uses the properties of "navbar-custom" -->
+	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top justify-content-between navbar-custom">
+        <!-- Creates an image. In this case, it is the logo found in that directory.-->
+		<a class="navbar-brand py-0" ><img class="img-fluid my-0" src="images/logo.png" width="75" height="75" alt="logo"></a>
+        <h1>Omnom Foods (wait are we actually calling it-)</h1>
+		<!-- Creates an HTML form and a button for it. -->
+		<form class="form-inline pt-3">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
