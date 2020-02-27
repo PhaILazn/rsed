@@ -13,7 +13,7 @@ mongoose.connect(URI,
         useUnifiedTopology: true
     },() => console.log('Connected to database'));
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:')); 
+db.on('error', console.error.bind(console, 'Connection error:')); 
 db.once('open', function() {
     console.log("Connection Successful!");
 });
@@ -24,4 +24,4 @@ app.use(express.json());
 app.use("/", testingRoutes);
 app.get("/poop",(req,res)=>res.send('Hello World'));
 
-app.listen(PORT,'0.0.0.0', () => console.log(`Example app listening on port ${PORT}!`));
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
