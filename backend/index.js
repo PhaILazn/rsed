@@ -22,8 +22,6 @@ db.once('open', function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-
-
 app.use("/getall", testingRoutes);
 app.get("/", (req, res) => {
     app.use(express.static('public'));
