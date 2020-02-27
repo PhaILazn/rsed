@@ -26,6 +26,9 @@ app.use("/getall", testingRoutes);
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
+app.get("/index.html", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
+});
 app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
 });
