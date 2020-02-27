@@ -20,6 +20,6 @@ db.once('open', function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use("/testingroutes", testingRoutes);
+app.use("/", testingRoutes);
 
 app.listen(PORT,'0.0.0.0', () => console.log(`Example app listening on port ${PORT}!`));
