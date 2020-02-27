@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3000;
-const testingRoutes = require("./routes/testingroutes"),
-      mongoose = require("mongoose");
+const testingRoutes = require("./routes/testingroutes");
+const mongoose = require("mongoose");
 
 //Connect to mongodb
 const URI = 'mongodb+srv://user:password@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
