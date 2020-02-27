@@ -172,7 +172,7 @@ router.post("/createTables", function(req, res) {
     order.save(function(err0) {
         if(err) handleEror(err);
     });
-    res.send("Creatd");
+    res.send("Created");
 });
 
 module.exports = router;
