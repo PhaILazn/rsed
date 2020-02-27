@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
-const URI = 'mongodb+srv://<user:password>@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
+const URI = 'mongodb+srv://Jay:boob@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
 
 mongoose.connect(URI,
     {
@@ -22,11 +22,15 @@ db.once('open', function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+
+
 app.use("/getall", testingRoutes);
 app.get("/", (req, res) => {
+    app.use(express.static('public'));
     res.sendFile(__dirname + "/index.html");
 });
 app.get("/index.html", (req, res) => {
+    app.use(express.static('public'));
     res.sendFile(__dirname + "/index.html");
 });
 app.get("/signin.html", (req, res) => {
