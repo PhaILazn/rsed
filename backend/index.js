@@ -26,6 +26,12 @@ app.use("/getall", testingRoutes);
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
+app.get("/signin.html", (req, res) => {
+    res.sendFile(__dirname + "/signin.html");
+});
+app.get("/signup.html", (req, res) => {
+    res.sendFile(__dirname + "/signup.html");
+});
 app.get("/testing",(req,res)=>res.send("This is a testing to see if server is connected..."));
 
 
