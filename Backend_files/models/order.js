@@ -6,6 +6,8 @@ var OrderSchema = new mongoose.Schema({
     orderItems: [{type: mongoose.Schema.Types.ObjectId, ref: "MenuItem"}],
     totalPrice: Number,
     date: Date,
+},{
+    versionKey: false
 });
 
 module.exports = mongoose.model("Order", OrderSchema);

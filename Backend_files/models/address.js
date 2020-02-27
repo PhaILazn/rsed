@@ -5,6 +5,8 @@ var AddressSchema = new mongoose.Schema({
     street: String,
     city: String,
     zipcode: Number,
+},{
+    versionKey: false,
 });
 
 module.exports = mongoose.model("Address", AddressSchema);

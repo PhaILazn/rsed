@@ -8,6 +8,8 @@ var UserSchema = new mongoose.Schema({
     phone: Number,
     orderHistory: [{type: mongoose.Schema.Types.ObjectId, ref: "Order"}],
     preferences: {type: mongoose.Schema.Types.ObjectId, ref: "Preference"},
+},{
+    versionKey: false
 });
 
 module.exports = mongoose.model("User", UserSchema);

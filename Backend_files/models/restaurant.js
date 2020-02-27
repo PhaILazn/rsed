@@ -6,6 +6,8 @@ var RestaurantSchema = new mongoose.Schema({
     foodCategories: {type: mongoose.Schema.Types.ObjectId, ref: "Preference"},
     menus: [{type: mongoose.Schema.Types.ObjectId, ref: "Menu"}],
     reviews: [{type: mongoose.Schema.Types.ObjectId, ref: "Review"}],
+},{
+    versionKey: false
 });
 
 module.exports = mongoose.model("Restaurant", RestaurantSchema);
