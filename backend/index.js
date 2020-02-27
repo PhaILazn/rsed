@@ -22,13 +22,12 @@ db.once('open', function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.use(express.static('public'));
 app.use("/getall", testingRoutes);
 app.get("/", (req, res) => {
-    app.use(express.static('public'));
     res.sendFile(__dirname + "/index.html");
 });
 app.get("/index.html", (req, res) => {
-    app.use(express.static('public'));
     res.sendFile(__dirname + "/index.html");
 });
 app.get("/signin.html", (req, res) => {
