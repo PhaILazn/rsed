@@ -1,7 +1,6 @@
 const express = require('express');
 const User = require('../models/user');
 const Address = require('../models/address');
-// const Driver = require('../models/driver.js');
 const Menu = require('../models/menu');
 const MenuItem = require('../models/menuitem');
 const Order = require('../models/order');
@@ -14,7 +13,6 @@ const router = express.Router();
 router.get("/", async (req, res) => {
     const users = await User.find({});
     const address = await Address.find({});
-    // const driver= await Driver.find({});
     const menu = await Menu.find({});
     const menuitem = await MenuItem.find({});
     const order = await Order.find({});
@@ -26,7 +24,6 @@ router.get("/", async (req, res) => {
     var temp = {
         users: users,
         address: address,
-        // driver: driver,
         menu: menu,
         menuitem: menuitem,
         order: order,

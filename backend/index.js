@@ -6,7 +6,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
-const URI = 'mongodb+srv://user:pass@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
+const URI = 'mongodb+srv://Jay:boob@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
 mongoose.connect(URI,
     {
         useNewUrlParser: true,
@@ -22,6 +22,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use("/", testingRoutes);
-app.get("/",(req,res)=>('Hello World'));
+app.get("/poop",(req,res)=>res.send('Hello World'));
 
 app.listen(PORT,'0.0.0.0', () => console.log(`Example app listening on port ${PORT}!`));
