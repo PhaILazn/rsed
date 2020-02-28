@@ -19,13 +19,13 @@
       crossorigin="anonymous"
     />
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Icon Title -->
-    <title>OmNom Food Delivery</title>
+    <title>rSed Food Delivery</title>
 
     <!-- rSed Title Icon -->
-    <link rel="icon" href="img\rSedLogo.png" type="public/image/icon type" />
+    <link rel="icon" href="img\rSedLogo.png" type="image/icon type" />
   </head>
 
   <!-- Body -->
@@ -35,93 +35,109 @@
       bg-danger: red background
       fixed-top: bar fixed to top --- remove??
      -->
-    <nav class="navbar navbar-expand-sm bg-danger navbar-dark" id="main-nav">
-      <!-- 
-        create a container class: follows a grid system of 12 columns across the page
-      -->
-      <div class="container">
-        <!-- 
-          a: defines a hyperlink
-          href: hypertext reference          
-          navbar-brand: brand of company
-          clicking rSedFoodDelivery sends back to index.html        
-        -->
-        <a href="index.html" class="navbar-brand">rSed Food Delivery</a>
-        <!-- 
-          makes a button appear to expand the navbar if screen is too small
-        -->
-        <button
-          class="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbarCollapse"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+     <nav
+     class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top"
+     id="main-nav"
+   >
+     <!-- 
+       create a container class: follows a grid system of 12 columns across the page
+     -->
+     <div class="container col align-self-start">
+       <!-- 
+         a: defines a hyperlink
+         href: hypertext reference          
+         navbar-brand: brand of company
+         clicking rSedFoodDelivery sends back to index.html        
+       -->
+       <a href="index.html"> <img src="img\rSedLogo.png" class="w-25"/></a>
+     </span>
+       <!-- 
+         makes a button appear to expand the navbar if screen is too small
+       -->
+       <button
+         class="navbar-toggler"
+         data-toggle="collapse"
+         data-target="#navbarCollapse"
+       >
+         <span class="navbar-toggler-icon"></span>
+       </button>
 
-        <!-- 
-          collapse navbar-collapse: replaces the navigation on small screens with a button
-        -->
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <!-- 
-            navbar-nav: full-height and lightweight navigation
-            ml-auto: pushes the navbars to the right
-          -->
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="signin.html" class="nav-link  text-white">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a href="signup.html" class="nav-link bg-dark text-white"
-                >Sign Up</a
-              >
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+       <!-- 
+         collapse navbar-collapse: replaces the navigation on small screens with a button
+       -->
+       <div class="collapse navbar-collapse" id="navbarCollapse">
+         <!-- 
+           navbar-nav: full-height and lightweight navigation
+           ml-auto: pushes the navbars to the right
+         -->
+         <ul class="navbar-nav ml-auto">
+           <li class="nav-item bg-dark">
+             <a class="btn btn-outline-light" href="/getall" role="button"
+               >Data Dump</a
+             >
+           </li>
+           <li class="nav-item">
+             <a
+               class="btn btn-outline-light mx-3"
+               href="signin.html"
+               role="button"
+               >Sign In</a
+             >
+           </li>
+           <li class="nav-item">
+             <a class="btn btn-outline-light" href="signup.html" role="button"
+               >Sign Up</a
+             >
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
 
     <header id="sign-up">
       <div class="d-flex justify-content-center">
-        <div class="card bg-danger text-center card-form">
+        <div class="card bg-danger text-center card-form" style ="margin-top: 100px">
           <div class="card-body">
-            <h3>Sign Up for rSed</h3>
-            <h4>
+            <h3 style="color: #ffd700">Sign Up</h3>
+            <h4 style="color: #ffd700">
               Already Have an Account?
-              <a href="signin.html" class="text-dark">Sign In</a>
+              <a href="signin.html" class="text-white"><u>Sign In</u></a>
             </h4>
             <form>
               <div class="form-group">
                 <input
                   type="text"
-                  class="form-control form-control-lg bg-dark"
+				  name="firstName"
+                  class="form-control form-control-lg"
                   placeholder="First Name"
                 />
               </div>
               <div class="form-group">
                 <input
                   type="email"
-                  class="form-control form-control-lg bg-dark"
+				  name="lastName"
+                  class="form-control form-control-lg"
                   placeholder="Last Name"
                 />
               </div>
               <div class="form-group">
                 <input
                   type="email"
-                  class="form-control form-control-lg bg-dark"
+                  class="form-control form-control-lg"
                   placeholder="Email"
                 />
               </div>
               <div class="form-group">
                 <input
                   type="text"
-                  class="form-control form-control-lg bg-dark"
+                  class="form-control form-control-lg"
                   placeholder="Phone Number"
                 />
               </div>
               <div class="form-group">
                 <input
                   type="password"
-                  class="form-control form-control-lg bg-dark"
+                  class="form-control form-control-lg"
                   placeholder="Password"
 				  required
                 />
@@ -129,7 +145,7 @@
               <div class="form-group">
                 <input
                   type="password"
-                  class="form-control form-control-lg bg-dark"
+                  class="form-control form-control-lg"
                   placeholder="Confirm Password"
                 />
               </div>
@@ -149,7 +165,7 @@
       <div class="container">
         <div class="row">
           <div class="col text-center py-2">
-            <h3>Ready Software Engineering Design</h3>
+            <h3 style="color: #ffd700">Ready Software Engineering Design</h3>
             <button
               class="btn btn-danger"
               onclick="window.location.href = 'https://sites.google.com/view/rsed/'"
