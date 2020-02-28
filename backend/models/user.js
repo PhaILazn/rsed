@@ -2,7 +2,10 @@ var mongoose = require("mongoose");
 
 var UserSchema = new mongoose.Schema({
     id: String,
-	username: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    phoneNumber: String,
     password: String,
     address: {type: mongoose.Schema.Types.ObjectId, ref: "Address"},
     phone: Number,

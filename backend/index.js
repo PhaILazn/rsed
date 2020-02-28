@@ -33,6 +33,7 @@ app.get("/index.html", (req, res) => {
 });
 app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
+    app.use('/adduser', testingRoutes);
 });
 app.get("/signup.html", (req, res) => {
     res.sendFile(__dirname + "/signup.html");
