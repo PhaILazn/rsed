@@ -25,6 +25,7 @@ app.use(express.json());
 app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
+
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
@@ -34,7 +35,6 @@ app.get("/index.html", (req, res) => {
 //signin page will route to adding a username
 app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
-    app.use('/adduser', testingRoutes);
 });
 
 app.get("/signup.html", (req, res) => {
