@@ -18,8 +18,9 @@
       integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
       crossorigin="anonymous"
     />
+
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Icon Title -->
     <title>OmNom Food Delivery</title>
@@ -42,14 +43,15 @@
       <!-- 
         create a container class: follows a grid system of 12 columns across the page
       -->
-      <div class="container">
+      <div class="container col align-self-start">
         <!-- 
           a: defines a hyperlink
           href: hypertext reference          
           navbar-brand: brand of company
           clicking rSedFoodDelivery sends back to index.html        
         -->
-        <a href="index.html" class="navbar-brand">OmNom Food Delivery</a>
+        <a href="index.html"> <img src="img\rSedLogo.png" class="w-25"/></a>
+
         <!-- 
           makes a button appear to expand the navbar if screen is too small
         -->
@@ -70,14 +72,23 @@
             ml-auto: pushes the navbars to the right
           -->
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a href="/getall" class="nav-link bg-dark text-white">Data Dump</a>
+            <li class="nav-item bg-dark">
+              <a class="btn btn-outline-light" href="/getall" role="button"
+                >Data Dump</a
+              >
             </li>
-			<li class="nav-item">
-              <a href="signin.html" class="nav-link  text-white">Sign In</a>
+            <li class="nav-item">
+              <a
+                class="btn btn-outline-light mx-3"
+                href="signin.html"
+                role="button"
+                >Sign In</a
+              >
             </li>
             <li class="nav-item">
-              <a href="signup.html" class="nav-link bg-dark text-white">Sign Up</a>
+              <a class="btn btn-outline-light" href="signup.html" role="button"
+                >Sign Up</a
+              >
             </li>
           </ul>
         </div>
@@ -89,11 +100,36 @@
         <div class="home-inner container">
           <div class="row">
             <div class="d-lg-block">
-              <h1 class="display-4 text-sm-center">
+              <h1
+                class="display-1 text-lg-center text-danger mb-3 font-weight-bold"
+              >
+                OmNom Food Delivery
+              </h1>
+
+              <form
+                class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center mt-5 mb-5"
+              >
+                <input
+                  type="text"
+                  class="form-control mr-2"
+                  placeholder="Search"
+                />
+                <button
+                  class="btn btn-outline-warning"
+                  style="margin-top: 25px"
+                >
+                  Search for Noms
+                </button>
+              </form>
+
+              <h2
+                class="display-4 text-lg-center font-weight-bold"
+                style="color: #ffd700"
+              >
                 Delivering food from <strong>ALL</strong> of your favorite
                 resturants,
-                <strong>Guaranteed!</strong>
-              </h1>
+                <strong>GUARAN-FUCKING-DICK!</strong>
+              </h2>
             </div>
           </div>
         </div>
@@ -105,7 +141,7 @@
       <div class="container">
         <div class="row">
           <div class="col text-center py-2">
-            <h3>Ready Software Engineering Design</h3>
+            <h3 style="color: #ffd700">Ready Software Engineering Design</h3>
             <button
               class="btn btn-danger"
               onclick="window.location.href = 'https://sites.google.com/view/rsed/'"
