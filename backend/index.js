@@ -22,7 +22,7 @@ db.once('open', function() {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-app.use('/public',express.static('public'));
+app.use('/',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
 
