@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+
     <!-- Fancy Fonts, Icons, and Logos -->
     <link
       rel="stylesheet"
@@ -19,13 +21,13 @@
       crossorigin="anonymous"
     />
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Icon Title -->
     <title>rSed Food Delivery</title>
 
     <!-- rSed Title Icon -->
-    <link rel="icon" href="public\img\rSedLogo.png" type="image/icon type" />
+    <link rel="icon" href="img\rSedLogo.png" type="image/icon type" />
   </head>
 
   <!-- Body -->
@@ -49,7 +51,7 @@
          navbar-brand: brand of company
          clicking rSedFoodDelivery sends back to index.html        
        -->   
-       <a href="index.html"> <img src="public\img\rSedLogo.png" class="w-25"/></a>
+       <a href="index.html"> <img src="img\rSedLogo.png" class="w-25"/></a>
      </span>
        <!-- 
          makes a button appear to expand the navbar if screen is too small
@@ -102,7 +104,29 @@
             <h4 style="color: #ffd700">
               New to OmNom Foods? <a href="signup.html" class="text-white"><u>Sign Up</u></a>
             </h4>
-            <form>           
+            <form>    
+              <div id="signin" style = "margin-top: 10px; margin-bottom: 10px; margin-left: 55px;"></div>          
+              <script>
+                function onSuccess(googleUser) {
+                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }
+                function onFailure(error) {
+                  console.log(error);
+                }
+                function renderButton() {
+                  gapi.signin2.render('signin', {
+                    'scope': 'profile email',
+                    'width': 240,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                  });
+                }
+              </script>
+            
+              <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
               <div class="form-group">
                 <input
                   type="email"
