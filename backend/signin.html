@@ -119,16 +119,16 @@
                 console.log(error);
               }
               
-              function googleSignIn () {
-                var provider = new firebase.auth.GoogleAuthProvider();
-                firebase.auth().signInWithPopup(base_provider).then(function(result){
-                  console.log(result);
-                  console.log("Successfully linked Google Account")
-                }).catch(function(err){
-                  console.log(err)
-                  consol.log("Failed to link")
-                })
-              }
+              // function googleSignIn () {
+              //   var provider = new firebase.auth.GoogleAuthProvider();
+              //   firebase.auth().signInWithPopup(base_provider).then(function(result){
+              //     console.log(result);
+              //     console.log("Successfully linked Google Account")
+              //   }).catch(function(err){
+              //     console.log(err)
+              //     consol.log("Failed to link")
+              //   })
+              // }
               function renderButton() {
                 gapi.signin2.render('signin', {
                   'scope': 'profile email',
