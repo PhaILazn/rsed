@@ -10,6 +10,7 @@
    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
+   
 
 
   <!-- Fancy Fonts, Icons, and Logos -->
@@ -90,7 +91,7 @@
           <form>
             <div id="signin" style="margin-top: 10px; margin-bottom: 10px; margin-left: 55px;"></div>
 
-            <button onclick = "googleSignIn()">Google Sign In</button>
+            <!-- <button onclick = "googleSignIn()">Google Sign In</button> -->
 
             <!-- TODO: Add SDKs for Firebase products that you want to use
              https://firebase.google.com/docs/web/setup#available-libraries -->
@@ -111,12 +112,12 @@
               firebase.initializeApp(firebaseConfig);
               firebase.analytics();
 
-              // function onSuccess(googleUser) {
-              //   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-              // }
-              // function onFailure(error) {
-              //   console.log(error);
-              // }
+              function onSuccess(googleUser) {
+                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+              }
+              function onFailure(error) {
+                console.log(error);
+              }
               
               function googleSignIn () {
                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -128,17 +129,17 @@
                   consol.log("Failed to link")
                 })
               }
-              // function renderButton() {
-              //   gapi.signin2.render('signin', {
-              //     'scope': 'profile email',
-              //     'width': 240,
-              //     'height': 50,
-              //     'longtitle': true,
-              //     'theme': 'dark',
-              //     'onsuccess': onSuccess,
-              //     'onfailure': onFailure
-              //   });
-              // }
+              function renderButton() {
+                gapi.signin2.render('signin', {
+                  'scope': 'profile email',
+                  'width': 240,
+                  'height': 50,
+                  'longtitle': true,
+                  'theme': 'dark',
+                  'onsuccess': onSuccess,
+                  'onfailure': onFailure
+                });
+              }
             </script>
             <div class="form-group">
               <input type="email" class="form-control form-control-lg" placeholder="Email" />
