@@ -6,11 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-   <!-- The core Firebase JS SDK is always required and must be listed first -->
-   <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
-   <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-analytics.js"></script>
-   
-
 
   <!-- Fancy Fonts, Icons, and Logos -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -89,29 +84,10 @@
           </h4>
           <form>
             <div id="signin" style="margin-top: 10px; margin-bottom: 10px; margin-left: 55px;"></div>
+
             <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
-            <!-- <button onclick = "googleSignIn()">Google Sign In</button> -->
-
-            <!-- TODO: Add SDKs for Firebase products that you want to use
-             https://firebase.google.com/docs/web/setup#available-libraries -->
-
             <script>
-              // Your web app's Firebase configuration
-              // var firebaseConfig = {
-              //   apiKey: "AIzaSyCHXyio4R9BAW-QZWKCY6HqTficreXgMyc",
-              //   authDomain: "omnom-foods.firebaseapp.com",
-              //   databaseURL: "https://omnom-foods.firebaseio.com",
-              //   projectId: "omnom-foods",
-              //   storageBucket: "omnom-foods.appspot.com",
-              //   messagingSenderId: "487556244866",
-              //   appId: "1:487556244866:web:ed424c5e7dd358c63a5b9b",
-              //   measurementId: "G-D9WL7J4VB3"
-              // };
-              // // Initialize Firebase
-              // firebase.initializeApp(firebaseConfig);
-              // firebase.analytics();
-
               function onSuccess(googleUser) {
                 console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
               }
@@ -129,17 +105,6 @@
                   'onfailure': onFailure
                 });
               }
-              // function googleSignIn () {
-              //   var provider = new firebase.auth.GoogleAuthProvider();
-              //   firebase.auth().signInWithPopup(base_provider).then(function(result){
-              //     console.log(result);
-              //     console.log("Successfully linked Google Account")
-              //   }).catch(function(err){
-              //     console.log(err)
-              //     consol.log("Failed to link")
-              //   })
-              // }
-              
             </script>
             <div class="form-group">
               <input type="email" class="form-control form-control-lg" placeholder="Email" />
