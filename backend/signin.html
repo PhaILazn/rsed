@@ -85,6 +85,8 @@
           <form>
             <div id="signin" style="margin-top: 10px; margin-bottom: 10px; margin-left: 55px;"></div>
 
+            <button onclick="googleSignIn()">Google Sign In</button>
+
             <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
             <!-- The core Firebase JS SDK is always required and must be listed first -->
             <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
@@ -115,9 +117,7 @@
               // function onFailure(error) {
               //   console.log(error);
               // }
-              function renderButton(){
-                googleSignIn();
-              }
+              
               googleSignIn = () => {
                 base_provider = new firebase.auth.GoogleAuthProvider()
                 firebase.auth().signInWithPopUp(base_provider).then(function(result){
