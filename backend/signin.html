@@ -118,10 +118,10 @@
               //   console.log(error);
               // }
               
-              googleSignIn = () => {
-                base_provider = new Firebase.auth.GoogleAuthProvider()
+              function googleSignIn () {
+                var provider = new firebase.auth.GoogleAuthProvider();
                 firebase.auth().signInWithPopup(base_provider).then(function(result){
-                  console.log(result)
+                  console.log(result);
                   console.log("Successfully linked Google Account")
                 }).catch(function(err){
                   console.log(err)
