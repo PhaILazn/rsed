@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Fancy Fonts, Icons, and Logos -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" href="public/css/profile.css" />
+
+    <!-- Icon Title -->
+    <title>OmNom Food Delivery</title>
+
+    <!-- rSed Title Icon -->
+    <link rel="icon" href="public\img\rSedLogo.png" type="image/icon type" />
+  </head>
+
+  <!-- Body -->
+  <body>
+    <!-- 
+      navbar-expand-sm: aligns text on small screens or larger
+      bg-danger: red background
+      fixed-top: bar fixed to top --- remove??
+     -->
+    <nav
+      class="navbar navbar-expand-sm bg-danger navbar-dark fixed-top"
+      id="main-nav"
+    >
+      <!-- 
+        create a container class: follows a grid system of 12 columns across the page
+      -->
+      <div class="container col align-self-start">
+        <!-- 
+          a: defines a hyperlink
+          href: hypertext reference          
+          navbar-brand: brand of company
+          clicking rSedFoodDelivery sends back to index.html        
+        -->
+        <a href="index.html"> <img src="public\img\rSedLogo.png" class="w-25"/></a>
+
+        <!-- 
+          makes a button appear to expand the navbar if screen is too small
+        -->
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- 
+          collapse navbar-collapse: replaces the navigation on small screens with a button
+        -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <!-- 
+            navbar-nav: full-height and lightweight navigation
+            ml-auto: pushes the navbars to the right
+          -->
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item bg-dark">
+              <a class="btn btn-outline-light" href="/testingRoute" role="button"
+                >Data Dump</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="btn btn-outline-light mx-3"
+                href="signin.html"
+                role="button"
+                >Sign In</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-light" href="signup.html" role="button"
+                >Sign Up</a
+              >
+            </li>
+			<li class="nav-item">
+              <a
+                class="btn btn-outline-light mx-3"
+                href="profile.html"
+                role="button"
+                >Profile</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header id="profile-section">
+      <div class="shamelessly-copied-dark-overlay">
+        <div class="profile-inner-thing container">
+          <div class="row">
+            <div class="d-lg-block">
+              <h1
+                class="font-weight-bold"
+				style="color: #ffffff"
+              >
+                Sebastian Smith
+              </h1>
+			  <h3
+			    class="font-weight-italics"
+				style="color: #ffffff"
+			  >
+				General Location, and not actual location so they don't get doxed probably
+			  </h3>
+			  
+			  <h2
+			    class="font-weight-bold"
+				style="color: #ffffff"
+			  >
+				<br><br>About
+			  </h2>
+			  <h4
+				style="color: #ffffff"
+              >
+                idk, what, something about who they are go here or something? like a profile description? tbh, for some reason i was using LINKEDIN of all things as a reference, which doesn't even make sense because there would be like a profile picture and a banner and we don't have support for that, and now that i'm looking at it, it looks like a freaking biography page from an RPG, actually this isn't even on our thing so you can just disregard it as something there to pad out this page so it isn't as awkward
+              </h3>
+			  
+			  <h2
+			    class="font-weight-bold"
+				style="color: #ffffff"
+			  >
+				<br><br>Preferences
+			  </h2>
+			  <h3
+				style="color: #ffffff"
+              >
+                <ul>
+				  <li>Lorem ipsum dolor sit amet.</li>
+				  <li>Lorem ipsum dolor sit amet.</li>
+				  <li>Lorem ipsum dolor sit amet.</li>
+				  <li>Lorem ipsum dolor sit amet.</li>
+				  <li>Actually, I copied this (the bulleted list) directly from "2-2: Basic Typography" from Taylor's lessons.</li>
+				</ul>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FOOTER -->
+    <footer id="main-footer" class="bg-dark">
+      <div class="container">
+        <div class="row">
+          <div class="col text-center py-2">
+            <h3 style="color: #ffd700">Ready Software Engineering Design</h3>
+            <button
+              class="btn btn-danger"
+              onclick="window.location.href = 'https://sites.google.com/view/rsed/'"
+            >
+              Check Out Our Website!
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+</html>

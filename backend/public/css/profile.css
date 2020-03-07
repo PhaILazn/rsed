@@ -1,0 +1,34 @@
+body {
+  background: #333;
+  color: #fff;
+}
+
+.navbar {
+  border-bottom: #008ed6 3px solid;
+  opacity: 0.8;
+}
+
+#profile-section {
+  background: url(../img/FoodBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1000px;
+}
+
+#profile-section .shamelessly-copied-dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 1000px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+#profile-section .profile-inner-thing {
+  padding: 50px;
+  padding-top: 75px;
+  width: 80%;
+  background: rgba(256, 256, 0, 0.5);
+  min-height: 800px;
+}
