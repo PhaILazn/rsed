@@ -5,10 +5,11 @@ const router =  express.Router();
 const app = express();
 router.post('/', async (req, res) => {
     const postUser = new User(req.body);
-
+    
     try {
         await postUser.save();
-        res.redirect('../backend/profile.html');
+        var objectID = postUser._id;
+        res.redirect(`../${objectID}`);
     } catch (err) {
         res.status(500).send(err);
     }
