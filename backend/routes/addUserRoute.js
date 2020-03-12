@@ -2,7 +2,7 @@ const User = require('../models/user');
 
 const router =  express.Router();
 
-router.post('/adduser', async (req, res) => {
+router.post('/', async (req, res) => {
     const postUser = new User(req.body);
 
     try {

@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const testingRoutes = require("./routes/testingRoute");
+const addUserRoute = require("./routes/addUserRoute");
+
 
 const app = express();
 require('dotenv').config();
@@ -25,6 +27,7 @@ app.use(express.json());
 app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
+app.use('/adduser',addUserRoute);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
