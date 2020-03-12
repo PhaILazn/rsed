@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
 
     try {
         await postUser.save();
-        res.sendFile(__dirname + "/profile.html");
+        res.sendFile(__dirname + "../profile.html");
     } catch (err) {
         res.status(500).send(err);
     }
