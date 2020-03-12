@@ -33,6 +33,13 @@ body {
   opacity: 0.8;
 }
 
-#home-section .h2 {
+#home-section h1 {
   color: #ffd700;
+  font-size: 4vw;
+}
+
+@media screen and(min-width: 1600px) {
+  #home-section h1 {
+    font-size: 30px;
+  }
 }

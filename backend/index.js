@@ -1,12 +1,23 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const testingRoutes = require("./routes/testingRoute");
+<<<<<<< HEAD
 const preferences = require("./routes/preferences");
 const app = express();
+=======
+const addUserRoute = require("./routes/addUserRoute");
 
+>>>>>>> 8ef149b5945da1d6cdb60bef33b8569d372581a4
+
+const app = express();
+require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
+<<<<<<< HEAD
 const URI = 'mongodb+srv://<user>:<pass>@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
+=======
+const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority`;
+>>>>>>> 8ef149b5945da1d6cdb60bef33b8569d372581a4
 
 mongoose.connect(URI,
     {
@@ -25,7 +36,11 @@ app.use(express.json());
 app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
+<<<<<<< HEAD
 app.use("/preferences", preferences);
+=======
+app.use('/adduser',addUserRoute);
+>>>>>>> 8ef149b5945da1d6cdb60bef33b8569d372581a4
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
@@ -37,11 +52,13 @@ app.get("/index.html", (req, res) => {
 app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
 });
+app.get("/profile.html", (req,res)=>{
+    res.sendFile(__dirname + "/profile.html");
+});
 
 app.get("/signup.html", (req, res) => {
     res.sendFile(__dirname + "/signup.html");
 });
-app.get("/testing",(req,res)=>res.send("This is a testing to see if server is connected..."));
 
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
