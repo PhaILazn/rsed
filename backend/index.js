@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const testingRoutes = require("./routes/testingRoute");
-
+const preferences = require("./routes/preferences");
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
-const URI = 'mongodb+srv://<user>:<password>@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
+const URI = 'mongodb+srv://<user>:<pass>@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority';
 
 mongoose.connect(URI,
     {
@@ -25,6 +25,7 @@ app.use(express.json());
 app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
+app.use("/preferences", preferences);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/index.html");
