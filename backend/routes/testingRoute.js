@@ -39,17 +39,17 @@ router.get("/", async (req, res) => {
     }
 });
 
-router.post('/adduser', async (req, res) => {
-    const postUser = new User(req.body);
+// router.post('/adduser', async (req, res) => {
+//     const postUser = new User(req.body);
 
-    try {
-        await postUser.save();
-        res.send(postUser);
-        res.send("USER ADDED");
-    } catch (err) {
-        res.status(500).send(err);
-    }
-});
+//     try {
+//         await postUser.save();
+//         res.send(postUser);
+//         res.send("USER ADDED");
+//     } catch (err) {
+//         res.status(500).send(err);
+//     }
+// });
 
 router.delete('/:name', async (req, res) => {
     try {
