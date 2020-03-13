@@ -16,12 +16,15 @@ router.get('/',function(req, res) {
 
 router.get('/:userId', function(req, res) {
     var userId = req.params.userId;
+    //Find user by objectId
     User.findById(userId)
     .exec()
     .then(currUser => {
+        //Find preference referenced by User
         Preference.findById(currUser.preferences)
         .exec()
         .then(currPref => {
+            //Return the preference to client
             console.log(currPref);
             res.status(200).json(currPref);
         })
