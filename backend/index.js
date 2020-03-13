@@ -5,8 +5,6 @@ const preferences = require("./routes/preferences");
 const app = express();
 const addUserRoute = require("./routes/addUserRoute");
 
-
-const app = express();
 require('dotenv').config();
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
