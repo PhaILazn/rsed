@@ -8,6 +8,7 @@ var express = require("express"),
 const testingRoutes = require("./routes/testingRoute");
 const preferences = require("./routes/preferences");
 const addUserRoute = require("./routes/addUserRoute");
+const user = require("./routes/user");
 const User = require('./models/user');
 
 const app = express();
@@ -51,6 +52,7 @@ app.use('/public', express.static('public'));
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use('/adduser', addUserRoute);
+app.use("/user", user);
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
