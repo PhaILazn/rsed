@@ -5,6 +5,7 @@ const express = require("express"),
 
 const testingRoutes = require("./routes/testingRoute");
 const preferences = require("./routes/preferences");
+const user = require("./require/user");
 const app = express();
 const addUserRoute = require("./routes/addUserRoute");
 
@@ -33,7 +34,7 @@ app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
-
+app.use("/user", user);
 app.use('/adduser',addUserRoute);
 
 app.get("/", (req, res) => {
