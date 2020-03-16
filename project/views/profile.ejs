@@ -25,7 +25,7 @@
 <!-- Body -->
 
 <body>
-    < % include ../partials/header % >
+    <%- include("./partials/header.ejs") %>
 
     <header id="profile-section">
         <div class="shamelessly-copied-dark-overlay">
@@ -74,19 +74,7 @@
     </header>
 
     <!-- FOOTER -->
-    <footer id="main-footer" class="bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center py-2">
-                    <h3 style="color: #ffd700">Ready Software Engineering Design</h3>
-                    <button class="btn btn-danger"
-                        onclick="window.location.href = 'https://sites.google.com/view/rsed/'">
-                        Check Out Our Website!
-                    </button>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
