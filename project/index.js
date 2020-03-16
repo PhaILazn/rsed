@@ -9,7 +9,7 @@ const app = express();
 const addUserRoute = require("./routes/addUserRoute");
 
 require('dotenv').config();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 6969;
 //Connect to mongodb
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority`;
 
@@ -48,13 +48,10 @@ app.get("/signin", (req, res) => {
 app.get("/signup", (req, res) => {
     res.render('signup');
 });
-app.get(`/:id`,(req,res)=>{
 
-    res.render('profile');
+
+app.get('/butt', (req,res) => {
+    res.render('home');
 })
-
-//app.get('/butt', (req,res) => {
-//    res.render('');
-//})
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
