@@ -39,19 +39,16 @@ app.use('/adduser',addUserRoute);
 app.get("/", (req, res) => {
     res.render('home');
 });
-app.get("/index.html", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
 
 //signin page will route to adding a username
 app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
 });
 
-
 app.get("/signup.html", (req, res) => {
     res.sendFile(__dirname + "/signup.html");
 });
+
 app.get(`/:id`,(req,res)=>{
     res.sendFile(__dirname + "/profile.html");
 })
