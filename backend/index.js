@@ -1,5 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
+const express = require("express"),
+    mongoose = require("mongoose"),
+    passport = require("passport");
+    
+
 const testingRoutes = require("./routes/testingRoute");
 const preferences = require("./routes/preferences");
 const app = express();
@@ -20,6 +23,8 @@ db.on('error', console.error.bind(console, 'Connection error:'));
 db.once('open', function() {
     console.log("Connection Successful!");
 });
+
+app.set('view engine', 'ejs');
  
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -28,24 +33,23 @@ app.use('/public',express.static('public'));
 
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
+
 app.use('/adduser',addUserRoute);
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
-app.get("/index.html", (req, res) => {
-    res.sendFile(__dirname + "/index.html");
-});
-//signin page will route to adding a username
-app.get("/signin.html", (req, res) => {
-    res.sendFile(__dirname + "/signin.html");
+    res.render('home');
 });
 
-app.get("/signup.html", (req, res) => {
-    res.sendFile(__dirname + "/signup.html");
+//signin page will route to adding a username
+app.get("/signin", (req, res) => {
+    res.render('signin');
+});
+
+app.get("/signup", (req, res) => {
+    res.render('signup');
 });
 app.get(`/:id`,(req,res)=>{
-    res.sendFile(__dirname + "/profile.html");
+    res.render('profile');
 })
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
