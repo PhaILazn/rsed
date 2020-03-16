@@ -65,6 +65,10 @@ app.get("/", function(req, res){
     res.render('index');
 });
 
+app.get("/profile", function(req, res){
+    res.render('profile');
+});
+
 //route to signup page
 app.get("/signup",function(req, res){
     res.render('signup');
