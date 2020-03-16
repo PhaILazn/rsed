@@ -2,7 +2,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     passport = require("passport"),
     LocalStrategy = require('passport-local'),
-    passportLocalMongoose = require('passport-local-mongoose');
+    passportLocalMongoose = require('passport-local-mongoose')
 
 
 const testingRoutes = require("./routes/testingRoute");
@@ -14,7 +14,7 @@ const User = require('./models/user');
 const app = express();
 require('dotenv').config();
 
-const PORT = process.env.PORT || 6969;
+const PORT = process.env.PORT || 3000;
 //Connect to mongodb
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority`;
 
