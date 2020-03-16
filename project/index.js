@@ -13,7 +13,7 @@ const User = require('./models/user');
 const app = express();
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 6969;
 //Connect to mongodb
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority`;
 
@@ -51,6 +51,12 @@ app.use('/public', express.static('public'));
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use('/adduser', addUserRoute);
+
+//added this for testing purposes
+app.get("/secret",isLoggedIn, function(req,res){
+    res.render('secret')
+});
+//testingggg
 
 //grab home page and render as homepage
 app.get("/", function(req, res){
