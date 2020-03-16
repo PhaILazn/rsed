@@ -11,7 +11,7 @@ const Review = require('../models/review');
 const router = express.Router();
 
 router.get('/',function(req, res) {
-    res.send("Test");
+    res.render("profile");
 });
 
 router.get('/:userId', function(req, res) {
