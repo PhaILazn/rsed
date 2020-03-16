@@ -20,13 +20,13 @@
     />
 
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="public/css/profile.css" />
 
     <!-- Icon Title -->
     <title>OmNom Food Delivery</title>
 
     <!-- rSed Title Icon -->
-    <link rel="icon" href="img\rSedLogo.png" type="image/icon type" />
+    <link rel="icon" href="public\img\rSedLogo.png" type="image/icon type" />
   </head>
 
   <!-- Body -->
@@ -50,7 +50,7 @@
           navbar-brand: brand of company
           clicking rSedFoodDelivery sends back to index.html        
         -->
-        <a href="index.html"> <img src="img\rSedLogo.png" class="w-25"/></a>
+        <a href="index.html"> <img src="public\img\rSedLogo.png" class="w-25"/></a>
 
         <!-- 
           makes a button appear to expand the navbar if screen is too small
@@ -73,7 +73,7 @@
           -->
           <ul class="navbar-nav ml-auto">
             <li class="nav-item bg-dark">
-              <a class="btn btn-outline-light" href="/getall" role="button"
+              <a class="btn btn-outline-light" href="/testingRoute" role="button"
                 >Data Dump</a
               >
             </li>
@@ -82,7 +82,7 @@
                 class="btn btn-outline-light mx-3"
                 href="signin.html"
                 role="button"
-                >Login</a
+                >Sign In</a
               >
             </li>
             <li class="nav-item">
@@ -90,12 +90,110 @@
                 >Sign Up</a
               >
             </li>
+			<li class="nav-item">
+              <a
+                class="btn btn-outline-light mx-3"
+                href="profile.html"
+                role="button"
+                >Profile</a
+              >
+            </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    
+    <header id="profile-section">
+      <div class="shamelessly-copied-dark-overlay">
+        <div class="profile-inner-thing container">
+		  <h4><b>Why don't you try one of these?</b></h4>
+		  <br>
+		  <div style="display: flex">
+			<div class="card" style="width:20%">
+			  <img src="public\img\placeholder.png">
+			  <div class="container">
+			    <b>Tim's Burger Joint</b><br><i>American</i>
+			  </div>
+		    </div>
+		    <pre> </pre>
+			<div class="card" style="width:20%">
+			  <img src="public\img\placeholder.png">
+			  <div class="container">
+			    <b>Restaurant 2</b><br><i>Italian</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card" style="width:20%">
+			  <img src="public\img\placeholder.png">
+			  <div class="container">
+			    <b>Restaurant 3</b><br><i>Thai</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card" style="width:20%">
+			  <img src="public\img\placeholder.png">
+			  <div class="container">
+			    <b>Restaurant 4</b><br><i>Vietnamese</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card" style="width:20%">
+			  <img src="public\img\placeholder.png">
+			  <div class="container">
+			    <b>Restaurant 5</b><br><i>Indian</i>
+			  </div>
+		    </div>
+		  </div>
+		  <br>
+		  <br>
+		  <h4><b>Or if they don't suit you, you can also pick a type and go from there!</b></h4>
+		  <div style="display: flex">
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+			<pre> </pre>
+			<div class="card">
+			  <img src="public\img\placeholder.png" width="150px" height="100px">
+			  <div class="container">
+			    <i>American</i>
+			  </div>
+		    </div>
+		  </div>
+		  
+        </div>
+      </div>
+    </header>
 
     <!-- FOOTER -->
     <footer id="main-footer" class="bg-dark">
@@ -114,4 +212,5 @@
       </div>
     </footer>
   </body>
+</html>
 </html>
