@@ -71,13 +71,16 @@ app.get("/signup",function(req, res){
 });
 
 app.post('/signup', function(req, res) {
-    const postUser = new User(req.body);
+    req.body.firstName
+    req.body.lastName
+    req.body.email
+    req.body.password
     User.register(new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         phone: req.body.phone
-    }), req.body.password, function (err, user) {
+    }), req.body.password, function(err, user) {
         if (err) {
             console.log(err);
             return res.render('register');
