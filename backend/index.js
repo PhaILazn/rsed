@@ -41,16 +41,15 @@ app.get("/", (req, res) => {
 });
 
 //signin page will route to adding a username
-app.get("/signin.html", (req, res) => {
+app.get("/signin", (req, res) => {
     res.render('signin');
 });
 
-
-app.get("/signup.html", (req, res) => {
-    res.sendFile(__dirname + "/signup.html");
+app.get("/signup", (req, res) => {
+    res.render('signup');
 });
 app.get(`/:id`,(req,res)=>{
-    res.sendFile(__dirname + "/profile.html");
+    res.render('profile');
 })
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
