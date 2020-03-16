@@ -39,8 +39,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser);
-passport.deserializeUser(User.deserializeUser);
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.set('view engine', 'ejs');
 
@@ -92,35 +92,21 @@ app.post('/signup', function(req, res) {
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/index');
+            res.redirect('/');
         })
     });
 });
-
-// app.post('/signup',function(req,res){
-//     req.body.username
-//     req.body.password
-//     User.register(new User(({username: req.body.username})),req.body.password, function(err,user){
-//         if(err){
-//             console.log(err);
-//             res.render('signup');
-//         }
-//         passport.authenticate("local")(req,res,function(){
-//             res.redirect("/secret")
-//         })
-//     })
-// });
 
 //signin page will route to adding a username
 app.get("/signin", function(req, res){
     res.render('signin');
 });
 app.post('/signin', passport.authenticate("local",{
-    successRedirect: '/index', failureRedirect: '/signin'}), function(req,res){
+    successRedirect: "/secret", failureRedirect: '/signin'}), function(req,res){
 });
 
 //logging out the user
-app.get('logout', function(req,res){
+app.get('/logout', function(req,res){
     req.logout();
     res.redirect("/");
 })
