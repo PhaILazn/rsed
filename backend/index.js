@@ -45,10 +45,10 @@ app.get("/signin.html", (req, res) => {
     res.sendFile(__dirname + "/signin.html");
 });
 
+
 app.get("/signup.html", (req, res) => {
     res.sendFile(__dirname + "/signup.html");
 });
-
 app.get(`/:id`,(req,res)=>{
     res.sendFile(__dirname + "/profile.html");
 })
