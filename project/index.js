@@ -2,13 +2,13 @@ var express = require("express"),
     mongoose = require("mongoose"),
     passport = require("passport"),
     LocalStrategy = require('passport-local'),
-    passportLocalMongoose = require('passport-local-mongoose');
+    passportLocalMongoose = require('passport-local-mongoose')
 
 
 const testingRoutes = require("./routes/testingRoute");
 const preferences = require("./routes/preferences");
 const addUserRoute = require("./routes/addUserRoute");
-const user = require("./routes/user");
+const profile = require("./routes/profile");
 const User = require('./models/user');
 
 const app = express();
@@ -52,7 +52,13 @@ app.use('/public', express.static('public'));
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use('/adduser', addUserRoute);
-app.use("/user", user);
+app.use("/user", profile);
+
+//added this for testing purposes
+app.get("/secret",isLoggedIn, function(req,res){
+    res.render('secret')
+});
+//testingggg
 
 //grab home page and render as homepage
 app.get("/", function(req, res){
