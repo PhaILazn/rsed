@@ -42,7 +42,7 @@ app.get("/", (req, res) => {
 
 //signin page will route to adding a username
 app.get("/signin.html", (req, res) => {
-    res.sendFile(__dirname + "/signin.html");
+    res.render('signin');
 });
 
 
