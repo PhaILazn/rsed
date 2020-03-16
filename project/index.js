@@ -49,7 +49,12 @@ app.get("/signup", (req, res) => {
     res.render('signup');
 });
 app.get(`/:id`,(req,res)=>{
+
     res.render('profile');
 })
+
+//app.get('/butt', (req,res) => {
+//    res.render('');
+//})
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
