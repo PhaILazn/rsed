@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="google-signin-client_id" content="CLIENT-ID.apps.googleusercontent.com.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
   <!-- Fancy Fonts, Icons, and Logos -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -30,36 +28,14 @@
   <%- include("./partials/header.ejs") %>
 
   <header id="sign-in">
-    <div class="d-flex justify-content-center" style="margin-top: 100px">
-      <div class="card bg-danger text-center card-form">
+    <div class="d-flex justify-content-center">
+      <div class="card bg-danger text-center card-form" style="margin-top: 100px">
         <div class="card-body">
           <h3 style="color: #ffd700">Sign In</h3>
           <h4 style="color: #ffd700">
             New to OmNom Foods? <a href="signup" class="text-white"><u>Sign Up</u></a>
           </h4>
           <form>
-            <div id="signin" style="margin-top: 10px; margin-bottom: 10px; margin-left: 55px;"></div>
-
-
-            <script>
-              function onSuccess(googleUser) {
-                console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-              }
-              function onFailure(error) {
-                console.log(error);
-              }
-              function renderButton() {
-                gapi.signin2.render('signin', {
-                  'scope': 'profile email',
-                  'width': 240,
-                  'height': 50,
-                  'longtitle': true,
-                  'theme': 'dark',
-                  'onsuccess': onSuccess,
-                  'onfailure': onFailure
-                });
-              }
-            </script>
             <div class="form-group">
               <input type="email" class="form-control form-control-lg" placeholder="Email" />
             </div>
