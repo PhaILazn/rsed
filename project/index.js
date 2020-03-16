@@ -92,10 +92,24 @@ app.post('/signup', function(req, res) {
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {
-            res.redirect('index');
+            res.redirect('/index');
         })
     });
 });
+
+// app.post('/signup',function(req,res){
+//     req.body.username
+//     req.body.password
+//     User.register(new User(({username: req.body.username})),req.body.password, function(err,user){
+//         if(err){
+//             console.log(err);
+//             res.render('signup');
+//         }
+//         passport.authenticate("local")(req,res,function(){
+//             res.redirect("/secret")
+//         })
+//     })
+// });
 
 //signin page will route to adding a username
 app.get("/signin", function(req, res){
@@ -103,7 +117,6 @@ app.get("/signin", function(req, res){
 });
 app.post('/signin', passport.authenticate("local",{
     successRedirect: '/index', failureRedirect: '/signin'}), function(req,res){
-
 });
 
 //logging out the user
