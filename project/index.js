@@ -79,15 +79,17 @@ app.post('/signup', function(req, res) {
     req.body.lastName
     req.body.email
     req.body.password
+    req.body.username
     User.register(new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        phone: req.body.phone
+        phone: req.body.phone,
+        username: req.body.username
     }), req.body.password, function(err, user) {
         if (err) {
             console.log(err);
-            return res.render('register');
+            return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {
             res.redirect('index');

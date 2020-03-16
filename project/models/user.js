@@ -7,6 +7,7 @@ var UserSchema = new mongoose.Schema({
     lastName: String,
     email: String,
     phoneNumber: String,
+    username: String,
     password: String,
     address: {type: mongoose.Schema.Types.ObjectId, ref: "Address"},
     orderHistory: [{type: mongoose.Schema.Types.ObjectId, ref: "Order"}],
