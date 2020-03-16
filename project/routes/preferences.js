@@ -23,14 +23,18 @@ router.get('/:userId', function(req, res) {
         //Find preference referenced by User
         Preference.findById(currUser.preferences)
         .exec()
+        //Return the preferences to client
         .then(currPref => {
-            //Return the preference to client
+            var prefs = [];
+            currPref.foodCategories.array.forEach(element => {
+                prefs.push(element);
+            });
             console.log(currPref);
-            res.status(200).json(currPref);
+            //res.render()
         })
         .catch(err => {
             console.log(err);
-            res.status(500).json({error: err});
+            res.status(500).json({ error: err });
         })
     })
     .catch(err => {
