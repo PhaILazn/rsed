@@ -97,7 +97,7 @@ app.post('/signup', function(req, res) {
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            res.redirect('/secret');
         })
     });
 });
