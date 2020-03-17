@@ -42,6 +42,11 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use(function(req,res,next){
+   res.locals.currentUser = req.user;
+   next(); 
+});
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
@@ -117,5 +122,20 @@ function isLoggedIn(req,res,next){
     }
     res.redirect("/signin");
 }
+
+//redirecting user to a profile page
+
+app.get('/profile/:id', function(req, res) {
+    User.findById(req.params.id, function(err,foundUser){
+        if(err){
+            console.log(err)
+        }else{
+            res.render('profile',{user: foundUser});
+        }
+    });
+});
+app.get('/profile',isLoggedIn, function(req,res){
+    res.render('profile');
+});
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
