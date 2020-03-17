@@ -61,3 +61,12 @@ body {
   background: rgba(256, 256, 0, 0.5);
   min-height: 1000px;
 }
+
+#restaurants-section {
+  background: url(../img/FoodBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1000px;
+}
+}
