@@ -1,67 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Fancy Fonts, Icons, and Logos -->
+    <link 
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Link -->
+    <link 
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" 
+      crossorigin="anonymous" 
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <!-- Fancy Fonts, Icons, and Logos -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
-  <!-- Bootstrap Link -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" href="../public/css/style.css" />
 
-  <!-- CSS StyleSheet -->
-  <link rel="stylesheet" href="../public/css/style.css" />
+    <!-- Icon Title -->
+    <title>OmNom Food Delivery</title>
 
-  <!-- Icon Title -->
-  <title>OmNom Food Delivery</title>
+    <!-- rSed Title Icon -->
+    <link rel="icon" href="./public/img/rSedLogo.png" type="image/icon type" />
+  </head>
 
-  <!-- rSed Title Icon -->
-  <link rel="icon" href="../public/img/rSedLogo.png" type="image/icon type" />
-</head>
+  <!-- Body -->
+  <body>
+    <%- include("./partials/header.ejs") %>
 
-<!-- Body -->
-
-<body>
-  <%- include("./partials/header.ejs") %>
-
-  <header id="profile-section">
-    <div class="shamelessly-copied-dark-overlay">
-      <div class="profile-inner-thing container" style="padding-top: 100px">
-        <div class="row">
-          <div class="d-lg-block">
-            <h1> <%=user.firstName%> <%=user.lastName%></h1>
-            
-            <h3 class="font-weight-italics" style="color: black">General Location, and not actual location so they
-              don't get doxed probably</h3>
-            <h2 class="font-weight-bold" style="color: black"><br><br>About</h2>
-            <h4 style="color: black">idk, what, something about who they are go here or something? like a profile
-              description? tbh, for some reason i was using LINKEDIN of all things as a reference, which doesn't even
-              make sense because there would be like a profile picture and a banner and we don't have support for that,
-              and now that i'm looking at it, it looks like a freaking biography page from an RPG, actually this isn't
-              even on our thing so you can just disregard it as something there to pad out this page so it isn't as
-              awkward</h4>
-            <h2 class="font-weight-bold" style="color: black"><br><br>Preferences</h2>
-            <h3 style="color: black">
-              <ul>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Lorem ipsum dolor sit amet.</li>
-                <li>Actually, I copied this (the bulleted list) directly from "2-2: Basic Typography" from Taylor's
-                  lessons.</li>
-              </ul>
-            </h3>
+    <header id="profile-section">
+      <div class="shamelessly-copied-dark-overlay">
+        <div class="profile-inner-thing container" style="padding-top: 100px">
+          <div class="row">
+            <div class="d-lg-block">
+              <h1> <%=user.firstName%> <%=user.lastName%></h1>
+              <h3 class="font-weight-italics" style="color: black">General Location, and not actual location so they
+                don't get doxed probably</h3>
+              <h2 class="font-weight-bold" style="color: black"><br><br>About</h2>
+              <h4 style="color: black">(description)</h4>
+              <h2 class="font-weight-bold" style="color: black"><br><br>Preferences</h2>
+              <h3 style="color: black">
+                <ul>
+                  <li>Lorem ipsum dolor sit amet.</li>
+                  <li>Lorem ipsum dolor sit amet.</li>
+                </ul>
+              </h3>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- FOOTER -->
-  <%- include("./partials/footer.ejs") %>
-</body>
+    <!-- FOOTER -->
+    <%- include("./partials/footer.ejs") %>
+  </body>
 
 </html>
