@@ -97,7 +97,7 @@ app.post('/signup', function(req, res) {
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/secret');
+            res.redirect('/');
         })
     });
 });
@@ -107,7 +107,7 @@ app.get("/signin", function(req, res){
     res.render('signin');
 });
 app.post('/signin', passport.authenticate("local",{
-    successRedirect: "/secret", failureRedirect: '/signin'}), function(req,res){
+    successRedirect: "/", failureRedirect: '/signin'}), function(req,res){
 });
 
 //logging out the user
