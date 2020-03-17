@@ -51,13 +51,21 @@
           <a class="btn btn-outline-light mx-2" href="/signup" role="button">Sign Up</a>
         </li>
         <% }else{ %>
-          <li><a>Signed in as <%= currentUser.firstName %></a></li>
-        
-          <li class="nav-item">
-            <a class="btn btn-outline-light mx-2" href="/profile/<%=currentUser._id%> " role="button">Profile</a>
+          <li>
+            <a>
+              <hr style="margin: 0; border: 0; height: 5pt; visibility: hidden;" />
+              Signed in as <%= currentUser.firstName %>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-outline-light mx-2" href="/logout" role="button">Logout</a>
+            <a class="btn btn-outline-light mx-2" href="/profile/<%=currentUser._id%> " role="button">
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light mx-2" href="/logout" role="button">
+              Logout
+            </a>
           </li>
         <% } %>
         
