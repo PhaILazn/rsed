@@ -34,14 +34,16 @@
             <h1> <%=user.firstName%> <%=user.lastName%></h1>
             <h3 class="font-weight-italics" style="color: black"> <%= user.email %></h3>
             <h2 class="font-weight-bold" style="color: black"><br><br>About</h2>
-            <h4 style="color: black"><%=user.profileDescription%></h4>
+
             <h2 class="font-weight-bold" style="color: black"><br><br>Preferences</h2>
             <h3 style="color: black">
               <ul>
-                <% for (var i = 0; i < user.preferences.foodCategories.length; i++) { %>
-                  <li>
-                    <%= user.preferences.foodCategories[i] %>
-                  </li>
+                <% preferences.forEach(function(food))%>
+                <div>
+                  <h4><%= preferences.name %></h4> 
+                  <img src="<%= preferences.image %>">
+                </div>
+                </li>
                 <% } %>
                 <li>Lorem ipsum dolor sit amet.</li>
                 <li>Lorem ipsum dolor sit amet.</li>
