@@ -134,8 +134,6 @@ app.get('/profile/:id', function(req, res) {
         }
     });
 });
-app.get('/profile',isLoggedIn, function(req,res){
-    res.render('profile');
-});
+
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
