@@ -18,36 +18,42 @@
     <title>rSed Food Delivery</title>
 
     <!-- rSed Title Icon -->
-    <link rel="icon" href="public\img\rSedLogo.png" type="image/icon type" />
+    <link rel="icon" href="../public/img/rSedLogo.png" type="image/icon type" />
 </head>
+
+
 
 <!-- Body -->
 <body>
-    <header id=edit_profile>
-        <form method="POST" action="/editProfile/<%=currentUser._id%>">
+    <%- include("./partials/header.ejs") %>
+
+    <header id="edit_profile">
+      <form method="POST" action="/editProfile/<%=currentUser._id%>">
         <div class="form-group">
-            <input type="text" name="firstName" class="form-control form-control-lg"
-                placeholder="<%=user.firstName%>" required/>
+          <input type="text" name="firstName" class="form-control form-control-lg"
+          placeholder="<%=user.firstName%>" required/>
         </div>
         <div class="form-group">
-            <input type="text" name="lastName" class="form-control form-control-lg"
-                placeholder="Last Name" required/>
+          <input type="text" name="lastName" class="form-control form-control-lg"
+          placeholder="Last Name" required/>
         </div>
         <div class="form-group">
-            <input type="text" name="phone" class="form-control form-control-lg"
-                placeholder="Phone Number" />
+          <input type="text" name="phone" class="form-control form-control-lg"
+          placeholder="Phone Number" />
         </div>
         <div class="form-group">
-            <input type="text" name="description" class="form-control form-control-lg"
-                placeholder="description"/>
+          <input type="text" name="description" class="form-control form-control-lg"
+          placeholder="description"/>
         </div>
         <div class="form-group">
-            <input type="text" name="preferences" class="form-control form-control-lg"
-                placeholder="preferences"/>
+          <input type="text" name="preferences" class="form-control form-control-lg"
+          placeholder="preferences"/>
         </div>
         <input type="submit" value="Submit" class="btn btn-outline-light btn-block bg-dark" />
-        </form>
+      </form>
     </header>
+
+    <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>

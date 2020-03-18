@@ -32,11 +32,9 @@
         <div class="row">
           <div class="d-lg-block">
             <!--Temp button for editing profile-->
-            <li class="nav-item">
-              <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button">
-                Edit
-              </a>
-            </li>
+            <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button" style="float: right">
+              Edit
+            </a>
             <h1>
               <%=user.firstName%> <%=user.lastName%>
             </h1>
@@ -55,10 +53,14 @@
             <h3 style="color: black">
               <ul>
                 <% preferences.forEach(function(restaurant){ %>
-                <div class="column">
-                    <h4><%= restaurant.name %></h4>
-                    <div class="row"><img src="<%= restaurant.image %>" height="150" width="200"></div>
-                </div>
+                  <div class="column">
+                      <h4>
+                        <%= restaurant.name %>
+                      </h4>
+                      <div class="row">
+                        <img src="<%= restaurant.image %>" height="150" width="200">
+                      </div>
+                  </div>
                 <% }); %>   
               </ul>
             </h3>
