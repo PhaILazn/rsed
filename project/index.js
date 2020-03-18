@@ -11,6 +11,7 @@ const addUserRoute = require("./routes/addUserRoute");
 const profile = require("./routes/profile");
 const editProfile = require("./routes/editProfile");
 const User = require('./models/user');
+const restaurantPop = require("./routes/restaurantPop");
 
 const app = express();
 require('dotenv').config();
@@ -59,6 +60,7 @@ app.use("/preferences", preferences);
 app.use('/adduser', addUserRoute);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
+app.use("/restaurantPop", restaurantPop);
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
