@@ -24,7 +24,11 @@ router.get('/:id',isLoggedIn, function(req, res) {
 
 //Route for editing profile
 router.post('/:id',isLoggedIn, function(req, res) {
-    console.log("yoo");
+    var preferences = [
+        {name: "DcManalds", image: "https://c4.wallpaperflare.com/wallpaper/640/229/132/food-computer-desktop-backgrounds-wallpaper-preview.jpg"},
+        {name: "Kaising Ranes", image:"https://p1.pxfuel.com/preview/519/827/721/diner-food-chips.jpg"},
+        {name: "Kurger Bing", image: "https://c4.wallpaperflare.com/wallpaper/142/1008/877/food-burgers-burger-fast-food-wallpaper-preview.jpg"}
+    ]
     User.findById(req.params.id, function(err, foundUser) {
         if (err) {
             console.log(err);
@@ -52,7 +56,7 @@ router.post('/:id',isLoggedIn, function(req, res) {
             }
             foundUser.save();
             console.log("Updating profile");
-            res.render("profile", {user: foundUser});
+            res.render("profile", {user: foundUser, preferences: preferences});
         }
     });
 });
