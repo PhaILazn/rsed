@@ -12,7 +12,6 @@ const router = express.Router();
 
 //Page for editing profile
 router.get('/:id',isLoggedIn, function(req, res) {
-    console.log(req.params.id);
     User.findById(req.params.id, function(err, foundUser) {
         if(err) {
             console.log(err);
@@ -51,6 +50,7 @@ router.patch('/:id',isLoggedIn, function(req, res) {
                 foundUser.description = req.body.description;
             }
             foundUser.save();
+            console.log("Updating profile");
             res.render("profile", {user: foundUser});
         }
     });
