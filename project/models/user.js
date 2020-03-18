@@ -10,6 +10,7 @@ var UserSchema = new mongoose.Schema({
     password: String,
     description: {type: String, Default: "Lorem Ipsum"},
     address: {type: mongoose.Schema.Types.ObjectId, ref: "Address"},
+    image: {type: String, default: "https://www.cpp.edu/sci/computer-science/img/Lecturers/EdwinRodriguez.PNG"},
     orderHistory: [{type: mongoose.Schema.Types.ObjectId, ref: "Order"}],
     preferences: {type: mongoose.Schema.Types.ObjectId, ref: "Preference"},
 },{
