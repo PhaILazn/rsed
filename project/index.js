@@ -16,8 +16,7 @@ require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
 //Connect to mongodb
-const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority`;
-
+const URI = "mongodb+srv://Grant:penny@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?retryWrites=true&w=majority";
 mongoose.connect(URI,
     {
         useCreateIndex: true,
@@ -57,7 +56,7 @@ app.use('/public', express.static('./public'));
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use('/adduser', addUserRoute);
-app.use("/user", profile);
+app.use("/profile", profile);
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
@@ -125,20 +124,19 @@ function isLoggedIn(req,res,next){
 
 //redirecting user to a profile page
 
-app.get('/profile/:id',isLoggedIn, function(req, res) {
-    var preferences = [
-        {name: "DcManalds", image: "https://c4.wallpaperflare.com/wallpaper/640/229/132/food-computer-desktop-backgrounds-wallpaper-preview.jpg"},
-        {name: "Kaising Ranes", image:"https://p1.pxfuel.com/preview/519/827/721/diner-food-chips.jpg"},
-        {name: "Kurger Bing", image: "https://c4.wallpaperflare.com/wallpaper/142/1008/877/food-burgers-burger-fast-food-wallpaper-preview.jpg"}
-    ]
-    User.findById(req.params.id, function(err,foundUser){
-        if(err){
-            console.log(err)
-        }else{
-            res.render('profile',{user: foundUser, preferences: preferences});
-        }
-    });
-});
-
+// app.get('/profile/:id',isLoggedIn, function(req, res) {
+//     var preferences = [
+//         {name: "DcManalds", image: "https://c4.wallpaperflare.com/wallpaper/640/229/132/food-computer-desktop-backgrounds-wallpaper-preview.jpg"},
+//         {name: "Kaising Ranes", image:"https://p1.pxfuel.com/preview/519/827/721/diner-food-chips.jpg"},
+//         {name: "Kurger Bing", image: "https://c4.wallpaperflare.com/wallpaper/142/1008/877/food-burgers-burger-fast-food-wallpaper-preview.jpg"}
+//     ]
+//     User.findById(req.params.id, function(err,foundUser){
+//         if(err){
+//             console.log(err)
+//         }else{
+//             res.render('profile',{user: foundUser, preferences: preferences});
+//         }
+//     });
+// });
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
