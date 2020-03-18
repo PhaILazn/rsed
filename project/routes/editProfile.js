@@ -24,6 +24,7 @@ router.get('/:id',isLoggedIn, function(req, res) {
 
 //Route for editing profile
 router.post('/:id',isLoggedIn, function(req, res) {
+    console.log("yoo");
     User.findById(req.params.id, function(err, foundUser) {
         if (err) {
             console.log(err);
