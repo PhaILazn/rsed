@@ -31,6 +31,12 @@
       <div class="profile-inner-thing container" style="padding-top: 100px">
         <div class="row">
           <div class="d-lg-block">
+            <!--Temp button for editing profile-->
+            <li class="nav-item">
+              <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button">
+                Edit
+              </a>
+            </li>
             <h1> <%=user.firstName%> <%=user.lastName%></h1>
             <h3 class="font-weight-italics" style="color: black"> <%= user.email %></h3>
             <h2 class="font-weight-bold" style="color: black"><br><br>About</h2>
