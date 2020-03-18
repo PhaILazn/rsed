@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 
     <!-- Icon Title -->
     <title>rSed Food Delivery</title>
@@ -26,31 +26,30 @@
 <!-- Body -->
 <body>
     <%- include("./partials/header.ejs") %>
-
-    <header id="edit_profile">
-      <form method="POST" action="/editProfile/<%=currentUser._id%>">
-        <div class="form-group">
-          <input type="text" name="firstName" class="form-control form-control-lg"
-          placeholder="<%=user.firstName%>" required/>
-        </div>
-        <div class="form-group">
-          <input type="text" name="lastName" class="form-control form-control-lg"
-          placeholder="Last Name" required/>
-        </div>
-        <div class="form-group">
-          <input type="text" name="phone" class="form-control form-control-lg"
-          placeholder="Phone Number" />
-        </div>
-        <div class="form-group">
-          <input type="text" name="description" class="form-control form-control-lg"
-          placeholder="description"/>
-        </div>
-        <div class="form-group">
-          <input type="text" name="preferences" class="form-control form-control-lg"
-          placeholder="preferences"/>
-        </div>
-        <input type="submit" value="Submit" class="btn btn-outline-light btn-block bg-dark" />
-      </form>
+    
+    <header id="profile-section">
+      <div class="shamelessly-copied-dark-overlay">
+        <form method="POST" action="/editProfile/<%=currentUser._id%>">
+            <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
+            <div class="form-group">
+            <input type="text" name="firstName" class="form-control form-control-lg"
+                placeholder="First Name"/>
+            </div>
+            <div class="form-group">
+            <input type="text" name="lastName" class="form-control form-control-lg"
+                placeholder="Last Name"/>
+            </div>
+            <div class="form-group">
+            <input type="text" name="phone" class="form-control form-control-lg"
+                placeholder="Phone Number" />
+            </div>
+            <div class="form-group">
+            <input type="text" name="description" class="form-control form-control-lg"
+                placeholder="Description"/>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-outline-light btn-block bg-dark" />
+        </form>
+      </div>
     </header>
 
     <%- include("./partials/footer.ejs") %>
