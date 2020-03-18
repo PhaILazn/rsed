@@ -35,28 +35,22 @@ router.post('/:id',isLoggedIn, function(req, res) {
         }
         else {
             if(req.body.firstName) {
-                console.log(req.body.firstName);
                 foundUser.firstName = req.body.firstName;
             }
             if(req.body.lastName) {
-                console.log(req.body.lastName);
                 foundUser.lastName = req.body.lastName;
             }
-            if(req.body.username) {
-                console.log(req.body.username);
-                //foundUser.username = req.body.username;
-            }
             if(req.body.phone) {
-                console.log(req.body.phone);
                 foundUser.phoneNumber = req.body.phone;
             }
             if(req.body.description) {
-                console.log(req.body.description);
                 foundUser.description = req.body.description;
             }
+            if(req.body.image) {
+                foundUser.image = req.body.image;
+            }
             foundUser.save();
-            console.log("Updating profile");
-            res.render("profile", {user: foundUser, preferences: preferences});
+            res.render("profile", {user: foundUser,preferences:preferences});
         }
     });
 });

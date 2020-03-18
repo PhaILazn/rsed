@@ -31,32 +31,32 @@
       <div class="profile-inner-thing container" style="padding-top: 100px">
         <div class="row">
           <div class="d-lg-block">
-            <!--Temp button for editing profile-->
-            <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button" style="float: right">
-              Edit
-            </a>
-
-            <img src="<%= user.image %>" height="100" width="100">
-            <h1>
-              <%=user.firstName%> <%=user.lastName%>
-            </h1>
-            <h3 class="font-weight-italics" style="color: black">
-              <%= user.email %>
-            </h3>
-            <br><br>
-            <h2 class="font-weight-bold" style="color: black">
-              About
-            </h2>
+            <div class="container">
+              <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button"
+                sty style="position: absolute; right: 15%;height: 40px;width: 100px;text-align:center;">
+                Edit Profile
+              </a><br>
+              <img class="user" src="<%= user.image %>" height="150" width="150">
+              <h1>
+                <%=user.firstName%> <%=user.lastName%>
+              </h1>
+              <h3 class="font-weight-italics" style="color: black">
+                Email: <%= user.email %>
+              </h3>
+              <br><br>
+              <h2 class="font-weight-bold" style="color: black">
+                About
+              </h2>
               <h2>
                 <%=user.description%>
               </h2>
-            <br><br>
-            <h2 class="font-weight-bold" style="color: black">
-              Preferences
-            </h2>
-            <h3 style="color: black">
-              <ul>
-                <% preferences.forEach(function(restaurant){ %>
+              <br><br>
+              <h2 class="font-weight-bold" style="color: black">
+                Preferences
+              </h2>
+              <h3 style="color: black">
+                <ul>
+                  <% preferences.forEach(function(restaurant){ %>
                   <div class="column">
                     <h4>
                       <%= restaurant.name %>
@@ -65,9 +65,11 @@
                       <img src="<%= restaurant.image %>" height="150" width="200">
                     </div>
                   </div>
-                <% }); %>   
-              </ul>
-            </h3>
+                  <% }); %>
+                </ul>
+              </h3>
+            </div>
+
           </div>
         </div>
       </div>

@@ -71,30 +71,24 @@ app.get("/", function(req, res){
     res.render('index');
 });
 
-/*app.get("/profile", function(req, res){
-    res.render('profile');
-});*/
-
 //route to signup page
 app.get("/signup",function(req, res){
     res.render('signup');
 });
 
 app.post('/signup', function(req, res) {
-    req.body.firstName
-    req.body.lastName
-    req.body.email
-    req.body.password
-    req.body.username
+    var newUser = new User(req.body)
     User.register(new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        phone: req.body.phone,
-        username: req.body.username
+        firstName: newUser.firstName,
+        lastName: newUser.lastName,
+        email: newUser.email,
+        phone: newUser.phone,
+        username: newUser.username,
+        image: newUser.image
     }), req.body.password, function(err, user) {
         if (err) {
             console.log(err);
+            res.send(err);
             return res.render('signup');
         }
         passport.authenticate('local')(req, res, function () {

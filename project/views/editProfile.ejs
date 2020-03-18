@@ -24,32 +24,48 @@
 
 
 <!-- Body -->
+
 <body>
     <%- include("./partials/header.ejs") %>
-    
+
     <header id="profile-section">
-      <div class="shamelessly-copied-dark-overlay">
-        <form method="POST" action="/editProfile/<%=currentUser._id%>">
-            <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
-            <div class="form-group">
-            <input type="text" name="firstName" class="form-control form-control-lg"
-                placeholder="First Name"/>
-            </div>
-            <div class="form-group">
-            <input type="text" name="lastName" class="form-control form-control-lg"
-                placeholder="Last Name"/>
-            </div>
-            <div class="form-group">
-            <input type="text" name="phone" class="form-control form-control-lg"
-                placeholder="Phone Number" />
-            </div>
-            <div class="form-group">
-            <input type="text" name="description" class="form-control form-control-lg"
-                placeholder="Description"/>
-            </div>
-            <input type="submit" value="Submit" class="btn btn-outline-light btn-block bg-dark" />
-        </form>
-      </div>
+        <div class="shamelessly-copied-dark-overlay">
+            <form method="POST" action="/editProfile/<%=currentUser._id%>">
+                <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
+                <div class="container">
+                    <div class="row">
+                        <div style="width: 30%; margin: 0 auto;">
+                            <h1 class="font-weight-bold" style="text-align: center;color: white;" >Edit Profile</h1>
+                            <div class="form-group">
+                                <input type="text" name="firstName" class="form-control form-control-lg"
+                                    placeholder="First Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="lastName" class="form-control form-control-lg"
+                                    placeholder="Last Name" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone" class="form-control form-control-lg"
+                                    placeholder="Phone Number" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="email" class="form-control form-control-lg"
+                                    placeholder="Email" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="description" class="form-control form-control-lg"
+                                    placeholder="Description" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="image" class="form-control form-control-lg"
+                                    placeholder="Image URL" />
+                            </div>
+                            <input type="submit" value="Submit" class="btn btn-outline-light btn-block bg-dark" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </header>
 
     <%- include("./partials/footer.ejs") %>

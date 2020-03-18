@@ -69,3 +69,11 @@ body {
   background-attachment: fixed;
   min-height: 2000px;
 }
+.user {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+
+  object-fit: cover;
+}
