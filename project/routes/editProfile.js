@@ -43,6 +43,9 @@ router.post('/:id',isLoggedIn, function(req, res) {
             if(req.body.phone) {
                 foundUser.phoneNumber = req.body.phone;
             }
+            if(req.body.email) {
+                foundUser.email = req.body.email;
+            }
             if(req.body.description) {
                 foundUser.description = req.body.description;
             }
