@@ -24,7 +24,7 @@
 <!-- Body -->
 <body>
     <header id=edit_profile>
-        <form method="PATCH" action="/profile/<%=currentUser._id%>">
+        <form method="POST" action="/editProfile/<%=currentUser._id%>">
         <div class="form-group">
             <input type="text" name="firstName" class="form-control form-control-lg"
                 placeholder="<%=user.firstName%>" required/>

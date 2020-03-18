@@ -23,7 +23,7 @@ router.get('/:id',isLoggedIn, function(req, res) {
 });
 
 //Route for editing profile
-router.patch('/:id',isLoggedIn, function(req, res) {
+router.post('/:id',isLoggedIn, function(req, res) {
     User.findById(req.params.id, function(err, foundUser) {
         if (err) {
             console.log(err);
