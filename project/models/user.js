@@ -10,7 +10,7 @@ var UserSchema = new mongoose.Schema({
     password: String,
     description: {type: String, Default: "Lorem Ipsum"},
     address: {type: mongoose.Schema.Types.ObjectId, ref: "Address"},
-    image: {type: String, default: "https://i.imgur.com/YbrgVmU.png"},
+    image: {type: String, default: "https://sadanduseless.b-cdn.net/wp-content/uploads/2019/05/funny-corgi-butts4.jpg"},
     orderHistory: [{type: mongoose.Schema.Types.ObjectId, ref: "Order"}],
     preferences: {type: mongoose.Schema.Types.ObjectId, ref: "Preference"},
 },{
