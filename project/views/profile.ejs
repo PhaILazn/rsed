@@ -37,11 +37,21 @@
                 Edit
               </a>
             </li>
-            <h1> <%=user.firstName%> <%=user.lastName%></h1>
-            <h3 class="font-weight-italics" style="color: black"> <%= user.email %></h3>
-            <h2 class="font-weight-bold" style="color: black"><br><br>About</h2>
+            <h1>
+              <%=user.firstName%> <%=user.lastName%>
+            </h1>
+            <h3 class="font-weight-italics" style="color: black">
+              <%= user.email %>
+            </h3>
+            <br><br>
+            <h2 class="font-weight-bold" style="color: black">
+              About
+            </h2>
             <p><%=user.description%></p>
-            <h2 class="font-weight-bold" style="color: black"><br><br>Preferences</h2>
+            <br><br>
+            <h2 class="font-weight-bold" style="color: black">
+              Preferences
+            </h2>
             <h3 style="color: black">
               <ul>
                 <% preferences.forEach(function(restaurant){ %>
@@ -50,7 +60,6 @@
                     <div class="row"><img src="<%= restaurant.image %>" height="150" width="200"></div>
                 </div>
                 <% }); %>   
-                <li><%=user.description%></li>
               </ul>
             </h3>
           </div>
