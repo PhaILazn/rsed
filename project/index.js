@@ -10,6 +10,7 @@ const preferences = require("./routes/preferences");
 const addUserRoute = require("./routes/addUserRoute");
 const profile = require("./routes/profile");
 const editProfile = require("./routes/editProfile");
+const restaurantprofile = require("./routes/restaurantprofile");
 const User = require('./models/user');
 const restaurantPop = require("./routes/restaurantPop");
 
@@ -61,6 +62,7 @@ app.use('/adduser', addUserRoute);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
+app.use("/restaurantprofile", restaurantprofile);
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
