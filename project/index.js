@@ -5,6 +5,7 @@ var express = require("express"),
     passportLocalMongoose = require('passport-local-mongoose')
 
 
+<<<<<<< HEAD
 const testingRoutes = require("./routes/testingRoute");
 const preferences = require("./routes/preferences");
 const addUserRoute = require("./routes/addUserRoute");
@@ -13,6 +14,16 @@ const editProfile = require("./routes/editProfile");
 const restaurantprofile = require("./routes/restaurantprofile");
 const User = require('./models/user');
 const restaurantPop = require("./routes/restaurantPop");
+=======
+var testingRoutes = require("./routes/testingRoute"),
+    preferences = require("./routes/preferences"),
+    addUserRoute = require("./routes/addUserRoute"),
+    profile = require("./routes/profile"),
+    editProfile = require("./routes/editProfile"),
+    User = require('./models/user'),
+    restaurantPop = require("./routes/restaurantPop"),
+    indexAuth = require('./routes/indexAuth')
+>>>>>>> 9e123db96fde4172601456c374a209706f3bf599
 
 const app = express();
 require('dotenv').config();
@@ -62,7 +73,11 @@ app.use('/adduser', addUserRoute);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
+<<<<<<< HEAD
 app.use("/restaurantprofile", restaurantprofile);
+=======
+app.use('/',indexAuth);
+>>>>>>> 9e123db96fde4172601456c374a209706f3bf599
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
@@ -70,56 +85,12 @@ app.get("/secret",isLoggedIn, function(req,res){
 });
 //testingggg
 
-//grab home page and render as homepage
-app.get("/", function(req, res){
-    res.render('index');
-});
-
-//route to signup page
-app.get("/signup",function(req, res){
-    res.render('signup');
-});
-
-app.post('/signup', function(req, res) {
-    var newUser = new User(req.body)
-    User.register(new User({
-        firstName: newUser.firstName,
-        lastName: newUser.lastName,
-        email: newUser.email,
-        phone: newUser.phone,
-        username: newUser.username,
-        image: newUser.image
-    }), req.body.password, function(err, user) {
-        if (err) {
-            console.log(err);
-            res.send(err);
-            return res.render('signup');
-        }
-        passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
-        })
-    });
-});
-
-//signin page will route to adding a username
-app.get("/signin", function(req, res){
-    res.render('signin');
-});
-app.post('/signin', passport.authenticate("local",{
-    successRedirect: "/", failureRedirect: '/signin'}), function(req,res){
-});
-
-//logging out the user
-app.get('/logout', function(req,res){
-    req.logout();
-    res.redirect("/");
-})
-
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
         return next()
     }
     res.redirect("/signin");
 }
+
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));
