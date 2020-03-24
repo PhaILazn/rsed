@@ -23,8 +23,9 @@
 </head>
 
 <body>
-<%- include("./partials/header.ejs") %>
-<% preferences.forEach(function(menu.menuItems){ %>
+  <%- include("./partials/header.ejs") %>
+
+  <% preferences.forEach(function(menu.menuItems){ %>
     <div class="column">
       <h4>
         <%= menu.menuItems.name %>
@@ -34,7 +35,7 @@
       </div>
     </div>
     <% }); %>
-  <!-- FOOTER -->
+  
   <%- include("./partials/footer.ejs") %>
 </body>
 
