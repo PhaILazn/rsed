@@ -61,11 +61,7 @@ app.use("/preferences", preferences);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
-<<<<<<< HEAD
-app.use("/restaurantprofile", restaurantprofile);
-=======
 app.use('/',indexAuth);
->>>>>>> 9e123db96fde4172601456c374a209706f3bf599
 
 //added this for testing purposes
 app.get("/secret",isLoggedIn, function(req,res){
