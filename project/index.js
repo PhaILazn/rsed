@@ -58,7 +58,6 @@ app.use('/public', express.static('./public'));
 
 app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
-app.use('/adduser', addUserRoute);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
