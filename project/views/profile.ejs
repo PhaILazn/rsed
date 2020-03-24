@@ -32,11 +32,11 @@
         <div class="row">
           <div class="d-lg-block">
             <div class="container">
-              <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button"
-                sty style="position: absolute; right: 15%;height: 40px;width: 100px;text-align:center;">
+              <a class="btn btn-outline-light mx-2" href="/editprofile/<%=currentUser._id%> " role="button" sty
+                style="position: absolute; right: 15%;height: 40px;width: 100px;text-align:center;">
                 Edit Profile
               </a><br>
-              <img class="user" src="<%= user.image %>" height="150" width="150">
+              <img class="user" src="<%= user.image %>" height="150" width="200">
               <h1>
                 <%=user.firstName%> <%=user.lastName%>
               </h1>
@@ -56,16 +56,20 @@
               </h2>
               <h3 style="color: black">
                 <ul>
-                  <% preferences.forEach(function(restaurant){ %>
-                  <div class="column">
-                    <h4>
-                      <%= restaurant.name %>
-                    </h4>
-                    <div class="row">
-                      <img src="<%= restaurant.image %>" height="150" width="200">
+                  <div class="container">
+                    <div class="row text-center" style='display: flex; flex-wrap: wrap;'>
+                      <% preferences.forEach(function(restaurant){ %>
+                      <div class='col-md-3 col-sm-6'>
+                        <div class='thumbnail'>
+                          <img src="<%= restaurant.image %>">
+                          <div class="caption">
+                            <h4><%= restaurant.name %></h4>
+                          </div>
+                        </div>
+                      </div>
+                      <% }); %>
                     </div>
                   </div>
-                  <% }); %>
                 </ul>
               </h3>
             </div>

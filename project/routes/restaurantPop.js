@@ -8,6 +8,10 @@ const Restaurant = require('../models/restaurant');
 
 const router = express.Router();
 
+router.get('/', function(req,res){
+    res.render('restaurant');
+});
+
 router.post("/addPreference", (req, res) =>{
     const dummyPreference = new Preference({
 
