@@ -10,7 +10,7 @@ const Review = require('../models/review');
 
 const router = express.Router();
 
-router.get('/:id',isLoggedIn, function(req, res) {
+router.get('/:id', function(req, res) {
     //Search db for user by ObjectId
     Restaurant.findById(req.params.id, function(err,foundRestaurant){
         if(err){
@@ -23,6 +23,7 @@ router.get('/:id',isLoggedIn, function(req, res) {
                 if(err) {
                     console.log(err);
                 }else{
+                    foundMenu.populate('menuItems')
                     resMenu = foundMenu;
                 }
             });
@@ -30,12 +31,5 @@ router.get('/:id',isLoggedIn, function(req, res) {
         }
     });
 });
-
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next()
-    }
-    res.redirect("/signin");
-}
 
 module.exports = router;
