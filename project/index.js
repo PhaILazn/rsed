@@ -5,16 +5,6 @@ var express = require("express"),
     passportLocalMongoose = require('passport-local-mongoose')
 
 
-<<<<<<< HEAD
-const testingRoutes = require("./routes/testingRoute");
-const preferences = require("./routes/preferences");
-const addUserRoute = require("./routes/addUserRoute");
-const profile = require("./routes/profile");
-const editProfile = require("./routes/editProfile");
-const restaurantprofile = require("./routes/restaurantprofile");
-const User = require('./models/user');
-const restaurantPop = require("./routes/restaurantPop");
-=======
 var testingRoutes = require("./routes/testingRoute"),
     preferences = require("./routes/preferences"),
     addUserRoute = require("./routes/addUserRoute"),
@@ -23,7 +13,6 @@ var testingRoutes = require("./routes/testingRoute"),
     User = require('./models/user'),
     restaurantPop = require("./routes/restaurantPop"),
     indexAuth = require('./routes/indexAuth')
->>>>>>> 9e123db96fde4172601456c374a209706f3bf599
 
 const app = express();
 require('dotenv').config();
