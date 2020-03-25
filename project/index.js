@@ -7,7 +7,7 @@ var express = require("express"),
 
 var testingRoutes = require("./routes/testingRoute"),
     preferences = require("./routes/preferences"),
-    addUserRoute = require("./routes/addUserRoute"),
+    // addUserRoute = require("./routes/addUserRoute"),
     profile = require("./routes/profile"),
     editProfile = require("./routes/editProfile"),
     User = require('./models/user'),
