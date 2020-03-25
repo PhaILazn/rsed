@@ -14,7 +14,7 @@ router.get('/',function(req, res) {
     res.send("Test");
 });
 
-router.get('/:userId', function(req, res) {
+router.get('/:id', function(req, res) {
     var userId = req.params.userId;
     //Find user by objectId
     User.findById(userId)

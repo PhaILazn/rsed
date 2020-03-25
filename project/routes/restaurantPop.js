@@ -9,7 +9,7 @@ const Restaurant = require('../models/restaurant');
 const router = express.Router();
 
 router.get('/', function(req,res){
-    res.render('restaurant');
+    res.render('restaurants');
 });
 
 router.post("/addPreference", (req, res) =>{
