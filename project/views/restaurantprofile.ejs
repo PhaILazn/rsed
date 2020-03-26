@@ -25,6 +25,65 @@
 <body>
   <%- include("./partials/header.ejs") %>
 
+  This is just a placeholder to test functionality! It will be prettied up later. Probably.
+
+  <header id="profile-section">
+    <div class="shamelessly-copied-dark-overlay">
+      <div class="profile-inner-thing container" style="padding-top: 100px">
+        <div class="row">
+          <div class="d-lg-block">
+            <div class="container">
+              <h1>
+                <%=restaurant.name%>
+              </h1>
+              <br>
+              <br>
+              <h2>
+                Contact Info
+              </h2>
+              <br>
+              <h3>
+                Address
+              </h3>
+              <h4>
+                <%=restaurant.address.houseNum%> <%=restaurant.address.street%>
+                <%=restaurant.address.city%>, <%=restaurant.address.zipcode%>
+              </h4>
+              <h3>
+                Phone Number
+              </h3>
+              <h4>
+                we don't have one, do we
+              </h4>
+              <br>
+              <br>
+              <h2>
+                Menus
+              </h2>
+              <% restaurant.menus.forEach(function(menu) { %>
+                <h3>
+                  <%=menu.name%>
+                </h3>
+                <ul>
+                <% menu.menuItems.forEach(function(menuItem) { %>
+                  <li>
+                    <img class="user" src="<%=menuItem.image%>" height="150" width="200">
+                    <br>
+                    <h4>
+                      <%=menuItem.name%> / <%=menuItem.price%>
+                    </h4>
+                  </li>
+                < } ); >
+                </ul>
+              <% } ); >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--
   <% preferences.forEach(function(menu.menuItems){ %>
     <div class="column">
       <h4>
@@ -34,8 +93,8 @@
         <img src="<%= menu.menuItems.image %>" height="150" width="200">
       </div>
     </div>
-    <% }); %>
-  
+  <% }); %>
+  -->
   <%- include("./partials/footer.ejs") %>
 </body>
 

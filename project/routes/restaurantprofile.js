@@ -18,16 +18,21 @@ router.get('/:id', function(req, res) {
         }else{
             foundRestaurant.populate('foodCategories');
             foundRestaurant.populate('reviews');
-            var resMenu;
-            Menu.findById(foundRestaurant.menus[0], function (err, foundMenu) {
-                if(err) {
-                    console.log(err);
-                }else{
-                    foundMenu.populate('menuItems')
-                    resMenu = foundMenu;
-                }
-            });
-            res.render('restaurantprofile',{restaurant: foundRestaurant, menu: resMenu});
+            foundRestaurant.populate('address');
+            foundRestaurant.populate('menus');
+            for (var index = 0; index < foundRestaurant.menus.length; index++) { 
+                foundRestaurant.menus[index].populate('menuItems');
+            }
+//             var resMenu;
+//             Menu.findById(foundRestaurant.menus[0], function (err, foundMenu) {
+//                 if(err) {
+//                     console.log(err);
+//                 }else{
+//                     foundMenu.populate('menuItems')
+//                     resMenu = foundMenu;
+//                 }
+//             });
+            res.render('restaurantprofile',{restaurant: foundRestaurant});
         }
     });
 });
