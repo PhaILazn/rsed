@@ -18,6 +18,7 @@ router.get('/:id', function(req, res) {
         }else{
             foundRestaurant.populate('foodCategories');
             foundRestaurant.populate('reviews');
+            foundRestaurant.populate('address');
             var resMenu;
             Menu.findById(foundRestaurant.menus[0], function (err, foundMenu) {
                 if(err) {
