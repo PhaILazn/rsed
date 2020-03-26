@@ -4,7 +4,7 @@ var express = require("express"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
 
-var testingRoutes = require("./routes/testingRoute"),
+var //testingRoutes = require("./routes/testingRoute"),
   preferences = require("./routes/preferences"),
   profile = require("./routes/profile"),
   editProfile = require("./routes/editProfile"),
@@ -67,7 +67,7 @@ app.use(express.json());
 
 app.use("/public", express.static("./public"));
 
-app.use("/testingRoute", testingRoutes);
+//app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
