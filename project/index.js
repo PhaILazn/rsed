@@ -9,6 +9,7 @@ var testingRoutes = require("./routes/testingRoute"),
     preferences = require("./routes/preferences"),
     profile = require("./routes/profile"),
     editProfile = require("./routes/editProfile"),
+    restaurantprofile = require("./routes/restaurantprofile");
     User = require('./models/user'),
     restaurantPop = require("./routes/restaurantPop"),
     indexAuth = require('./routes/indexAuth')
@@ -60,6 +61,10 @@ app.use("/preferences", preferences);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
+<<<<<<< Updated upstream
+=======
+app.use("/restaurantprofile", restaurantprofile);
+>>>>>>> Stashed changes
 app.use('/',indexAuth);
 
 //added this for testing purposes
