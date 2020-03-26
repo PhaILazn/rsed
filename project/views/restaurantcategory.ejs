@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Fancy Fonts, Icons, and Logos -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" href="../public/css/style.css" />
+
+    <!-- Icon Title -->
+    <title>OmNom Food Delivery</title>
+
+    <!-- rSed Title Icon -->
+    <link rel="icon" href="../public/img/rSedLogo.png" type="image/icon type" />
+  </head>
+  <%- include("./partials/header.ejs") %>
+  <body>
+    <h1 align="center" style="padding-top:75px; padding-bottom: 15px;">
+      Pick a Restaurant Category
+    </h1>
+    <div id="container" class="cols">
+      <div class="box">
+        <a href="/italian" style="text-decoration: none;">
+          <img
+            src="https://serafinamia.com/wp-content/uploads/2018/09/10-Italian-Fun-Facts-The-Food-Fashion-and-Culture-of-Italy.jpg"
+            alt="Italian"
+            class="image"
+          />
+          <div class="name">
+            <p>Italian</p>
+          </div>
+        </a>
+      </div>
+      <a href="/indian" style="text-decoration: none;">
+        <div class="box">
+          <img
+            src="https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg"
+            alt="Indian"
+            class="image"
+            
+          />
+          <div class="name">
+            <p>Indian</p>
+          </div>
+        </div></a
+      >
+
+      <a href="/asian" style="text-decoration: none;">
+        <div class="box">
+          <img
+            src="https://www.101corpuschristi.com/uploads/media/default/0001/23/fef92b31aa597167a112c932f2777db7941a79d3.jpeg"
+            alt="Asian"
+            class="image"
+        
+          />
+          <div class="name">
+            <p>Asian</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/american" style="text-decoration: none;">
+        <div class="box">
+          <img
+            src="https://naturallysavvy.com/wp-content/uploads/2018/11/Why-is-the-American-Diet-so-full-of-Unhealthy-Foods-696x436.jpg"
+            alt="American"
+            class="image"
+          
+          />
+          <div class="name">
+            <p>American</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/mexican" style="text-decoration: none;">
+        <div class="box">
+          <img
+            src="https://res.cloudinary.com/popmenu/image/upload/c_limit,f_auto,h_1440,q_auto,w_1440/o0oohveni7vnesjyhd8a.jpg"
+            alt="Mexican"
+            class="image"
+        
+          />
+          <div class="name">
+            <p>Mexican</p>
+          </div>
+        </div>
+      </a>
+
+      <a href="/mediterranean" style="text-decoration: none;">
+      <div class="box">
+        <img
+          src="https://res.cloudinary.com/popmenu/image/upload/c_limit,f_auto,h_1440,q_auto,w_1440/eravk4xxappila2pn4sg.jpg"
+          alt="Mediterranean"
+          class="image"
+         
+        />
+        <div class="name">
+          <p>Mediterranean</p>
+        </div>
+      </div>
+    </div>
+  </a>
+  
+  </body>
+  <%- include("./partials/footer.ejs") %>
+</html>
