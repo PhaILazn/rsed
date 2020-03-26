@@ -4,18 +4,7 @@ var express = require("express"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
 
-<<<<<<< HEAD
-
 var preferences = require("./routes/preferences"),
-    profile = require("./routes/profile"),
-    editProfile = require("./routes/editProfile"),
-    User = require('./models/user'),
-    restaurantPop = require("./routes/restaurantPop"),
-    indexAuth = require('./routes/indexAuth'),
-    restaurantProfile = require('./routes/restaurantProfile')
-=======
-var //testingRoutes = require("./routes/testingRoute"),
-  preferences = require("./routes/preferences"),
   profile = require("./routes/profile"),
   editProfile = require("./routes/editProfile"),
   User = require("./models/user"),
@@ -29,7 +18,6 @@ var //testingRoutes = require("./routes/testingRoute"),
   italian = require("./routes/restauranttypes/italian"),
   mediterranean = require("./routes/restauranttypes/mediterranean"),
   mexican = require("./routes/restauranttypes/mexican");
->>>>>>> 25b73bbca14bed0df6d6ee96d00278f534c5f289
 
 const app = express();
 require("dotenv").config();
@@ -78,18 +66,10 @@ app.use(express.json());
 
 app.use("/public", express.static("./public"));
 
-<<<<<<< HEAD
-=======
-//app.use("/testingRoute", testingRoutes);
->>>>>>> 25b73bbca14bed0df6d6ee96d00278f534c5f289
 app.use("/preferences", preferences);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
-<<<<<<< HEAD
-app.use("/restaurantProfile", restaurantProfile);
-app.use('/',indexAuth);
-=======
 app.use("/restaurantcategory", restaurantcategory);
 app.use("/", indexAuth);
 app.use("/asian", asian);
@@ -98,7 +78,6 @@ app.use("/indian", indian);
 app.use("/italian", italian);
 app.use("/mediterranean", mediterranean);
 app.use("/mexican", mexican);
->>>>>>> 25b73bbca14bed0df6d6ee96d00278f534c5f289
 
 //added this for testing purposes
 app.get("/secret", isLoggedIn, function(req, res) {
