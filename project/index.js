@@ -5,13 +5,13 @@ var express = require("express"),
     passportLocalMongoose = require('passport-local-mongoose')
 
 
-var testingRoutes = require("./routes/testingRoute"),
-    preferences = require("./routes/preferences"),
+var preferences = require("./routes/preferences"),
     profile = require("./routes/profile"),
     editProfile = require("./routes/editProfile"),
     User = require('./models/user'),
     restaurantPop = require("./routes/restaurantPop"),
-    indexAuth = require('./routes/indexAuth')
+    indexAuth = require('./routes/indexAuth'),
+    restaurantProfile = require('./routes/restaurantProfile')
 
 const app = express();
 require('dotenv').config();
@@ -55,11 +55,11 @@ app.use(express.json());
 
 app.use('/public', express.static('./public'));
 
-app.use("/testingRoute", testingRoutes);
 app.use("/preferences", preferences);
 app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
+app.use("/restaurantProfile", restaurantProfile);
 app.use('/',indexAuth);
 
 //added this for testing purposes

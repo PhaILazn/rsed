@@ -10,7 +10,7 @@ const Review = require('../models/review');
 
 const router = express.Router();
 
-router.get('/:id', function(req, res) {
+router.get('/:id', async function(req, res) {
     //Search db for user by ObjectId
     Restaurant.findById(req.params.id, function(err,foundRestaurant){
         if(err){
@@ -27,7 +27,7 @@ router.get('/:id', function(req, res) {
                     resMenu = foundMenu;
                 }
             });
-            res.render('restaurantprofile',{restaurant: foundRestaurant, menu: resMenu});
+            res.render('restaurantProfile',{restaurant: foundRestaurant, menu: resMenu});
         }
     });
 });
