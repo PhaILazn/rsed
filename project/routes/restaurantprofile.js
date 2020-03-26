@@ -12,40 +12,16 @@ const router = express.Router();
 
 router.get('/:id', async function(req, res) {
     //Search db for user by ObjectId
-    Restaurant.findById(req.params.id, function(err,foundRestaurant){
+    Restaurant.findById(req.params.id).populate('reviews address').populate({
+        path: 'menus',
+        populate:{
+            path: 'menuItems'
+        }
+    }).exec(function(err,foundRestaurant){
         if(err){
             console.log(err)
         }else{
-            foundRestaurant.populate('foodCategories');
-            foundRestaurant.populate('reviews');
-<<<<<<< HEAD
-            var resMenu;
-            Menu.findById(foundRestaurant.menus[0], function (err, foundMenu) {
-                if(err) {
-                    console.log(err);
-                }else{
-                    foundMenu.populate('menuItems')
-                    resMenu = foundMenu;
-                }
-            });
-            res.render('restaurantProfile',{restaurant: foundRestaurant, menu: resMenu});
-=======
-            foundRestaurant.populate('address');
-            foundRestaurant.populate('menus');
-            for (var index = 0; index < foundRestaurant.menus.length; index++) { 
-                foundRestaurant.menus[index].populate('menuItems');
-            }
-//             var resMenu;
-//             Menu.findById(foundRestaurant.menus[0], function (err, foundMenu) {
-//                 if(err) {
-//                     console.log(err);
-//                 }else{
-//                     foundMenu.populate('menuItems')
-//                     resMenu = foundMenu;
-//                 }
-//             });
             res.render('restaurantprofile',{restaurant: foundRestaurant});
->>>>>>> 25b73bbca14bed0df6d6ee96d00278f534c5f289
         }
     });
 });
