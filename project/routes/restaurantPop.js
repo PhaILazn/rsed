@@ -74,6 +74,7 @@ router.post("/addRestaurant", (req, res) =>{
     });
 
     const dummyMenu = new Menu({
+        name: req.body.menuName,
         menuItems: [dummyMenuItem, dummyMenuItem2]
     });
     dummyMenu.save()
@@ -86,6 +87,7 @@ router.post("/addRestaurant", (req, res) =>{
     dummyMenu.populate('menuItems')
    
     const dummyMenu2 = new Menu({
+        name: req.body.menuName2,
         menuItems: [dummyMenuItem3, dummyMenuItem4]
     });
     dummyMenu2.save()
