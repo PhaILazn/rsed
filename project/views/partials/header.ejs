@@ -3,7 +3,12 @@
   bg-danger: red background
   fixed-top: bar fixed to top --- remove??
 -->
-<nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="main-nav" style="background-color: red" ;>
+<nav
+  class="navbar navbar-expand-sm navbar-dark fixed-top"
+  id="main-nav"
+  style="background-color: red"
+  ;
+>
   <!-- 
         create a container class: follows a grid system of 12 columns across the page
       -->
@@ -15,15 +20,26 @@
           clicking rSedFoodDelivery sends back to index.html        
         -->
     <a href="/" style="text-decoration: none">
-      <div class="col font-weight-bold" href="signin" style="text-align: left; color: white">
-        <img src="../public/img/rSedLogo.png" style="width: 45px; height: 45px" />
+      <div
+        class="col font-weight-bold"
+        href="signin"
+        style="text-align: left; color: white"
+      >
+        <img
+          src="../public/img/rSedLogo.png"
+          style="width: 45px; height: 45px"
+        />
         OmNom Food Delivery
       </div>
     </a>
     <!-- 
           makes a button appear to expand the navbar if screen is too small
         -->
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <button
+      class="navbar-toggler"
+      data-toggle="collapse"
+      data-target="#navbarCollapse"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -44,38 +60,64 @@
               >
             </li>-->
         <% if(!currentUser){ %>
-          <li class="nav-item">
-            <a class="btn btn-outline-light mx-2" href="/restaurantcategory" role="button">Restaurants</a>
-          </li>
         <li class="nav-item">
-          <a class="btn btn-outline-light mx-2" href="/signin" role="button">Sign In</a>
+          <a
+            class="btn btn-outline-light mx-2"
+            href="/restaurantcategory"
+            role="button"
+            >Restaurants</a
+          >
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-light mx-2" href="/signup" role="button">Sign Up</a>
+          <a class="btn btn-outline-light mx-2" href="/signin" role="button"
+            >Sign In</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light mx-2" href="/signup" role="button"
+            >Sign Up</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="btn btn-outline-light mx-2" href="#">
+            <span class="fa">&#xf07a;</span></a
+          >
         </li>
         <% }else{ %>
         <li>
           <a>
-            <hr style="margin: 0; border: 0; height: 5pt; visibility: hidden;" />
+            <hr
+              style="margin: 0; border: 0; height: 5pt; visibility: hidden;"
+            />
             Signed in as <%= currentUser.firstName %>
           </a>
         </li>
 
         <li class="nav-item">
-          <a class="btn btn-outline-light mx-2" href="/profile/<%=currentUser._id%> " role="button">
+          <a
+            class="btn btn-outline-light mx-2"
+            href="/profile/<%=currentUser._id%> "
+            role="button"
+          >
             Profile
           </a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-light mx-2" href="/restaurantcategory" role="button">Restaurants</a>
+          <a
+            class="btn btn-outline-light mx-2"
+            href="/restaurantcategory"
+            role="button"
+            >Restaurants</a
+          >
         </li>
         <li class="nav-item">
           <a class="btn btn-outline-light mx-2" href="/logout" role="button">
             Logout
           </a>
         </li>
-        <% } %>
 
+        <% } %>
       </ul>
     </div>
   </div>
