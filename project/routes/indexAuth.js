@@ -3,7 +3,13 @@ var router = express.Router({ mergeParams: true });
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
+var User = require('../models/user');
 
+
+router.use(function(req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
 //grab home page and render as homepage
 router.get("/", function(req, res) {
   res.render("index");
