@@ -27,6 +27,7 @@ const app = express();
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
+console.log(process.env.DB_USER);
 //Connect to mongodb
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?authSource=admin&replicaSet=xyz`;
 mongoose.connect(
@@ -79,7 +80,7 @@ app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
 app.use("/restaurantcategory", restaurantcategory);
 app.use('/restaurantprofile',restaurantprofile);
-app.use('/shoppingcart/', shoppingcart);
+app.use('/shoppingcart', shoppingcart);
 app.use("/", indexAuth);
 app.use('/shoppingcart',shoppingcart);
 app.use("/asian", asian);
