@@ -13,10 +13,19 @@ const router = express.Router();
 
 router.get('/', isLoggedIn, function(req, res) {
     var menuItems = req.menuItems;
-    array.forEach(menuItems => {
-        
+    var jsonMenuItems = {"menuItem":[]};
+    menuItems.forEach(menuItem => {
+        MenuItem.findById(menuItem).populate('restaurant').exec(function(err, foundMItem) {
+            if(err) {
+                console.log(err);
+            }
+            else {
+                jsonMenuItems['menuItem'].push(menuItem);
+            }
+        });
     });
-    res.render(); 
+    console.log(err);
+    res.render('shoppingcart', jsonMenuItems); 
 });
 
 router.get('/add/:id', isLoggedIn, function(req, res) {
@@ -27,7 +36,7 @@ router.get('/add/:id', isLoggedIn, function(req, res) {
             return res.redirect('/');
         }
         else {
-            
+
         }
     });
 });
