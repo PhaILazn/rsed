@@ -37,9 +37,9 @@ router.get('/add/:id', isLoggedIn, function(req, res) {
         if(err) {
             return res.redirect('/');
         }
-        else {
-
-        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        res.redirect('/');
     });
 });
 
