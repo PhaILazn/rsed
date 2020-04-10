@@ -12,10 +12,9 @@ module.exports = function Cart(oldCart) {
             storedItem = this.menuItems[id] = {menuItem: menuItem, qty: 0, price: 0};
         }
         storedItem.qty++;
-        //To not double count multiples of the same item
-        this.totalPrice -= storedItem.price;
+        
         storedItem.price = menuItem.price * storedItem.qty;
         this.totalQty++;
-        this.totalPrice += storedItem.price;
+        this.totalPrice += storedItem.menuItem.price;
     }
 }
