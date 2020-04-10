@@ -11,11 +11,13 @@ const Cart = require('../models/cart');
 
 const router = express.Router();
 
-router.get('/', isLoggedIn, function(req, res) {
-    var menuItems = req.menuItems;
+router.get('/', function(req, res) {
+    var menuItems = req.params.menuItem;
+    console.log(req.params.menuItems);
+    console.log(menuItems);
     var jsonMenuItems = {"menuItem":[]};
     menuItems.forEach(menuItem => {
-        MenuItem.findById(menuItem).populate('restaurant').exec(function(err, foundMItem) {
+        MenuItem.findById(menuItem._id).populate('restaurant').exec(function(err, foundMItem) {
             if(err) {
                 console.log(err);
             }
@@ -24,7 +26,7 @@ router.get('/', isLoggedIn, function(req, res) {
             }
         });
     });
-    console.log(err);
+    console.log(jsonMenuItems);
     res.render('shoppingcart', jsonMenuItems); 
 });
 
