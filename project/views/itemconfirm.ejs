@@ -41,16 +41,16 @@
               <ul class="list-group">
                 <li class="list-group-item">
                   <img
-                    src="#"
-                    alt="#"
+                    src="<%=orderItem.image%>"
+                    alt="<%=orderItem.name%>"
                     width="25"
                     height="25"
                   />
                   <strong style="color: #000000">
-                    name / restaurant
+                    <%=orderItem.name%> / <%=orderItem.restaurant%>
                   </strong>
                   <span style="color: #000000">
-                    price
+                    $<%=orderItem.price%>
                   </span>
                   <span style="color: #000000">
                     Quantity: 
