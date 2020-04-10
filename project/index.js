@@ -14,6 +14,7 @@ var preferences = require("./routes/preferences"),
   restaurantprofile = require("./routes/restaurantprofile"),
   indexAuth = require("./routes/indexAuth"),
   restaurantcategory = require("./routes/restaurantcategory"),
+  shoppingcart = require("./routes/shoppingcart"),
   american = require("./routes/restauranttypes/american"),
   asian = require("./routes/restauranttypes/asian"),
   indian = require("./routes/restauranttypes/indian"),
@@ -76,7 +77,8 @@ app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
 app.use("/restaurantcategory", restaurantcategory);
-app.use('/restaurantprofile',restaurantprofile)
+app.use('/restaurantprofile',restaurantprofile);
+app.use('/shoppingcart/', shoppingcart);
 app.use("/", indexAuth);
 app.use("/asian", asian);
 app.use("/american", american);
