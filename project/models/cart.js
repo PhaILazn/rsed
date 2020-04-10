@@ -18,6 +18,4 @@ module.exports = function Cart(oldCart) {
         this.totalQty++;
         this.totalPrice += storedItem.price;
     }
-
-    this.add = function(item, id)
 }
