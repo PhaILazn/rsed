@@ -2,7 +2,9 @@ var express = require("express"),
   mongoose = require("mongoose"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
-  passportLocalMongoose = require("passport-local-mongoose");
+  passportLocalMongoose = require("passport-local-mongoose"),
+  session = require('express-session'),
+  mongoStore = require('connect-mongo')(session);
 
 var preferences = require("./routes/preferences"),
   profile = require("./routes/profile"),
@@ -41,11 +43,13 @@ db.once("open", function() {
 });
 
 app.use(
-  require("express-session")({
+  session(({
     secret: "butthole",
     resave: false,
-    saveUninitialized: false
-  })
+    saveUninitialized: false,
+    store: new mongoStore({mongooseConnection: mongoose.connection}),
+    cookie: {maxAge:  30 * 60 * 1000}
+  }))
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -56,6 +60,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
+  res.locals.session = req.session;
   next();
 });
 
