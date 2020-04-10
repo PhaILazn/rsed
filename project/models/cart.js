@@ -17,4 +17,12 @@ module.exports = function Cart(oldCart) {
         this.totalQty++;
         this.totalPrice += storedItem.menuItem.price;
     }
+
+    this.generateArray = function() {
+        var arr = [];
+        menuItems.forEach(mItem => {
+            arr.push(mItem);
+        });
+        return arr;
+    }
 }
