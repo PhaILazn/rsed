@@ -37,6 +37,13 @@ body {
   color: #ffd700;
 }
 
+#home-section hr {
+  border: none;
+  height: 5px;
+  color: #ffd700;
+  background-color: #ffd700
+}
+
 #profile-section {
   background: url(../img/FoodBackground.jpg);
   background-repeat: no-repeat;
