@@ -27,7 +27,6 @@ const app = express();
 require("dotenv").config();
 
 const PORT = process.env.PORT || 3000;
-console.log(process.env.DB_USER);
 //Connect to mongodb
 const URI = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@bigodobonhonkeros-jdryx.mongodb.net/OmNom_Foods?authSource=admin&replicaSet=xyz`;
 mongoose.connect(
