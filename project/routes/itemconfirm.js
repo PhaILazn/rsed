@@ -11,24 +11,7 @@ const Cart = require('../models/cart');
 
 const router = express.Router();
 
-router.get('/', async function(req, res) {
 
-    // menuItems.forEach(menuItem => {
-    //     MenuItem.findById(menuItem).lean().populate('restaurant').exec(function(err, foundMItem ) {
-    //         if(err) {
-    //             console.log(err);
-    //         }
-    //         else {
-    //             console.log(counter);
-    //             counter++;
-    //             var temp = JSON.stringify(foundMItem)
-    //             menuItemStr = menuItemStr.concat(temp);
-    //             console.log(menuItemStr);
-    //         }
-    //     });
-    // });
-    res.render('shoppingcart', req.session.cart.generateArray()); 
-});
 
 router.post('/additem/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     var menuItemId = req.params.itemid;
@@ -43,12 +26,5 @@ router.post('/additem/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     })
     .catch(err => res.redirect('/restaurantprofile', {restaurant: req.restaurant}));
 });
-
-function isLoggedIn(req,res,next){
-    if(req.isAuthenticated()){
-        return next()
-    }
-    res.redirect("/signin");
-}
 
 module.exports = router;

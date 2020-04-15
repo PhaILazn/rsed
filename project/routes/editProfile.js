@@ -59,7 +59,7 @@ router.post('/:id',isLoggedIn, function(req, res) {
                 foundUser.image = req.body.image;
             }
             foundUser.save();
-            res.render("profile", {user: foundUser,preferences:preferences});
+            res.render("profile", {user: foundUser, preferences:preferences});
         }
     });
 });
