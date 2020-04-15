@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+const ShoppingCart = require('../models/shoppingcart');
 var passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new mongoose.Schema({
@@ -17,6 +18,14 @@ var UserSchema = new mongoose.Schema({
 }, {
     versionKey: false
 });
+
+UserSchema.methods.addToCart = async function(itemId) {
+    ShoppingCart.findById(itemId)
+    .exec(function(err, foundItem) {
+
+        this.save();
+    });
+}
 
 UserSchema.plugin(passportLocalMongoose);
 
