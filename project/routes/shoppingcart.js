@@ -30,17 +30,20 @@ router.get('/', async function(req, res) {
     res.render('shoppingcart', req.session.cart.generateArray()); 
 });
 
-router.get('/add/:id', isLoggedIn, function(req, res) {
-    var menuItemId = req.menuItemId;
-    var cart = new Cart(req.session.cart? req.session.cart : {});
-    MenuItem.findById(menuItemId, function(err, menuItem) {
-        if(err) {
-            return res.redirect('/');
-        }
-        cart.add(product, product.id);
-        req.session.cart = cart;
-        res.redirect('/');
-    });
+router.get('/additem/:itemid', isLoggedIn, async(req, res) => {
+    var userId = req.params.userid;
+    var menuItemId = req.params.itemid;
+    MenuItem.findById(menuItemId)
+    .then(foundItem => {
+        ShoppingCart.findById(req.user.shoppingcart)
+        .then(foundCart => {
+            foundCart.push(menuItemId);
+            foundCart.save();
+        })
+        .catch(err => res.redirect('/'));
+    })
+    .catch(err => res.redirect('/'));
+    res.redirect('/');
 });
 
 function isLoggedIn(req,res,next){
