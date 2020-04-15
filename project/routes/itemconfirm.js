@@ -11,7 +11,7 @@ const Cart = require('../models/cart');
 
 const router = express.Router();
 
-router.get('/:restaurantid/:itemid'), isLoggedIn, async(req, res) => {
+router.get('/:restaurantid/:itemid'), async(req, res) => {
     var menuItemId = req.params.id;
     //Finding restaurant to reroute back to restaurant if failed to find item id
     Restaurant.findById(req.params.id).populate('reviews address')
@@ -37,7 +37,7 @@ router.get('/:restaurantid/:itemid'), isLoggedIn, async(req, res) => {
     });
 }
 
-router.post('/additem/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
+router.post('/additem/:restaurantid/:itemid', async(req, res) => {
     var menuItemId = req.params.itemid;
     //Check if menuitem exists
     Restaurant.findById(req.params.id).populate('reviews address')

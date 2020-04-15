@@ -16,13 +16,13 @@ var preferences = require("./routes/preferences"),
   shoppingcart = require('./routes/shoppingcart'),
   restaurantcategory = require("./routes/restaurantcategory"),
   shoppingcart = require("./routes/shoppingcart"),
+  itemconfirm = require("./routes/itemconfirm");
   american = require("./routes/restauranttypes/american"),
   asian = require("./routes/restauranttypes/asian"),
   indian = require("./routes/restauranttypes/indian"),
   italian = require("./routes/restauranttypes/italian"),
   mediterranean = require("./routes/restauranttypes/mediterranean"),
   mexican = require("./routes/restauranttypes/mexican");
-  addshoppingcart = require("./routes/addshoppingcart");
 
 const app = express();
 require("dotenv").config();
@@ -64,7 +64,6 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.session = req.session;
-  next();
 });
 
 app.set("view engine", "ejs");
@@ -82,14 +81,14 @@ app.use("/restaurantcategory", restaurantcategory);
 app.use('/restaurantprofile',restaurantprofile);
 app.use('/shoppingcart', shoppingcart);
 app.use("/", indexAuth);
-app.use('/shoppingcart',shoppingcart);
+app.use("/shoppingcart",shoppingcart);
+app.use("/itemconfirm", itemconfirm);
 app.use("/asian", asian);
 app.use("/american", american);
 app.use("/indian", indian);
 app.use("/italian", italian);
 app.use("/mediterranean", mediterranean);
 app.use("/mexican", mexican);
-app.use("/addshoppingcart", addshoppingcart);
 
 //added this for testing purposes
 app.get("/secret", isLoggedIn, function(req, res) {
