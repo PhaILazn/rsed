@@ -22,6 +22,7 @@ var preferences = require("./routes/preferences"),
   italian = require("./routes/restauranttypes/italian"),
   mediterranean = require("./routes/restauranttypes/mediterranean"),
   mexican = require("./routes/restauranttypes/mexican");
+  addshoppingcart = require("./routes/addshoppingcart");
 
 const app = express();
 require("dotenv").config();
@@ -88,6 +89,7 @@ app.use("/indian", indian);
 app.use("/italian", italian);
 app.use("/mediterranean", mediterranean);
 app.use("/mexican", mexican);
+app.use("/addshoppingcart", addshoppingcart);
 
 //added this for testing purposes
 app.get("/secret", isLoggedIn, function(req, res) {

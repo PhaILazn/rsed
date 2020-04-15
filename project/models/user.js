@@ -13,6 +13,7 @@ var UserSchema = new mongoose.Schema({
     image: { type: String, default: "https://i.imgur.com/YbrgVmU.png" },
     orderHistory: [{ type: mongoose.Schema.Types.ObjectId, ref: "Order" }],
     preferences: { type: mongoose.Schema.Types.ObjectId, ref: "Preference" },
+    shoppingCart: {type: mongoose.Schema.Types.ObjectId, ref: "ShoppingCart"},
 }, {
     versionKey: false
 });
