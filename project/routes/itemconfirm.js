@@ -39,8 +39,9 @@ router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     });
 });
 
-router.post('/additem/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
+router.post('/additem/:restaurantid/:itemid/:quantity', isLoggedIn,  async(req, res) => {
     var menuItemId = req.params.itemid;
+    var quantity = req.params.quantity;
     //Check if menuitem exists
     Restaurant.findById(req.params.id).populate('reviews address')
     .populate({
@@ -66,9 +67,12 @@ router.post('/additem/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
                     res.redirect('/restaurantprofile/' + foundRestaurant._id);
                 }
                 //Add item to shopping cart and update price
-                foundCart.push(menuItemId);
-                foundCart.totalPrice = foundCart.totalPrice + foundItem.price;
+                for(var i = 0; i < quantity; ++i) {
+                    foundCart.push(menuItemId);
+                }
+                foundCart.totalPrice = foundCart.totalPrice + (foundItem.price * quantity);
                 foundCart.save();
+                res.redirect('/restaurantprofile/' + foundRestaurant._id);
             })
         });
     });

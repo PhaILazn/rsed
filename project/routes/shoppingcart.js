@@ -10,24 +10,19 @@ const Review = require('../models/review');
 const Cart = require('../models/cart');
 
 const router = express.Router();
+const ShoppingCart = require('../models/shoppingcart');
 
-router.get('/', async function(req, res) {
-
-    // menuItems.forEach(menuItem => {
-    //     MenuItem.findById(menuItem).lean().populate('restaurant').exec(function(err, foundMItem ) {
-    //         if(err) {
-    //             console.log(err);
-    //         }
-    //         else {
-    //             console.log(counter);
-    //             counter++;
-    //             var temp = JSON.stringify(foundMItem)
-    //             menuItemStr = menuItemStr.concat(temp);
-    //             console.log(menuItemStr);
-    //         }
-    //     });
-    // });
-    res.render('shoppingcart', req.session.cart.generateArray()); 
+router.get('/', isLoggedIn, function(req, res) {
+    ShoppingCart.findById(req.user.shoppingCart)
+    .populate({
+        path: 'items',
+    })
+    .exec(function(err, foundCart) {
+        if(err) {
+            res.redirect('/');
+        }
+        res.render('/shoppingcart', {currentOrder: foundCart});
+    });
 });
 
 function isLoggedIn(req,res,next){
