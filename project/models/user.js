@@ -19,14 +19,6 @@ var UserSchema = new mongoose.Schema({
     versionKey: false
 });
 
-UserSchema.methods.addToCart = async function(itemId) {
-    ShoppingCart.findById(itemId)
-    .exec(function(err, foundItem) {
-
-        this.save();
-    });
-}
-
 UserSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("user", UserSchema);

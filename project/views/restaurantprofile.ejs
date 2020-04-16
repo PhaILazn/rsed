@@ -51,7 +51,7 @@
         <div id="container" class="cols" align="center">
           <% menu.menuItems.forEach(function(menuItem) { %>
             <div class="box">
-              <a href="#" style="text-decoration: none;">
+              <a href="/itemconfirm/<%=restaurant._id%>/<%=menuItem._id%>" style="text-decoration: none;">
                 <img
                   src="<%=menuItem.image%>"
                   alt="<%=menuItem.name%>"

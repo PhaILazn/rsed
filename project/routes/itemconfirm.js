@@ -11,33 +11,36 @@ const Cart = require('../models/cart');
 
 const router = express.Router();
 
-router.get('/:restaurantid/:itemid'), async(req, res) => {
-    var menuItemId = req.params.id;
+router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     //Finding restaurant to reroute back to restaurant if failed to find item id
-    Restaurant.findById(req.params.id).populate('reviews address')
+    Restaurant.findById(req.params.restaurantid).populate('reviews address')
     .populate({
         path: 'menus',
         populate:{
             path: 'menuItems'
         }
     })
+    .lean()
     .exec(function(err, foundRestaurant){
         if(err) {
+            //Restaurant dne redirect to homepage
             res.render('/');
         }
         else {
-            MenuItem.findById(menuItemId)
+            MenuItem.findById(req.params.itemid)
             .exec(function(err, foundItem){
                 if(err) {
-                    res.render('/restaurantprofile', {restaruant: foundRestaurant});
+                    //Menu item dne redirect to restuarant profile
+                    res.redirect('/restaurantprofile/' + foundRestaurant._id);
                 }
-                res.redirect('/itemconfirm', {orderItem: foundItem});
+                console.log(foundItem.name);
+                res.render('itemconfirm', {orderItem: foundItem});
             })
         }
     });
-}
+});
 
-router.post('/additem/:restaurantid/:itemid', async(req, res) => {
+router.post('/additem/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
     var menuItemId = req.params.itemid;
     //Check if menuitem exists
     Restaurant.findById(req.params.id).populate('reviews address')
@@ -48,16 +51,20 @@ router.post('/additem/:restaurantid/:itemid', async(req, res) => {
         }
     })
     .exec(function(err, foundRestaurant) {
+        if(err) {
+            res.redirect('/');
+        }
+        req.session.restaurant = foundRestaurant;
         MenuItem.findById(menuItemId)
         .exec(function(err, foundItem) {
             if(err) {
-                res.redirect('/restaurantprofile', {restaurant: req.restaurant});
+                res.redirect('/restaurantprofile/' + foundRestaurant._id);
             }
             //If cart exists then get user shopping cart from db
             ShoppingCart.findById(req.user.shoppingcart)
             .then(function(err, foundCart) {
                 if(err) {
-                    res.redirect('/restaurantprofile', {restaurant: req.restaurant});
+                    res.redirect('/restaurantprofile/' + foundRestaurant._id);
                 }
                 //Add item to shopping cart and update price
                 foundCart.push(menuItemId);
@@ -67,5 +74,12 @@ router.post('/additem/:restaurantid/:itemid', async(req, res) => {
         });
     });
 });
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect("/signin");
+}
 
 module.exports = router;

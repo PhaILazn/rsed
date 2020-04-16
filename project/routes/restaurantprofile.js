@@ -19,9 +19,9 @@ router.get('/:id', async function(req, res) {
         }
     }).exec(function(err,foundRestaurant){
         if(err){
-            console.log(err)
+            res.render('/');
         }else{
-            res.render('restaurantprofile',{restaurant: foundRestaurant});
+            res.render('restaurantprofile', {restaurant: foundRestaurant});
         }
     });
 });
