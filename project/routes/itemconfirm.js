@@ -33,7 +33,6 @@ router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
                     //Menu item dne redirect to restuarant profile
                     res.redirect('/restaurantprofile/' + foundRestaurant._id);
                 }
-                console.log(foundItem.name);
                 res.render('itemconfirm', {orderItem: foundItem});
             })
         }
