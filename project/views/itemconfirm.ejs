@@ -29,24 +29,6 @@
   <header id="home-section">
     <div class="dark-overlay">
       <div class="home-inner container">
-        <div class="row">
-          <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-            <ul class="list-group">
-              <li class="list-group-item">
-                <img src="<%=orderItem.image%>" alt="<%=orderItem.name%>" width="25" height="25" />
-                <strong style="color: #000000">
-                  <%=orderItem.name%>
-                </strong>
-                <span style="color: #000000">
-                  $<%=orderItem.price%>
-                </span>
-                <span style="color: #000000">
-                  Quantity:
-                  <input type="number" id="itemQuantity" name="itemQuantity" min="1" max="100">
-                </span>
-              </li>
-            </ul>
-          </div>
           <div class="row">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <ul class="list-group">
@@ -67,14 +49,13 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <button method="POST" type="button" href="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>"
-                  class="btn btn-success">
+                <a method="POST" href="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>" class="btn btn-success">
                   Checkout
-                </button>
-                <button method="GET" type="button" href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-fail">
-                  <!-- <%=restaurant._id%> -->
+                </a>
+                <a href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-danger">
+                  <%=restaurant._id%>
                   Back
-                </button>
+                </a>
               </div>
             </div>
           </div>
