@@ -30,20 +30,6 @@ router.get('/', async function(req, res) {
     res.render('shoppingcart', req.session.cart.generateArray()); 
 });
 
-router.post('/additem/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
-    var menuItemId = req.params.itemid;
-    MenuItem.findById(menuItemId)
-    .then(foundItem => {
-        ShoppingCart.findById(req.user.shoppingcart)
-        .then(foundCart => {
-            foundCart.push(menuItemId);
-            foundCart.save();
-        })
-        .catch(err => res.redirect('/restaurantprofile/', {restaurant: req.restaurant}));
-    })
-    .catch(err => res.redirect('/restaurantprofile', {restaurant: req.restaurant}));
-});
-
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
         return next()

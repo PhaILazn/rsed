@@ -20,13 +20,13 @@
     />
 
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
 
     <!-- Icon Title -->
     <title>OmNom Food Delivery</title>
 
     <!-- rSed Title Icon -->
-    <link rel="icon" href="../public/img/rSedLogo.png" type="image/icon type" />
+    <link rel="icon" href="/public/img/rSedLogo.png" type="image/icon type" />
   </head>
 
 <!-- Body -->
@@ -84,10 +84,11 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <button method="POST" type="button" href="/restaurantprofile/<%=restaurant._id%>/<%=orderItem._id%>" class="btn btn-success">
+                <button method="POST" type="button" href="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>" class="btn btn-success">
                   Checkout
                 </button>
                 <button type="button" href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-fail">
+                  <%=restaurant._id%>
                   Back
                 </button>
               </div>
