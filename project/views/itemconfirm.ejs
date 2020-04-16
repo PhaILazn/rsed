@@ -65,13 +65,13 @@
             </div>
             <div class="row">
               <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <button method="POST" type="button" href="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>" class="btn btn-success">
+                <a method="POST" href="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>" class="btn btn-success">
                   Checkout
-                </button>
-                <button type="button" href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-fail">
+                </a>
+                <a href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-danger">
                   <%=restaurant._id%>
                   Back
-                </button>
+                </a>
               </div>
             </div>
           </div>
