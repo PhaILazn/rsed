@@ -15,8 +15,8 @@ var preferences = require("./routes/preferences"),
   indexAuth = require("./routes/indexAuth"),
   shoppingcart = require('./routes/shoppingcart'),
   restaurantcategory = require("./routes/restaurantcategory"),
+  itemconfirm = require('./routes/itemconfirm'),
   shoppingcart = require("./routes/shoppingcart"),
-  itemconfirm = require("./routes/itemconfirm");
   american = require("./routes/restauranttypes/american"),
   asian = require("./routes/restauranttypes/asian"),
   indian = require("./routes/restauranttypes/indian"),
@@ -64,6 +64,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use(function(req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.session = req.session;
+  next();
 });
 
 app.set("view engine", "ejs");
@@ -81,8 +82,8 @@ app.use("/restaurantcategory", restaurantcategory);
 app.use('/restaurantprofile',restaurantprofile);
 app.use('/shoppingcart', shoppingcart);
 app.use("/", indexAuth);
-app.use("/shoppingcart",shoppingcart);
-app.use("/itemconfirm", itemconfirm);
+app.use('/shoppingcart',shoppingcart);
+app.use('/itemconfirm',itemconfirm);
 app.use("/asian", asian);
 app.use("/american", american);
 app.use("/indian", indian);
