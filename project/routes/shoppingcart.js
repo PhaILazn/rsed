@@ -21,7 +21,7 @@ router.get('/', isLoggedIn, function(req, res) {
         if(err) {
             res.redirect('/');
         }
-        res.render('/shoppingcart', {currentOrder: foundCart});
+        res.render('shoppingcart', {currentOrder: foundCart});
     });
 });
 
