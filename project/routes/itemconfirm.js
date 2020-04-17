@@ -71,7 +71,6 @@ router.post('/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
                 else if(!foundCart) {
 
                 }
-                console.log(foundCart);
                 //Add item to shopping cart and update price
                 for(var i = 0; i < quantity; ++i) {
                     foundCart.items.push(menuItemId);

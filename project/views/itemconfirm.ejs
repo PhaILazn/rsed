@@ -23,45 +23,44 @@
 </head>
 
 <!-- Body -->
+
 <body>
   <%- include("./partials/header.ejs") %>
   <header id="home-section">
     <div class="dark-overlay">
       <div class="home-inner container">
-          <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <img src="<%=orderItem.image%>" alt="<%=orderItem.name%>" width="25" height="25" />
-                  <strong style="color: #000000">
-                    <%=orderItem.name%>
-                  </strong>
-                  <span style="color: #000000">
-                    $<%=orderItem.price%>
-                  </span>
-                  <form method="POST" action="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>">
-                    <div class="form-group">
-                      <span style="color: #000000">
-                        Quantity:
-                        <input type="number" id="itemQuantity" name="itemQuantity" min="1" max="100">
-                      </span>
-                    </div>
-                    <input type="submit" value="Checkout" class="btn btn-success" />
-                  </form>
-                </li>
-              </ul>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <a href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-danger">
-                  Back
-                </a>
-              </form>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <ul class="list-group">
+              <li class="list-group-item">
+                <img src="<%=orderItem.image%>" alt="<%=orderItem.name%>" width="25" height="25" />
+                <strong style="color: #000000">
+                  <%=orderItem.name%>
+                </strong>
+                <span style="color: #000000">
+                  $<%=orderItem.price%>
+                </span>
+                <form method="POST" action="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>">
+                  <div class="form-group">
+                    <span style="color: #000000">
+                      Quantity:
+                      <input type="number" id="itemQuantity" name="itemQuantity" min="1" max="100">
+                    </span>
+                  </div>
+                  <input type="submit" value="Checkout" class="btn btn-success" />
+                  <a href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-danger">
+                    Back
+                  </a>
+                </form>
+              </li>
+            </ul>
           </div>
+          </form>
         </div>
       </div>
+    </div>
+    </div>
+    </div>
     </div>
   </header>
   <section id="explore-section" class="text-muted py-5"></section>
