@@ -20,7 +20,7 @@
     />
 
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
 
     <!-- Icon Title -->
     <title>OmNom Food Delivery</title>
@@ -36,72 +36,42 @@
     <header style="padding-top: 100px;">
       <div class="dark-overlay">
         <% if (currentOrder) { %>
-        <div class="home-inner container">
-          <% var total = 0 %> <% var itemCount = 1 %>
-          <div class="row" style="justify-content: center;">
-            <h1>
-              <b>
-                Shopping Cart
-              </b>
-            </h1>
-          </div>
-          <div class="row" style="justify-content: center;">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-              <ul class="list-group">
-                <% currentOrder.items.forEach(function(orderItem) { %>
-                <li
-                  class="list-group-item"
-                  style="background: rgb(236, 232, 0);"
-                >
-                  <span class="badge" style="color: black;">
-                    <%=itemCount%>. <% itemCount++ %>
-                  </span>
-                  <img
-                    src="<%=orderItem.image%>"
-                    alt="<%=orderItem.name%>"
-                    width="25"
-                    height="25"
-                  />
-                  <strong style="color: black;">
-                    <%=orderItem.name%>
-                  </strong>
-
-                  <button
-                    type="button"
-                    href="#"
-                    class="float-right btn btn-danger"
-                  >
-                    Remove
-                  </button>
-                  <span style="color: black;">
-                    <%=orderItem.restaurant.name%>
-
-                    <span
-                      class="float-right font-weight-bold"
-                      style="padding-right: 10px;"
-                      >$<%=orderItem.price%>
-                    </span>
-
-                    <% total += orderItem.price %>
-                  </span>
-                </li>
-                <% } ); %>
-              </ul>
+          <div class="home-inner container">
+            <% var total = 0 %>
+            <% let itemCount = 1 %>
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <ul class="list-group">
+                  <% currentOrder.items.forEach(function(orderItem) { %>
+                    <li class="list-group-item">
+                      <span class="badge" style="color: #000000">
+                        <%=itemCount%>.
+                        <%itemCount++%>
+                      </span>
+                      <img
+                        src="<%=orderItem.image%>"
+                        alt="<%=orderItem.name%>"
+                        width="25"
+                        height="25"
+                      />
+                      <strong style="color: #000000">
+                        <%=orderItem.name%> / restaurantName
+                      </strong>
+                      <span style="color: #000000">
+                        $<%=orderItem.price%>
+                        <% total += orderItem.price %>
+                      </span>
+                    </li>
+                  <% } ); %>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="d-flex justify-content-center" style="padding-top: 25px;">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-              <h3>
-                <p style="float: left;">
-                  Total: $<%=currentOrder.totalPrice%>
-                </p>
-
-                <p style="float: right;">
-                  <button type="button" href="#" class="btn btn-success">
-                    Checkout
-                  </button>
-                </p>
-              </h3>
+            <div class="row">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+                <strong>
+                  Total: $<%=total%>
+                </strong>
+              </div>
             </div>
           </div>
           <div class="row" style="align-items: right;">
