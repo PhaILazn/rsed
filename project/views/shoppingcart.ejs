@@ -40,6 +40,13 @@
             <% var total = 0 %>
             <% var itemCount = 1 %>
             <div class="row">
+              <h1>
+                <b>
+                  Your current shopping cart:
+                </b>
+              </h1>
+            </div>
+            <div class="row">
               <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <ul class="list-group">
                   <% currentOrder.items.forEach(function(orderItem) { %>
@@ -55,26 +62,30 @@
                         height="25"
                       />
                       <strong style="color: #000000">
-                        <%=orderItem.name%> / restaurantName
+                        <%=orderItem.name%>
                       </strong>
                       <span style="color: #000000">
+                        / <%=orderItem.restaurant.name%> / 
                         $<%=orderItem.price%>
                         <% total += orderItem.price %>
                       </span>
+                      <button type="button" href="#" class="btn btn-danger">
+                        Remove
+                      </button>
                     </li>
                   <% } ); %>
                 </ul>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-right">
                 <strong>
                   Total: $<%=currentOrder.totalPrice%>
                 </strong>
               </div>
             </div>
             <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-right">
                 <button type="button" href="#" class="btn btn-success">
                   Checkout
                 </button>
