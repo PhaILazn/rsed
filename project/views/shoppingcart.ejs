@@ -33,72 +33,81 @@
 
   <body>
     <%- include("./partials/header.ejs") %>
-    <header id="home-section">
+    <header id="container" style="padding-top: 100px;">
       <div class="dark-overlay">
         <% if (currentOrder) { %>
-          <div class="home-inner container">
-            <% var total = 0 %>
-            <% var itemCount = 1 %>
-            <div class="row">
-              <h1>
-                <b>
-                  Your current shopping cart:
-                </b>
-              </h1>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                <ul class="list-group">
-                  <% currentOrder.items.forEach(function(orderItem) { %>
-                    <li class="list-group-item">
-                      <span class="badge" style="color: #000000">
-                        <%=itemCount%>.
-                        <% itemCount++ %>
-                      </span>
-                      <img
-                        src="<%=orderItem.image%>"
-                        alt="<%=orderItem.name%>"
-                        width="25"
-                        height="25"
-                      />
-                      <strong style="color: #000000">
-                        <%=orderItem.name%>
-                      </strong>
-                      <span style="color: #000000">
-                        / <%=orderItem.restaurant.name%> / 
-                        $<%=orderItem.price%>
-                        <% total += orderItem.price %>
-                      </span>
-                      <button type="button" href="#" class="btn btn-danger">
-                        Remove
-                      </button>
-                    </li>
-                  <% } ); %>
-                </ul>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-right">
-                <strong>
-                  Total: $<%=currentOrder.totalPrice%>
-                </strong>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3 text-right">
-                <button type="button" href="#" class="btn btn-success">
-                  Checkout
-                </button>
-              </div>
+        <div class="home-inner container">
+          <% var total = 0 %> <% var itemCount = 1 %>
+          <div class="row" style="justify-content: center;">
+            <h1>
+              <b>
+                Shopping Cart
+              </b>
+            </h1>
+          </div>
+          <div class="row" style="justify-content: center;">
+            <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+              <ul class="list-group">
+                <% currentOrder.items.forEach(function(orderItem) { %>
+                <li
+                  class="list-group-item"
+                  style="background: rgb(206, 202, 0);"
+                >
+                  <span class="badge" style="color: black;">
+                    <%=itemCount%>. <% itemCount++ %>
+                  </span>
+                  <img
+                    src="<%=orderItem.image%>"
+                    alt="<%=orderItem.name%>"
+                    width="25"
+                    height="25"
+                  />
+                  <strong style="color: black;">
+                    <%=orderItem.name%>
+                  </strong>
+                  <span style="color: black;">
+                    / <%=orderItem.restaurant.name%> / $<%=orderItem.price%> <%
+                    total += orderItem.price %>
+                  </span>
+                  <button
+                    type="button"
+                    href="#"
+                    class="btn btn-danger float-right"
+                  >
+                    Remove
+                  </button>
+                </li>
+                <% } ); %>
+              </ul>
             </div>
           </div>
+          <div class="row">
+            <div
+              class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3"
+              style="text-align: right; padding-left: 50px;"
+            >
+              <h3>
+                Total: $<%=currentOrder.totalPrice%>
+              </h3>
+            </div>
+          </div>
+          <div class="row" style="align-items: right;">
+            <div
+              class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3"
+              style="text-align: right; padding-bottom: 75px;"
+            >
+              <button type="button" href="#" class="btn btn-success">
+                Checkout
+              </button>
+            </div>
+          </div>
+        </div>
         <% } else { %>
-          <h1 align="center" style="padding-top: 250px; color:#ff0000">
-            <b>
-              You haven't added anything yet! Get to it!
-              <%=currentOrder%>
-            </b>
-          </h1>
+        <h1 align="center" style="padding-top: 250px; color: #ff0000;">
+          <b>
+            You haven't added anything yet! Get to it! <%=currentOrder%>
+          </b>
+        </h1>
         <% } %>
       </div>
     </header>
