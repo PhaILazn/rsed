@@ -7,13 +7,13 @@ const Order = require('../models/order');
 const Preference = require('../models/preference');
 const Restaurant = require('../models/restaurant');
 const Review = require('../models/review');
-const Cart = require('../models/cart');
+const Cart = require('../models/shoppingcart');
 
 const router = express.Router();
 const ShoppingCart = require('../models/shoppingcart');
 
 router.get('/', isLoggedIn, function(req, res) {
-    ShoppingCart.findById(req.user.shoppingCart)
+    Cart.findById(req.user.shoppingCart)
     .populate({
         path: 'items',
     })

@@ -7,12 +7,13 @@ const Order = require('../models/order');
 const Preference = require('../models/preference');
 const Restaurant = require('../models/restaurant');
 const Review = require('../models/review');
-const Cart = require('../models/cart');
+const Cart = require('../models/shoppingcart');
 
 const router = express.Router();
 
 router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     //Finding restaurant to reroute back to restaurant if failed to find item id
+    console.log("in get");
     Restaurant.findById(req.params.restaurantid).populate('reviews address')
     .populate({
         path: 'menus',
@@ -39,11 +40,12 @@ router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     });
 });
 
-router.post('/additem/:restaurantid/:itemid/:quantity', isLoggedIn,  async(req, res) => {
+router.post('/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
     var menuItemId = req.params.itemid;
-    var quantity = req.params.quantity;
+    var quantity = req.body.itemQuantity;
+    console.log("in post");
     //Check if menuitem exists
-    Restaurant.findById(req.params.id).populate('reviews address')
+    Restaurant.findById(req.params.restaurantid).populate('reviews address')
     .populate({
         path: 'menus',
         populate:{
@@ -54,21 +56,25 @@ router.post('/additem/:restaurantid/:itemid/:quantity', isLoggedIn,  async(req, 
         if(err) {
             res.redirect('/');
         }
-        req.session.restaurant = foundRestaurant;
         MenuItem.findById(menuItemId)
         .exec(function(err, foundItem) {
             if(err) {
                 res.redirect('/restaurantprofile/' + foundRestaurant._id);
             }
+            console.log(foundRestaurant);
             //If cart exists then get user shopping cart from db
-            ShoppingCart.findById(req.user.shoppingcart)
-            .then(function(err, foundCart) {
+            Cart.findById(req.user.shoppingCart)
+            .exec(function(err, foundCart) {
                 if(err) {
                     res.redirect('/restaurantprofile/' + foundRestaurant._id);
                 }
+                else if(!foundCart) {
+
+                }
+                console.log(foundCart);
                 //Add item to shopping cart and update price
                 for(var i = 0; i < quantity; ++i) {
-                    foundCart.push(menuItemId);
+                    foundCart.items.push(menuItemId);
                 }
                 foundCart.totalPrice = foundCart.totalPrice + (foundItem.price * quantity);
                 foundCart.save();

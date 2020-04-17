@@ -23,7 +23,6 @@
 </head>
 
 <!-- Body -->
-
 <body>
   <%- include("./partials/header.ejs") %>
   <header id="home-section">
@@ -40,10 +39,15 @@
                   <span style="color: #000000">
                     $<%=orderItem.price%>
                   </span>
-                  <span style="color: #000000">
-                    Quantity:
-                    <input type="number" id="itemQuantity" name="itemQuantity" min="1" max="100">
-                  </span>
+                  <form method="POST" action="/itemconfirm/<%=restaurant._id%>/<%=orderItem._id%>">
+                    <div class="form-group">
+                      <span style="color: #000000">
+                        Quantity:
+                        <input type="number" id="itemQuantity" name="itemQuantity" min="1" max="100">
+                      </span>
+                    </div>
+                    <input type="submit" value="Checkout" class="btn btn-success" />
+                  </form>
                 </li>
               </ul>
             </div>
@@ -55,6 +59,7 @@
                 <a href="/restaurantprofile/<%=restaurant._id%>" class="btn btn-danger">
                   Back
                 </a>
+              </form>
               </div>
             </div>
           </div>
