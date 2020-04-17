@@ -200,13 +200,13 @@ a.thumbnail:focus {
   padding: 4px 4px 4px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: red;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 .sidepanel a:hover {
-  color: red;
+  color: white;
 }
 
 .sidepanel .closebtn {
@@ -220,7 +220,7 @@ a.thumbnail:focus {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
-  color: red;
+  color: white;
   padding: 10px 15px;
   border: none;
 }
