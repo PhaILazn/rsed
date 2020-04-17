@@ -35,7 +35,7 @@
     <%- include("./partials/header.ejs") %>
     <header id="home-section">
       <div class="dark-overlay">
-        <% if (!currentOrder) { %>
+        <% if (currentOrder) { %>
           <div class="home-inner container">
             <% var total = 0 %>
             <% var itemCount = 1 %>
@@ -46,7 +46,7 @@
                     <li class="list-group-item">
                       <span class="badge" style="color: #000000">
                         <%=itemCount%>.
-                        <% itemcount++ %>
+                        <% itemCount++ %>
                       </span>
                       <img
                         src="<%=orderItem.image%>"
@@ -69,7 +69,7 @@
             <div class="row">
               <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
                 <strong>
-                  Total: $<%=currentOrder.total%>
+                  Total: $<%=currentOrder.totalPrice%>
                 </strong>
               </div>
             </div>
@@ -85,6 +85,7 @@
           <h1 align="center" style="padding-top: 250px; color:#ff0000">
             <b>
               You haven't added anything yet! Get to it!
+              <%=currentOrder%>
             </b>
           </h1>
         <% } %>
