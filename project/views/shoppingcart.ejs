@@ -20,7 +20,7 @@
     />
 
     <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/style.css" />
 
     <!-- Icon Title -->
     <title>OmNom Food Delivery</title>
@@ -49,11 +49,8 @@
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <ul class="list-group">
                 <% currentOrder.items.forEach(function(orderItem) { %>
-                <li
-                  class="list-group-item"
-                  style="background: rgb(236, 232, 0);"
-                >
-                  <span class="badge" style="color: black;">
+                <li class="list-group-item" style="background: red;">
+                  <span class="badge" style="color: #ffd700;">
                     <%=itemCount%>. <% itemCount++ %>
                   </span>
                   <img
@@ -62,18 +59,19 @@
                     width="25"
                     height="25"
                   />
-                  <strong style="color: black;">
+                  <strong style="color: #ffd700;">
                     <%=orderItem.name%>
                   </strong>
 
                   <button
                     type="button"
                     href="#"
-                    class="float-right btn btn-danger"
+                    class="float-right btn btn-sm"
+                    style="background-color: white;"
                   >
                     Remove
                   </button>
-                  <span style="color: black;">
+                  <span style="color: #ffd700;">
                     <%=orderItem.restaurant.name%>
 
                     <span
@@ -89,7 +87,7 @@
               </ul>
             </div>
           </div>
-          <div class="d-flex justify-content-center" style="padding-top: 25px;">
+          <div class="d-flex justify-content-center" style="padding-top: 10px;">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <h3>
                 <p style="float: left;">
@@ -97,7 +95,16 @@
                 </p>
 
                 <p style="float: right;">
-                  <button type="button" href="#" class="btn btn-success">
+                  <button
+                    type="button"
+                    href="#"
+                    class="btn"
+                    style="
+                      background-color: red;
+                      color: white;
+                      font-weight: bold;
+                    "
+                  >
                     Checkout
                   </button>
                 </p>
