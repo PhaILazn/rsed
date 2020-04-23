@@ -32,7 +32,7 @@ router.get('/remove/:id', isLoggedIn, function(req, res) {
     })
     .exec(function(err, foundCart) {
         for(var i = 0; i < foundCart.items.length; ++i) {
-            console.log(foundCart.items[i]._id);
+            // console.log(foundCart.items[i]._id);
             if(foundCart.items[i]._id == req.params.id) {
                 foundCart.totalPrice = foundCart.totalPrice - foundCart.items[i].price;
                 foundCart.items.splice(i,i + 1);
