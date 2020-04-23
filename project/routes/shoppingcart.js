@@ -41,14 +41,33 @@ router.get('/remove/:id', isLoggedIn, function(req, res) {
         }
         foundCart.save();
     });
-    // Cart.updateOne(
-    //     {"_id": req.user.shoppingCart},
-    //     {"$pull": {"items": req.params.id}},
-    //     function(err, status) {
-    //         console.log(status);
-    //     }
-    // );
     res.redirect('/shoppingcart');
+});
+
+//Route to place order
+router.get('/checkout', isLoggedIn, function(req, res) {
+    Cart.findById(req.user.shoppingCart)
+    .populate({
+        path: 'items',
+    })
+    .exec(function(err, foundCart) {
+        if(err) {
+            res.redirect('/');
+        }
+        var newOrder = new Order({
+            orderItems: foundCart.items,
+            totalPrice: foundCart.totalPrice,
+            date: new Date(),
+        }
+        )
+        req.user.orderHistory.push(newOrder._id);
+        newOrder.save();
+        req.user.save();
+        foundCart.items.splice(0,foundCart.items.length);
+        foundCart.totalPrice = 0;
+        foundCart.save();
+        res.redirect('/shoppingcart');
+    });
 });
 
 function isLoggedIn(req,res,next){

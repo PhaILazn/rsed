@@ -13,7 +13,6 @@ const router = express.Router();
 
 router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
     //Finding restaurant to reroute back to restaurant if failed to find item id
-    console.log("in get");
     Restaurant.findById(req.params.restaurantid).populate('reviews address')
     .populate({
         path: 'menus',
@@ -43,7 +42,6 @@ router.get('/:restaurantid/:itemid', isLoggedIn, async(req, res) => {
 router.post('/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
     var menuItemId = req.params.itemid;
     var quantity = req.body.itemQuantity;
-    console.log("in post");
     //Check if menuitem exists
     Restaurant.findById(req.params.restaurantid).populate('reviews address')
     .populate({
@@ -61,7 +59,6 @@ router.post('/:restaurantid/:itemid', isLoggedIn,  async(req, res) => {
             if(err) {
                 res.redirect('/restaurantprofile/' + foundRestaurant._id);
             }
-            console.log(foundRestaurant);
             //If cart exists then get user shopping cart from db
             Cart.findById(req.user.shoppingCart)
             .exec(function(err, foundCart) {
