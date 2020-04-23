@@ -35,51 +35,28 @@
     <%- include("./partials/header.ejs") %>
     <header style="padding-top: 100px;">
       <div class="dark-overlay">
-        <% if (currentOrder.price != 0) { %>
         <div class="home-inner container">
-          <% var total = 0 %> <% var itemCount = 1 %>
           <div class="row" style="justify-content: center;">
             <h1>
               <b>
-                Shopping Cart
+                Previous Orders
               </b>
             </h1>
           </div>
           <div class="row" style="justify-content: center;">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <ul class="list-group">
-                <% currentOrder.items.forEach(function(orderItem) { %>
-                <li class="list-group-item" style="background: red;">
-                  <span class="badge" style="color: #ffd700;">
-                    <%=itemCount%>. <% itemCount++ %>
-                  </span>
-                  <img
-                    src="<%=orderItem.image%>"
-                    alt="<%=orderItem.name%>"
-                    width="25"
-                    height="25"
-                  />
-                  <strong style="color: #ffd700;">
-                    <%=orderItem.name%>
-                  </strong>
-
+                <% orderHistory.items.forEach(function(order) { %>
+                <li class="list-group-item" style="background: darkred;">
+                  <%=order._id%>
                   <a
                     type="button"
-                    href="shoppingcart/remove/<%=orderItem._id%>"
+                    href="#"
                     class="float-right btn btn-sm"
                     style="background-color: white;"
                   >
-                    Remove
+                    View History
                   </a>
-                  <span style="color: #ffd700;">
-                    <span
-                      class="float-right font-weight-bold"
-                      style="padding-right: 10px;"
-                      >$<%=orderItem.price%>
-                    </span>
-
-                    <% total += orderItem.price %>
-                  </span>
                 </li>
                 <% } ); %>
               </ul>
@@ -88,22 +65,18 @@
           <div class="d-flex justify-content-center" style="padding-top: 10px;">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <h3>
-                <p style="float: left;">
-                  Total: $<%=currentOrder.totalPrice%>
-                </p>
-
                 <p style="float: right;">
                   <a
                     type="button"
-                    href="shoppingcart/checkout"
+                    href="#"
                     class="btn"
                     style="
-                      background-color: green;
+                      background-color: darkblue;
                       color: white;
                       font-weight: bold;
                     "
                   >
-                    Checkout
+                    Back
                 </a>
                 </p>
               </h3>
@@ -116,13 +89,6 @@
             ></div>
           </div>
         </div>
-        <% } else { %>
-        <h1 align="center" style="padding-top: 250px; color: #ff0000;">
-          <b>
-            You haven't added anything yet! Get to it!
-          </b>
-        </h1>
-        <% } %>
       </div>
     </header>
     <section id="explore-section" class="text-muted py-5"></section>

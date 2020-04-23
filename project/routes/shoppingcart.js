@@ -26,7 +26,6 @@ router.get('/', isLoggedIn, function(req, res) {
 
 //Route to remove item from a shopping cart
 router.get('/remove/:id', isLoggedIn, async(req, res) => {
-    console.log("Delete 1");
     Cart.findById(req.user.shoppingCart)
     .populate({
         path: 'items',
@@ -34,7 +33,6 @@ router.get('/remove/:id', isLoggedIn, async(req, res) => {
     .exec(async(err, foundCart) => {
         for(var i = 0; i < foundCart.items.length; ++i) {
             if(foundCart.items[i]._id == req.params.id) {
-                console.log(foundCart.items[i]._id);
                 foundCart.totalPrice = foundCart.totalPrice - foundCart.items[i].price;
                 foundCart.items.splice(i,1);
                 i = foundCart.items.lenght + 1;
