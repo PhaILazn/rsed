@@ -35,7 +35,7 @@
     <%- include("./partials/header.ejs") %>
     <header style="padding-top: 100px;">
       <div class="dark-overlay">
-        <% if (!currentOrder.price == 0) { %>
+        <% if (currentOrder.price != 0) { %>
         <div class="home-inner container">
           <% var total = 0 %> <% var itemCount = 1 %>
           <div class="row" style="justify-content: center;">
@@ -63,14 +63,14 @@
                     <%=orderItem.name%>
                   </strong>
 
-                  <button
+                  <a
                     type="button"
-                    href="#"
+                    href="shoppingcart/remove/<%=orderItem._id%>"
                     class="float-right btn btn-sm"
                     style="background-color: white;"
                   >
                     Remove
-                  </button>
+                  </a>
                   <span style="color: #ffd700;">
                     <%=orderItem.restaurant.name%>
 
