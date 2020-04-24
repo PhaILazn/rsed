@@ -14,6 +14,7 @@ var preferences = require("./routes/preferences"),
   restaurantprofile = require("./routes/restaurantprofile"),
   indexAuth = require("./routes/indexAuth"),
   shoppingcart = require("./routes/shoppingcart"),
+  orderhistory = require("./routes/orderhistory"),
   restaurantcategory = require("./routes/restaurantcategory"),
   itemconfirm = require("./routes/itemconfirm"),
   shoppingcart = require("./routes/shoppingcart"),
@@ -82,6 +83,7 @@ app.use("/restaurantPop", restaurantPop);
 app.use("/restaurantcategory", restaurantcategory);
 app.use("/restaurantprofile", restaurantprofile);
 app.use("/shoppingcart", shoppingcart);
+app.use("/orderhistory", orderhistory);
 app.use("/", indexAuth);
 app.use("/shoppingcart", shoppingcart);
 app.use("/itemconfirm", itemconfirm);
