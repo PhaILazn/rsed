@@ -1,141 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Fancy Fonts, Icons, and Logos -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap Link -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-      crossorigin="anonymous"
-    />
 
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Fancy Fonts, Icons, and Logos -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
 
-    <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="/public/css/style.css" />
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script>function printButton() {
+      window.print();
+    }</script>
 
-    <!-- Icon Title -->
-    <title>OmNom Food Delivery</title>
+  <!-- CSS StyleSheet -->
+  <link rel="stylesheet" href="/public/css/style.css" />
 
-    <!-- rSed Title Icon -->
-    <link rel="icon" href="/public/img/rSedLogo.png" type="image/icon type" />
-  </head>
+  <!-- Icon Title -->
+  <title>OmNom Food Delivery</title>
 
-  <body>
-    <%- include("./partials/header.ejs") %>
-      <div class="container" style="margin-left: 100px; padding-bottom: 50px; padding-top: 100px; ">
-        <div class="row">
-          <div
-            class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3"
-          >
-            <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6">
-                <address>
-                  <strong>Elf Cafe</strong>
-                  <br />
-                  <%=restaurant[1].address.houseNum%> <%=restaurant.address%>,
-                  <br />
-                  Los Angeles, CA 90026
-                  <br />
-                  <abbr title="Phone">P:</abbr> (213) 484-6829
-                </address>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                <p>
-                  <em>Date: 1st November, 2013</em>
-                </p>
-                <p>
-                  <em>Receipt #: 34522677W</em>
-                </p>
-              </div>
+  <!-- rSed Title Icon -->
+  <link rel="icon" href="/public/img/rSedLogo.png" type="image/icon type" />
+</head>
+
+<body>
+  <%- include("./partials/header.ejs") %>
+  <header style="padding-top: 100px;">
+    <div class="row" style="justify-content: center;">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+        <h1 class="h6">Date: <%=orderHistory.orderHistory[0].date%> </h1>
+        <h2 class="h6">Order Number: </h2>
+        <ul class="list-group">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>#</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Total</th>
+              </tr>
+            </thead>
+          </table> 
+                  
+          <div class="row">
+            <div class="col" style="padding-right: 20px;">
+              <% for(var j = 0; j<orderHistory.orderHistory[1].orderItems.length; j++) {%>
+                <%=orderHistory.orderHistory[1].orderItems[j].name; %>
+                <br>
+                <br>
+                <%};%>
+
             </div>
-            <div class="row">
-              <div class="text-center">
-                <h1>Receipt</h1>
-              </div>
-
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>#</th>
-                    <th class="text-center">Price</th>
-                    <th class="text-center">Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="col-md-9"><em>asdf</em></td>
-                    <td class="col-md-1" style="text-align: center;">2</td>
-                    <td class="col-md-1 text-center">$13</td>
-                    <td class="col-md-1 text-center">$26</td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-9"><em>Lebanese Cabbage Salad</em></td>
-                    <td class="col-md-1" style="text-align: center;">1</td>
-                    <td class="col-md-1 text-center">$8</td>
-                    <td class="col-md-1 text-center">$8</td>
-                  </tr>
-                  <tr>
-                    <td class="col-md-9">
-                      <em>Baked Tart with Thyme and Garlic</em>
-                    </td>
-                    <td class="col-md-1" style="text-align: center;">3</td>
-                    <td class="col-md-1 text-center">$16</td>
-                    <td class="col-md-1 text-center">$48</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-right">
-                      <p>
-                        <strong>Subtotal: </strong>
-                      </p>
-                      <p>
-                        <strong>Tax: </strong>
-                      </p>
-                    </td>
-                    <td class="text-center">
-                      <p>
-                        <strong>$6.94</strong>
-                      </p>
-                      <p>
-                        <strong>$6.94</strong>
-                      </p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td></td>
-                    <td class="text-right">
-                      <h4><strong>Total: </strong></h4>
-                    </td>
-                    <td class="text-center text-danger">
-                      <h4><strong>$31.53</strong></h4>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-              <button type="button" class="btn btn-success btn-lg btn-block">
-                Pay Now <span class="glyphicon glyphicon-chevron-right"></span>
-              </button>
+            
+            <div class="col">                           
+              1
+              <br>
+              <br>
+              1
             </div>
+
+            
+
+            <div class="col">
+              <% for(var j = 0; j<orderHistory.orderHistory[1].orderItems.length; j++) {%>
+                <%=orderHistory.orderHistory[1].orderItems[j].price;%>
+                <br>
+                <br>
+                <%};%>
+            </div>
+            <div class="col">             
+              35
+              <br>
+              <br>
+              25
+            </div>  
           </div>
-        </div>
+        </ul>
       </div>
-    </header>
-    <!-- FOOTER -->
-    <%- include("./partials/footer.ejs") %>
-  </body>
+      
+    </div>
+    <div style="padding-left: 60%; padding-bottom: 20px; color: rgb(182, 30, 30)">
+      <h5>Total Spent: <%=orderHistory.orderHistory[1].totalPrice%></h6>
+    </div>
+    <div style="padding-left: 45%; padding-bottom: 20px">
+    <button class="btn btn-primary hidden-print" onclick="printButton()">      
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Receipt
+    </button>
+    </div>
+    
+    
+  </header>
+  <!-- FOOTER -->
+  <%- include("./partials/footer.ejs") %>
+</body>
+
 </html>
