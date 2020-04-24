@@ -3,8 +3,8 @@ var express = require("express"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
-  session = require('express-session'),
-  mongoStore = require('connect-mongo')(session);
+  session = require("express-session"),
+  mongoStore = require("connect-mongo")(session);
 
 var preferences = require("./routes/preferences"),
   profile = require("./routes/profile"),
@@ -13,10 +13,11 @@ var preferences = require("./routes/preferences"),
   restaurantPop = require("./routes/restaurantPop"),
   restaurantprofile = require("./routes/restaurantprofile"),
   indexAuth = require("./routes/indexAuth"),
-  shoppingcart = require('./routes/shoppingcart'),
-  restaurantcategory = require("./routes/restaurantcategory"),
-  itemconfirm = require('./routes/itemconfirm'),
   shoppingcart = require("./routes/shoppingcart"),
+  restaurantcategory = require("./routes/restaurantcategory"),
+  itemconfirm = require("./routes/itemconfirm"),
+  shoppingcart = require("./routes/shoppingcart"),
+  receipt = require("./routes/receipt"),
   american = require("./routes/restauranttypes/american"),
   asian = require("./routes/restauranttypes/asian"),
   indian = require("./routes/restauranttypes/indian"),
@@ -35,24 +36,24 @@ mongoose.connect(
   {
     useCreateIndex: true,
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   },
   () => console.log("Connected to database")
 );
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection error:"));
-db.once("open", function() {
+db.once("open", function () {
   console.log("Connection Successful!");
 });
 
 app.use(
-  session(({
+  session({
     secret: "butthole",
     resave: false,
     saveUninitialized: false,
-    store: new mongoStore({mongooseConnection: mongoose.connection}),
-    cookie: {maxAge:  30 * 60 * 1000}
-  }))
+    store: new mongoStore({ mongooseConnection: mongoose.connection }),
+    cookie: { maxAge: 30 * 60 * 1000 },
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
@@ -61,7 +62,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.locals.currentUser = req.user;
   res.locals.session = req.session;
   next();
@@ -79,20 +80,21 @@ app.use("/profile", profile);
 app.use("/editProfile", editProfile);
 app.use("/restaurantPop", restaurantPop);
 app.use("/restaurantcategory", restaurantcategory);
-app.use('/restaurantprofile',restaurantprofile);
-app.use('/shoppingcart', shoppingcart);
+app.use("/restaurantprofile", restaurantprofile);
+app.use("/shoppingcart", shoppingcart);
 app.use("/", indexAuth);
-app.use('/shoppingcart',shoppingcart);
-app.use('/itemconfirm',itemconfirm);
+app.use("/shoppingcart", shoppingcart);
+app.use("/itemconfirm", itemconfirm);
 app.use("/asian", asian);
 app.use("/american", american);
 app.use("/indian", indian);
 app.use("/italian", italian);
 app.use("/mediterranean", mediterranean);
 app.use("/mexican", mexican);
+app.use("/receipt", receipt);
 
 //added this for testing purposes
-app.get("/secret", isLoggedIn, function(req, res) {
+app.get("/secret", isLoggedIn, function (req, res) {
   res.render("secret");
 });
 //testingggg
