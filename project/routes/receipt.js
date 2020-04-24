@@ -1,9 +1,5 @@
 const express = require("express");
-const Address = require("../models/address");
-const Preference = require("../models/preference");
-const MenuItem = require("../models/menuitem");
-const Menu = require("../models/menu");
-const Review = require("../models/review");
+
 const Restaurant = require("../models/restaurant");
 
 const router = express.Router();
@@ -12,17 +8,19 @@ const router = express.Router();
   res.render("receipt");
 });*/
 
-router.get("/", async function (req, res) {
+router.get("/", function (req, res) {
   //Search db for user by ObjectId
-  Restaurant.findById(req.params.id)
-    .populate("items address")
-    .exec(function (err, foundRestaurant) {
-      if (err) {
-        res.render("/");
-      } else {
-        res.render("receipt", { receipt: foundRestaurant });
-      }
-    });
+  Restaurant.find(req.params).populate("address").populate({
+    path: 'menus',
+    populate:{
+      path: "menuItems",
+    }
+  }).exec(function(err,foundRestaurant){
+    if(err){
+      res.redirect('/');
+    }
+    res.render('receipt',{restaurant: foundRestaurant})
+  })
 });
 
 module.exports = router;

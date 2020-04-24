@@ -49,7 +49,7 @@
               <% orderHistory.orderHistory.forEach(function(order) { %>
               <li class="list-group-item" style="background: darkred;">
                 <%=moment(order.date).format('MMMM Do YYYY, h:mm:ss a')%>
-                <a type="button" href="#" class="float-right btn btn-sm" style="background-color: white;">
+                <a type="button" href="/receipt" class="float-right btn btn-sm" style="background-color: white;">
                   View History
                 </a>
               </li>
