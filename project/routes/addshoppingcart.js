@@ -11,6 +11,7 @@ router.post("/addCart", (req, res) => {
     .save()
     .then(result => {
         console.log(result);
+        res.send(result);
     })
     .catch(err => {
         console.log(err);
