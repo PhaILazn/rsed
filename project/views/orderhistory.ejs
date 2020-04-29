@@ -46,19 +46,19 @@
           <div class="row" style="justify-content: center;">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <ul class="list-group">
-                <% if (orderHistory.orderHistory.length == 0) { %>
-                <h1 align="center" style="padding-top: 250px; color: #ff0000;">
+                <% if (order.orderHistory.length == 0) { %>
+                <h1 align="center" style="padding-top: 50px; color: #ff0000;">
                   <b>
-                    There are no orders yet! GET ORDERING MAGGOT!!!
+                    There are no orders yet!
                   </b>
                 </h1>
                 <% } else { %> <%
-                orderHistory.orderHistory.forEach(function(order) { %>
+                order.orderHistory.forEach(function(order) { %>
                 <li class="list-group-item" style="background: darkred;">
                   <%=moment(order.date).format('MMMM Do YYYY, h:mm:ss a')%>
                   <a
                     type="button"
-                    href="/receipt"
+                    href="/receipt/<%=order._id%>"
                     class="float-right btn btn-sm"
                     style="background-color: white;"
                   >

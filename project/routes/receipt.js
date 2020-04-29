@@ -1,5 +1,6 @@
 const express = require("express");
 const User = require("../models/user");
+const Order = require("../models/order");
 var moment = require("moment");
 
 const router = express.Router();
@@ -26,23 +27,14 @@ const router = express.Router();
     });
 });*/
 
-router.get("/", isLoggedIn, function (req, res) {
-  User.findById(req.user)
-    .populate({
-      path: "orderHistory",
-      populate: {
-        path: "orderItems",
-      },
-    })
+router.get("/:id", isLoggedIn, function (req, res) {
+  Order.findById(req.params.id)
+    .populate("orderItems")
     .exec(function (err, foundorder) {
       if (err) {
         res.redirect("/");
       }
-      for (var i = 0; i < foundorder.orderHistory.length; i++) {
-        console.log(foundorder.orderHistory[i]);
-      }
-
-      res.render("receipt", { orderHistory: foundorder, moment: moment });
+      res.render("receipt", { order: foundorder, moment: moment });
     });
 });
 

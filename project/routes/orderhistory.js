@@ -11,7 +11,7 @@ router.get('/', isLoggedIn, function(req,res){
         if(err){
             res.redirect('/');
         }
-        res.render('orderhistory',{orderHistory: foundorder,moment:moment});
+        res.render('orderhistory',{order: foundorder,moment:moment});
     });
   
 });
