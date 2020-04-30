@@ -14,9 +14,12 @@
 
   <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
   <script>function printButton() {
       window.print();
     }</script>
+
+  
 
   <!-- CSS StyleSheet -->
   <link rel="stylesheet" href="/public/css/style.css" />
@@ -30,65 +33,53 @@
 
 <body>
   <%- include("./partials/header.ejs") %>
-  <header style="padding-top: 100px;">
-    <div class="row" style="justify-content: center;">
-      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-        <h1 class="h6">Date: <%=order.date%> </h1>
-        <ul class="list-group">
-          <table class="table table-hover">
+  <div style="padding-left: 10px; padding-top:75px">
+
+    <button class="btn btn-primary hidden-print"  onclick="printButton()">      
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Receipt
+    </button>
+    
+  
+    <div class="row" style="padding-top: 20px;">
+      <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3" >
+        <h1 class="h6">Date: <%=order.date%></h1>     
+        <h2 class="h6">Order Number:  <span id="random"></span> </h2>        
+          <table class="table" style="width:75%;">
             <thead>
               <tr>
-                <th>Item</th>
-                <th>#</th>
-                <th>Price</th>
+                <th scope="col" style="padding-right: 200px">Item</th>               
+                <th scope="col">Price</th>
               </tr>
             </thead>
           </table> 
-                  
           <div class="row">
-            <div class="col" style="padding-right: 35px;">
+            <div class="column" style="padding-left: 20px; width:50%">
               <% order.orderItems.forEach(function(orderItems){ %>
                 <%=orderItems.name%>
-                <br>
-                <br>
-             <% }) %>
-
-            </div>
-            
-            <div class="col">                           
-              <% order.orderItems.forEach(function(orderItems){ %>
-                1
-                <br>
-                <br>
+                <br />
                 <% }) %>
-            </div>
-
-            <div class="col">   
-              <% order.orderItems.forEach(function(orderItems){ %>
-                <%var total%>
-                <%=orderItems.price;%>
-                <br>
-                <br>
-              <%});%>
+                
             </div>  
+            <div class="column" style=" padding-left: 73px; padding-bottom: 20px; width:50%"> 
+              <% order.orderItems.forEach(function(orderItems){ %>
+                $<%var total%>
+                <%=orderItems.price;%>   
+                <br />                
+              <%});%>            
+            </div>           
           </div>
-        </ul>
-      </div>
-      
+          <div style="padding-top: 10px; padding-bottom: 10px;  color:#ffd700; ">
+            <h5 style="padding-left: 5px; background-color: black; width: 20%;">Total: $<%=order.totalPrice%></h6>
+          </div>         
+      </div>         
     </div>
-    <div style="padding-left: 60%; padding-bottom: 20px; color: rgb(182, 30, 30)">
-      <h5>Total Spent: <%=order.totalPrice%></h6>
-    </div>
-    <div style="padding-left: 45%; padding-bottom: 20px">
-    <button class="btn btn-primary hidden-print" onclick="printButton()">      
-        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Print Receipt
-    </button>
-    </div>
-    
-    
-  </header>
+  </div>
   <!-- FOOTER -->
   <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
+
+<script>
+  document.getElementById("random").innerHTML = Math.floor(Math.random() * 1000000);
+</script>
