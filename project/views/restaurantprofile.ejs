@@ -1,83 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <!-- Fancy Fonts, Icons, and Logos -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap Link -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-      crossorigin="anonymous"
-    />
 
-    <!-- CSS StyleSheet -->
-    <link rel="stylesheet" href="../public/css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Fancy Fonts, Icons, and Logos -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+    integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+  <!-- Bootstrap Link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
 
-    <!-- Icon Title -->
-    <title>OmNom Food Delivery</title>
+  <!-- CSS StyleSheet -->
+  <link rel="stylesheet" href="../public/css/style.css" />
 
-    <!-- rSed Title Icon -->
-    <link rel="icon" href="../public/img/rSedLogo.png" type="" />
-  </head>
+  <!-- Icon Title -->
+  <title>OmNom Food Delivery</title>
 
-  <body>
-    <%- include("./partials/header.ejs") %>
-    <header id="home-section">
-      <div class="dark-overlay">
-        <h1 align="center" style="padding-top: 75px; color: #ffd700;">
-          <b>
-            <u>
-              <%=restaurant.name%>
-            </u>
-          </b>
-        </h1>
-        <h3 align="center" ; style="padding-top: 5px;">
-          <i>
-            <%=restaurant.address.houseNum%> <%=restaurant.address.street%>,
-            <%=restaurant.address.city%>, CA <%=restaurant.address.zipcode%>
-            <br />
-            +1 626-652-9821
-          </i>
-        </h3>
-        <hr />
-        <% restaurant.menus.forEach(function(menu) { %>
-        <h1 align="center" style="padding-top: 5px; color: #ffd700;">
-          <b>
-            <%=menu.name%>
-          </b>
-        </h1>
-        <div id="container" class="cols" align="center">
-          <% menu.menuItems.forEach(function(menuItem) { %>
-          <div class="box">
-            <a
-              href="/itemconfirm/<%=restaurant._id%>/<%=menuItem._id%>"
-              style="text-decoration: none;"
-            >
-              <img
-                src="<%=menuItem.image%>"
-                alt="<%=menuItem.name%>"
-                class="image"
-              />
-              <div class="name">
-                <p style="color: #ffffff;">
-                  <%=menuItem.name%> / $<%=menuItem.price%>.00
-                </p>
-              </div>
-            </a>
-          </div>
-          <% } ); %>
+  <!-- rSed Title Icon -->
+  <link rel="icon" href="../public/img/rSedLogo.png" type="" />
+</head>
+
+<body>
+  <%- include("./partials/header.ejs") %>
+  <header id="home-section">
+    <div class="dark-overlay">
+      <h1 align="center" style="padding-top: 75px; color: #ffd700;">
+        <b>
+          <u>
+            <%=restaurant.name%>
+          </u>
+        </b>
+      </h1>
+      <h3 align="center" ; style="padding-top: 5px;">
+        <i>
+          <%=restaurant.address.houseNum%> <%=restaurant.address.street%>,
+          <%=restaurant.address.city%>, CA <%=restaurant.address.zipcode%>
+          <br />
+          +1 626-652-9821
+        </i>
+      </h3>
+      <hr />
+      <% restaurant.menus.forEach(function(menu) { %>
+      <h1 align="center" style="padding-top: 5px; color: #ffd700;">
+        <b>
+          <%=menu.name%>
+        </b>
+      </h1>
+      <div id="container" class="cols" align="center">
+        <% menu.menuItems.forEach(function(menuItem) { %>
+        <div class="box">
+          <a href="/itemconfirm/<%=restaurant._id%>/<%=menuItem._id%>" style="text-decoration: none;">
+            <img src="<%=menuItem.image%>" alt="<%=menuItem.name%>" class="image" />
+            <div class="name">
+              <p style="color: #ffffff;">
+                <%=menuItem.name%> / $<%=menuItem.price%>.00
+              </p>
+            </div>
+          </a>
         </div>
         <% } ); %>
       </div>
-    </header>
-  </body>
+      <% } ); %>
+      <h3 align="center" style="padding-top: 75px; color: #ffd700;">
+        <b>
+          <u>
+            Reviews
+            <a class="btn btn-outline-light mx-2" href="/restaurantprofile/<%=restaurant._id%>/review/new" role="button">
+              Add a review 
+            </a>
+          </u>
+        </b>
+      </h3>
+      <p>
+        <% restaurant.reviews.forEach(function(review) { %>
+
+        <%=review.author.firstName%> <%=review.author.lastName%>   - <%=review.comment%>
+        <br>
+        <% } ); %>
+      </p>
+    </div>
+  </header>
+</body>
+
 </html>

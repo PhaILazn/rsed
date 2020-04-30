@@ -26,4 +26,46 @@ router.get('/:id', async function(req, res) {
     });
 });
 
+router.get('/:id/review/new', isLoggedIn, function (req,res){
+    Restaurant.findById(req.params.id,function(err,foundRestaurant){
+        if(err){
+            res.render('/');
+        }else{
+            res.render('newreview',{restaurant: foundRestaurant});
+        }
+    })
+});
+
+router.post('/:id/review', isLoggedIn, function (req,res){
+    Restaurant.findById(req.params.id, function(err,foundRestaurant){
+        if(err){
+            console.log(err);
+            res.redirect('/');
+        }else{
+            Review.create(req.body.review,function(err,review){
+                if(err){
+                    res.redirect('/')
+                }else{
+                    review.author.id = req.user._id;
+                    review.author.firstName = req.user.firstName;
+                    review.author.lastName = req.user.lastName;
+                    review.save();
+                    foundRestaurant.reviews.push(review);
+                    foundRestaurant.save();
+                    res.redirect('/restaurantprofile/'+ foundRestaurant._id);
+                };
+            });
+        };
+    });
+});
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect("/signin");
+}
+
+
+
 module.exports = router;
