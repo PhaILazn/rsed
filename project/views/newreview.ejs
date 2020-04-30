@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Fancy Fonts, Icons, and Logos -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous" />
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous" />
+    <!-- CSS StyleSheet -->
+    <link rel="stylesheet" href="/public/css/style.css" />
+
+    <!-- Icon Title -->
+    <title>rSed Food Delivery</title>
+
+    <!-- rSed Title Icon -->
+    <link rel="icon" href="/public/img/rSedLogo.png" type="image/icon type" />
+</head>
+
+<!-- Body -->
+
+<body>
+    <%- include("./partials/header.ejs") %>
+    <header id="profile-section">
+        <div class="shamelessly-copied-dark-overlay">
+            <form method="POST" action="/restaurantprofile/<%=restaurant._id%>/review">
+                <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
+                <div class="container">
+                    <div class="row">
+                        <div style="width: 50%; margin: 0 auto;">
+                            <h1 class="font-weight-bold" style="text-align: center;color: white;">Adding New Review to
+                                <%=restaurant.name%></h1>
+                            <div class="form-group">
+                                <input type="text" name="review[comment]" class="form-control form-control-lg"
+                                    placeholder="Comment" />
+                            </div>
+                            <button class="btn btn-outline-light btn-block bg-dark">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </header>
+
+    <%- include("./partials/footer.ejs") %>
+</body>
+
+</html>

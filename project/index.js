@@ -95,12 +95,9 @@ app.use("/indian", indian);
 app.use("/italian", italian);
 app.use("/mediterranean", mediterranean);
 app.use("/mexican", mexican);
-<<<<<<< Updated upstream
 app.use("/receipt", receipt);
-=======
 app.use("/addshoppingcart", addshoppingcart);
 app.use("/editpreferences", editpreferences);
->>>>>>> Stashed changes
 
 //added this for testing purposes
 app.get("/secret", isLoggedIn, function (req, res) {
