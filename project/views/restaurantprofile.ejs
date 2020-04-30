@@ -63,25 +63,54 @@
         <% } ); %>
       </div>
       <% } ); %>
-      <h3 align="center" style="padding-top: 75px; color: #ffd700;">
+      <h1 align="center" style="padding-top: 75px; color: #ffd700;">
         <b>
           <u>
             Reviews
-            <a class="btn btn-outline-light mx-2" href="/restaurantprofile/<%=restaurant._id%>/review/new" role="button">
-              Add a review 
-            </a>
           </u>
         </b>
-      </h3>
+        <a class="btn btn-outline-light mx-2" href="/restaurantprofile/<%=restaurant._id%>/review/new" role="button">
+          Leave Review
+        </a>
+      </h1>
+      <!--
       <p>
         <% restaurant.reviews.forEach(function(review) { %>
-
-        <%=review.author.firstName%> <%=review.author.lastName%>   - <%=review.comment%>
-        <br>
+          <%=review.author.firstName%> <%=review.author.lastName%> - <%=review.comment%>
+          <br>
         <% } ); %>
       </p>
+      -->
+      <% var number_in_row = 0 %>
+      <% restaurant.reviews.forEach(function(review) { %>
+        <% if (number_in_row % 4 == 0) { %>
+          <div class="row h-100">
+        <% } %>
+            <div class="col">
+              <div class="card" style="width: 22rem; margin:0 auto">
+                <div class="card-body" style="color: black">
+                  <h5 class="card-title">Rating</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <% if (review.author.firstName == null) { %>
+                      Anonymous
+                    <% } else { %>
+                      <%=review.author.firstName%> <%=review.author.lastName%>
+                    <% } %>
+                  </h6>
+                  <p class="card-text"><%=review.comment%></p>
+                </div>
+              </div>
+            </div>
+        <% if (number_in_row % 4 == 3) { %>
+          </div>
+          <br>
+        <% } %>
+      <% number_in_row += 1 %>
+      <% } ); %>
     </div>
+      
   </header>
+  <%- include("./partials/footer.ejs") %>
 </body>
 
 </html>
