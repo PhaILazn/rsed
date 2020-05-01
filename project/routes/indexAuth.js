@@ -5,6 +5,7 @@ var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var User = require('../models/user');
 var ShoppingCart = require('../models/shoppingcart');
+var Preferences = require('../models/preference');
 
 
 router.use(function(req, res, next) {
@@ -26,7 +27,8 @@ router.post("/signup", function(req, res) {
       totalPrice: 0,
     });
     userCart.save();
-  
+  var userPref = new Preferences();
+  userPref.save();
   var newUser = new User(req.body);
   User.register(
     new User({
@@ -36,7 +38,8 @@ router.post("/signup", function(req, res) {
       phone: newUser.phone,
       username: newUser.username,
       image: newUser.image,
-      shoppingCart: userCart._id
+      shoppingCart: userCart._id,
+      preferences: userPref._id,
     }),
     req.body.password,
     function(err, user) {

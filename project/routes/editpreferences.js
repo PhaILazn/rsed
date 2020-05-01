@@ -52,7 +52,6 @@ router.get("/remove/:category", isLoggedIn, async function (req, res) {
                     foundPreference.foodCategories.splice(i, 1);
                 }
             }
-            console.log(req.params.category);
             await foundPreference.save();
 
             res.render("editpreferences", {preference: foundPreference});

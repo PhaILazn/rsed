@@ -66,7 +66,7 @@ router.get('/:id/review/:review_id/edit',checkReviewOwnership, function(req,res)
 });
 // REview Updating review string
 router.put('/:id/review/:review_id',checkReviewOwnership, function(req,res){
-    Review.findByIdAndUpdate(req.params.review_id,req.body.review,function(err,updatedReview){
+    Review.findOneAndDelete(req.params.review_id,req.body.review,function(err,updatedReview){
         if(err){
             res.redirect('back');
         }else{
