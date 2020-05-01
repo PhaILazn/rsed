@@ -35,7 +35,7 @@
     <%- include("./partials/header.ejs") %>
     <header id="profile-section">
       <div class="shamelessly-copied-dark-overlay">
-        <div class="profile-inner-thing container" style="padding-top: 100px">
+        <div class="profile-inner-thing container" style="padding-top: 100px;">
           <div class="row">
             <div class="d-lg-block">
               <div class="container">
@@ -44,20 +44,32 @@
                   href="/editprofile/<%=currentUser._id%> "
                   role="button"
                   sty
-                  style="position: absolute; top: 7%; right: 24.7%;height: 40px;width: 100px;text-align:center;"
+                  style="
+                    position: absolute;
+                    top: 7%;
+                    right: 24.7%;
+                    height: 40px;
+                    width: 100px;
+                    text-align: center;
+                  "
                 >
-                  Edit Profile </a
-                  
-                >
+                  Edit Profile
+                </a>
                 <a
                   class="btn btn-outline-light mx-2"
                   href="/orderhistory"
                   role="button"
                   sty
-                  style="position: absolute; top: 7%; right: 33.5%;height: 40px;width: 120px;text-align:center;"
+                  style="
+                    position: absolute;
+                    top: 7%;
+                    right: 33.5%;
+                    height: 40px;
+                    width: 120px;
+                    text-align: center;
+                  "
                 >
                   Order History </a
-                  
                 ><br />
                 <img
                   class="user"
@@ -65,29 +77,35 @@
                   height="150"
                   width="200"
                 />
-                <h1 style="color:#ffd700">
+                <h1 style="color: #ffd700;">
                   <%=user.firstName%> <%=user.lastName%>
                 </h1>
-                <h3 class="font-weight-italics" style="color: white">
+                <h3 class="font-weight-italics" style="color: white;">
                   Email: <%= user.email %>
                 </h3>
                 <br /><br />
-                <h2 class="font-weight-bold" style="color: #ffd700">
+                <h2 class="font-weight-bold" style="color: #ffd700;">
                   About
                 </h2>
                 <h2>
                   <%=user.description%>
                 </h2>
                 <br /><br />
-                <h2 class="font-weight-bold" style="color: #ffd700">
-                  Preferences
+                <h2 class="font-weight-bold" style="color: #ffd700;">
+                  Food Preferences
                 </h2>
 
-                <div
+                <div class="row">
+                  <div class="column" style="padding-left: 18px;">
+                    <p class="chips chips-close" data-initialized="true"></p>
+                  </div>
+                </div>
+
+                <!--<div
                   id="container"
                   class="cols"
                   align="center"
-                  style="margin-left: -25px"
+                  style="margin-left: -25px;"
                 >
                   <% preferences.forEach(function(restaurant){ %>
                   <div class="box">
@@ -97,7 +115,7 @@
                     </div>
                   </div>
                   <% }); %>
-                </div>
+                </div>-->
               </div>
             </div>
           </div>
@@ -109,3 +127,17 @@
     <%- include("./partials/footer.ejs") %>
   </body>
 </html>
+
+<script src="http://mbootstrap.com/vendors/jquery/jquery.min.js"></script>
+<script src="http://mbootstrap.com/js/app.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $(".chips").form_chip();
+    $(".chips-close").form_chip()({});
+    $(".chips-placeholder").form_chip({
+      placeholder: "Enter a tag",
+      secondaryPlaceholder: "+Tag",
+    });
+  });
+</script>

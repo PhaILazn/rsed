@@ -228,3 +228,11 @@ a.thumbnail:focus {
 .openbtn:hover {
   background-color: black;
 }
+
+.chips {
+  /*display: inline-block;*/
+  padding: 5px;
+  font-size: 20px;
+  color: red;
+  background-color: #ffd700;
+}
