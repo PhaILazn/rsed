@@ -27,7 +27,7 @@
     <%- include("./partials/header.ejs") %>
     <header id="profile-section">
         <div class="shamelessly-copied-dark-overlay">
-            <form action="/restaurantprofile/<%=restaurant_id%>/review/<%=review._id%>?_method=PUT" method="POST" >
+            <form action="/restaurantprofile/<%=restaurant_id%>/review/<%=review._id%>?_method=PUT" method="POST">
                 <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
                 <div class="container">
                     <div class="row">
@@ -41,9 +41,17 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="col">
-                                        <button class="btn btn-outline-light btn-block bg-dark">Submit</button>
-                                    </div>
+                                    <select id="rating" name="review[rating]" >
+                                        <option value=""></option>
+                                        <option value="1">☆</option>
+                                        <option value="2">☆☆</option>
+                                        <option value="3">☆☆☆</option>
+                                        <option value="4">☆☆☆☆</option>
+                                        <option value="5">☆☆☆☆☆</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-outline-light btn-block bg-dark">Submit</button>
                                 </div>
                             </div>
                         </div>
