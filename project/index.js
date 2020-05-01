@@ -27,7 +27,7 @@ var preferences = require("./routes/preferences"),
   mediterranean = require("./routes/restauranttypes/mediterranean"),
   mexican = require("./routes/restauranttypes/mexican");
 addshoppingcart = require("./routes/addshoppingcart");
-editpreferences = require("./routes/addshoppingcart");
+editpreferences = require("./routes/editpreferences");
 
 const app = express();
 require("dotenv").config();

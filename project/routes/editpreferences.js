@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/user");
 const Preference = require("../models/preference");
+const methodoverride = require("method-override");
 
 const router = express.Router();
 
@@ -14,42 +15,45 @@ router.get("/", isLoggedIn, function(req, res) {
     });
 });
 
-router.post("/add", isLoggedIn, async(req, res) => {
-    var addedCategory = req.body.categories;
-    var fetchedPref = await Preference.findById(req.user.preferenes)
-    .exec(function(err, foundPreference) {
+router.post("/add", isLoggedIn, async function(req, res) {
+    var addedCategory = req.body.addedCategory;
+    Preference.findById(req.user.preferences)
+    .exec(async function(err, foundPreference) {
         if(err){
             res.redirect("/");
         }
         else{
-            if(fetchedPref.foodCategories.include(addedCategory)){
+            if(addedCategory == ""){
+                
+            }
+            else if(foundPreference.foodCategories.includes(addedCategory)){
 
             }
             else{
-                fetchedPref.foodCategories.push(addedCategory);
+                foundPreference.foodCategories.push(addedCategory);
             }
 
-            await fetchedPref.foodCategories.save();
+            await foundPreference.save();
 
-            res.render("editpreferences", {preference: foundPreference});
+            res.redirect("/editpreferences");
         }
     });
 });
 
-router.post("/remove", isLoggedIn, async(req, res) => {
+router.get("/remove/:category", isLoggedIn, async function (req, res) {
     var fetchedPref = await Preference.findById(req.user.preferences)
-    .exec(function(err, fetchedPref) {
+    .exec(async function(err, foundPreference) {
         if(err){
             res.redirect("/")
         }
         else{
-            for(var i = 0; i < fetchedPref.foodCategories.length; i++){
-                if(req.body.categories == fetchedPref.foodCategories[i]){
-                    fetchedPref.foodCategories.splice(i);
+            for(var i = 0; i < foundPreference.foodCategories.length; i++){
+                if(req.params.category == foundPreference.foodCategories[i]){
+                    foundPreference.foodCategories.splice(i, 1);
                 }
             }
-
-            await fetchedPref.foodCategories.save();
+            console.log(req.params.category);
+            await foundPreference.save();
 
             res.render("editpreferences", {preference: foundPreference});
         }

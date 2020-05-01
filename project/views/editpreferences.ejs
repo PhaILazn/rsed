@@ -52,14 +52,14 @@
           <div class="row" style="justify-content: center;">
             <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
               <ul class="list-group">
-                <% user.preferences.forEach(function(preference) { %>
+                <% preference.foodCategories.forEach(function(category) { %>
                   <li class="list-group-item" style="background: red;">
                     <strong style="color: #ffd700;">
-                    <%=preference%>
+                    <%=category%>
                     </strong>
                     <a
                     type="button"
-                    href="#"
+                    href="/editpreferences/remove/<%=category%>"
                     class="float-right btn btn-sm"
                     style="background-color: white;"
                     >
@@ -75,7 +75,7 @@
               <form method="POST" action="/editpreferences/add">
               <h3>
                 <p style="float: left;">
-                  <select id="addedCategory">
+                  <select id="addedCategory" name="addedCategory">
                     <option value=""></option>
                     <option value="italian">Italian</option>
                     <option value="asian">Asian</option>
@@ -87,17 +87,15 @@
                 </p>
 
                 <p style="float: right;">
-                  <a
-                    type="button" 
+                  <button
                     class="btn"
                     style="
                       background-color: lightgreen;
                       color: black;
                       font-weight: bold;
-                    "
-                  >
+                    ">
                     Add
-                  </a>
+                 </button>
                 </p>
               </h3>
             </form>
