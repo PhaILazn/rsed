@@ -19,6 +19,7 @@ router.get('/:id', function(req, res) {
         }
     });
 });
+
 //grab the page to make a new review for the restaurant
 router.get('/:id/review/new', isLoggedIn, function (req,res){
     Restaurant.findById(req.params.id,function(err,foundRestaurant){
@@ -29,6 +30,7 @@ router.get('/:id/review/new', isLoggedIn, function (req,res){
         }
     })
 });
+
 //post the review onto database and display it onto the website
 router.post('/:id/review', isLoggedIn, function (req,res){
     Restaurant.findById(req.params.id, function(err,foundRestaurant){
@@ -64,9 +66,9 @@ router.get('/:id/review/:review_id/edit',checkReviewOwnership, function(req,res)
         }
     });
 });
-// REview Updating review string
+// REview Updating review string and send in review edits
 router.put('/:id/review/:review_id',checkReviewOwnership, function(req,res){
-    Review.findOneAndDelete(req.params.review_id,req.body.review,function(err,updatedReview){
+    Review.findByIdAndUpdate(req.params.review_id,req.body.review,function(err,updatedReview){
         if(err){
             res.redirect('back');
         }else{
@@ -75,7 +77,7 @@ router.put('/:id/review/:review_id',checkReviewOwnership, function(req,res){
     });
 });
 
-//get page to delete review DESTROY REVIEWWWWW
+//GET REQUESTS ON REVIEW SECTION IMMEDIATELY DELETES REVIEW
 router.delete('/:id/review/:review_id',checkReviewOwnership, function(req,res){
     Review.findByIdAndRemove(req.params.review_id,function(err){
         if(err){
@@ -85,6 +87,8 @@ router.delete('/:id/review/:review_id',checkReviewOwnership, function(req,res){
         }
     })
 });
+
+
 function checkReviewOwnership(req,res,next){
     if(req.isAuthenticated()){ //checks if user is logged in to edit the review
         Review.findById(req.params.review_id, function(err,foundReview){
