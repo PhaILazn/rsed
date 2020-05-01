@@ -30,9 +30,28 @@
         <b>
           <u>
             <%=restaurant.name%>
+
           </u>
         </b>
       </h1>
+      <% let totalRatings=0; let ratings=0; %>
+      <% restaurant.reviews.forEach(function(review) { %>
+      <% if(review.rating != null){ %>
+      <%ratings += 1; %>
+      <%totalRatings = totalRatings + review.rating;%>
+      <%}%>
+     <% }); %>
+      <%totalRatings = (totalRatings/ratings);%>
+      <% totalRatings= parseInt(totalRatings)%>
+      <h2 align="center" color: #ffd700;">
+        <b>
+          <% for (var i = 0; i < totalRatings; i++) { %>
+          &nbsp☆
+          <% } %>
+        </b>
+      </h2>
+
+
       <h3 align="center" ; style="padding-top: 5px;">
         <i>
           <%=restaurant.address.houseNum%> <%=restaurant.address.street%>,
@@ -83,15 +102,15 @@
       -->
       <% var number_in_row = 0 %>
       <%if(restaurant.reviews.length == 0){ %>
-        <h1 align="center" style="padding-top: 50px; color: #ff0000;">
-          <b>
-            There are no review yet!
-          </b>
-        </h1>
+      <h1 align="center" style="padding-top: 50px; color: #ff0000;">
+        <b>
+          There are no review yet!
+        </b>
+      </h1>
       <%  }else { %>
       <% restaurant.reviews.forEach(function(review) { %>
-     
-        <% if (number_in_row % 4 == 0) { %>
+
+      <% if (number_in_row % 4 == 0) { %>
       <div class="row h-100">
         <% } %>
         <div class="col">
