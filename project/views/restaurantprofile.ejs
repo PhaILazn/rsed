@@ -87,9 +87,17 @@
           <div class="row h-100">
         <% } %>
             <div class="col">
-              <div class="card" style="width: 22rem; margin:0 auto">
+              <div class="card" style="width: 20rem; margin:0 auto">
                 <div class="card-body" style="color: black">
-                  <h5 class="card-title">Rating</h5>
+                  <h5 class="card-title">
+                    <% if (review.rating == null) { %>
+                      NO RATING
+                    <% } else { %>
+                      <% for (var i = 0; i < review.rating % 5; i++) { %>
+                        &nbsp☆
+                      <% } %>
+                    <% } %>
+                  </h5>
                   <h6 class="card-subtitle mb-2 text-muted">
                     <% if (review.author.firstName == null) { %>
                       Anonymous
