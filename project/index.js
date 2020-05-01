@@ -4,6 +4,7 @@ var express = require("express"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
   session = require("express-session"),
+  methodOverride = require('method-override'),
   mongoStore = require("connect-mongo")(session);
 
 var preferences = require("./routes/preferences"),
@@ -40,6 +41,7 @@ mongoose.connect(
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   },
   () => console.log("Connected to database")
 );
@@ -56,6 +58,7 @@ app.use(
     saveUninitialized: false,
     store: new mongoStore({ mongooseConnection: mongoose.connection }),
     cookie: { maxAge: 30 * 60 * 1000 },
+
   })
 );
 app.use(passport.initialize());
@@ -75,6 +78,7 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(methodOverride('_method'));
 
 app.use("/public", express.static("./public"));
 

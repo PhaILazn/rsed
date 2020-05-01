@@ -68,6 +68,9 @@ body {
   /*background: rgba(256, 256, 0, 0.5);*/
   min-height: 2000px;
 }
+#delete-form{
+  display: inline;
+}
 
 #restaurants-section {
   background: url(../img/FoodBackground.jpg);

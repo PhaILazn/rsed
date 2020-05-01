@@ -5,6 +5,7 @@ var ReviewSchema = new mongoose.Schema({
         id: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
         firstName: String,
         lastName: String,
+        username: String
     },
     rating: Number,
     comment: String,

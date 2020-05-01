@@ -55,7 +55,7 @@
                 <% } else { %> <%
                 order.orderHistory.forEach(function(order) { %>
                 <li class="list-group-item" style="background: darkred;">
-                  <%=moment(order.date).format('MMMM Do YYYY, h:mm:ss a')%>
+                  <%=moment(order.date).format('MMMM Do YYYY, h:mm a')%>
                   <a
                     type="button"
                     href="/receipt/<%=order._id%>"

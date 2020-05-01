@@ -82,41 +82,61 @@
       </p>
       -->
       <% var number_in_row = 0 %>
+      <%if(restaurant.reviews.length == 0){ %>
+        <h1 align="center" style="padding-top: 50px; color: #ff0000;">
+          <b>
+            There are no review yet!
+          </b>
+        </h1>
+      <%  }else { %>
       <% restaurant.reviews.forEach(function(review) { %>
+     
         <% if (number_in_row % 4 == 0) { %>
-          <div class="row h-100">
+      <div class="row h-100">
         <% } %>
-            <div class="col">
-              <div class="card" style="width: 20rem; margin:0 auto">
-                <div class="card-body" style="color: black">
-                  <h5 class="card-title">
-                    <% if (review.rating == null) { %>
-                      NO RATING
-                    <% } else { %>
-                      <% for (var i = 0; i < review.rating % 5; i++) { %>
-                        &nbsp☆
-                      <% } %>
-                    <% } %>
-                  </h5>
-                  <h6 class="card-subtitle mb-2 text-muted">
-                    <% if (review.author.firstName == null) { %>
-                      Anonymous
-                    <% } else { %>
-                      <%=review.author.firstName%> <%=review.author.lastName%>
-                    <% } %>
-                  </h6>
-                  <p class="card-text"><%=review.comment%></p>
-                </div>
+        <div class="col">
+          <div class="card" style="width: 20rem; margin:0 auto">
+            <div class="card-body" style="color: black">
+              <h5 class="card-title">
+                <% if (review.rating == null) { %>
+                NO RATING
+                <% } else { %>
+                <% for (var i = 0; i < review.rating % 5; i++) { %>
+                &nbsp☆
+                <% } %>
+                <% } %>
+              </h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <%=review.author.firstName%> <%=review.author.lastName%>
+              </h6>
+              <p class="card-text"><%=review.comment%></p>
+              <%if((currentUser && review.author.id.equals(currentUser._id))||review.author.id==null){ %>
+              <div>
+                <a type="button" href="/restaurantprofile/<%=restaurant._id%>/review/<%=review._id%>/edit" class="btn"
+                  style="
+                        background-color: black;
+                        color: white;
+                        font-weight: bold;
+                      ">
+                  Edit
+                </a>
+                <form id="delete-form"
+                  action="/restaurantprofile/<%=restaurant._id%>/review/<%=review._id%>?_method=DELETE" method="POST">
+                  <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                </form>
               </div>
+              <% } %>
             </div>
-        <% if (number_in_row % 4 == 3) { %>
           </div>
-          <br>
-        <% } %>
+        </div>
+        <% if (number_in_row % 4 == 3) { %>
+      </div>
+      <br>
+      <% } %>
       <% number_in_row += 1 %>
-      <% } ); %>
+      <% }) %>
     </div>
-      
+    <% }; %>
   </header>
   <%- include("./partials/footer.ejs") %>
 </body>
