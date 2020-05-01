@@ -43,6 +43,7 @@ router.post('/:id/review', isLoggedIn, function (req,res){
                     review.author.id = req.user._id;
                     review.author.firstName = req.user.firstName;
                     review.author.lastName = req.user.lastName;
+                    review.rating = req.body.rating;
                     review.save();
                     foundRestaurant.reviews.push(review);
                     foundRestaurant.save();
