@@ -10,7 +10,7 @@ router.get("/", isLoggedIn, function(req, res) {
         if(err) {
             res.redirect("/");
         }
-        res.render("editpreference", {preference: foundPreference});
+        res.render("editpreferences", {preference: foundPreference});
     });
 });
 
@@ -31,7 +31,7 @@ router.post("/add", isLoggedIn, async(req, res) => {
 
             await fetchedPref.foodCategories.save();
 
-            res.render("editPreference", {preference: foundPreference});
+            res.render("editpreferences", {preference: foundPreference});
         }
     });
 });
@@ -51,7 +51,7 @@ router.post("/remove", isLoggedIn, async(req, res) => {
 
             await fetchedPref.foodCategories.save();
 
-            res.render("editPreferences", {preference: foundPreference});
+            res.render("editpreferences", {preference: foundPreference});
         }
     });
 });
