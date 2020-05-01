@@ -24,28 +24,52 @@
 <!-- Body -->
 
 <body>
-    <%- include("./partials/header.ejs") %>
-    <header id="profile-section">
-        <div class="shamelessly-copied-dark-overlay">
-            <form method="POST" action="/restaurantprofile/<%=restaurant._id%>/review">
-                <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
-                <div class="container">
-                    <div class="row">
-                        <div style="width: 50%; margin: 0 auto;">
-                            <h1 class="font-weight-bold" style="text-align: center;color: white;">Adding New Review to
-                                <%=restaurant.name%></h1>
-                            <div class="form-group">
-                                <input type="text" name="review[comment]" class="form-control form-control-lg"
-                                    placeholder="Comment" />
-                            </div>
-                            <button class="btn btn-outline-light btn-block bg-dark">Submit</button>
-                        </div>
-                    </div>
+  <%- include("./partials/header.ejs") %>
+  <header id="profile-section">
+    <div class="shamelessly-copied-dark-overlay">
+      <form method="POST" action="/restaurantprofile/<%=restaurant._id%>/review">
+        <hr style="margin: 0; border: 0; height: 65pt; visibility: hidden;" />
+          <div class="container">
+            <div class="row">
+              <div style="width: 50%; margin: 0 auto;">
+                <h1 
+                  class="font-weight-bold"
+                  style="text-align: center; color: white;"
+                >
+                  Leave a review for <br>
+                  <%=restaurant.name%>!
+                </h1>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    name="review[comment]"
+                    class="form-control form-control-lg"
+                    placeholder="Review (max 100 characters)!"
+                    maxlength="100"
+                    style="height:100px"
+                  />
                 </div>
-            </form>
-        </div>
+                <div class="row">
+                  <div class="col">
+                    <select id="rating">
+                      <option value=""></option>
+                      <option value="1">☆</option>
+                      <option value="2">☆☆</option>
+                      <option value="3">☆☆☆</option>
+                      <option value="4">☆☆☆☆</option>
+                      <option value="5">☆☆☆☆☆</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-outline-light btn-block bg-dark">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </header>
-
     <%- include("./partials/footer.ejs") %>
 </body>
 
