@@ -13,7 +13,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 2000px;
+  min-height: 600px;
 }
 
 #home-section .dark-overlay {
@@ -21,7 +21,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 2000px;
+  min-height: 600px;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -68,7 +68,7 @@ body {
   /*background: rgba(256, 256, 0, 0.5);*/
   min-height: 2000px;
 }
-#delete-form{
+#delete-form {
   display: inline;
 }
 
@@ -238,4 +238,62 @@ a.thumbnail:focus {
   font-size: 20px;
   color: red;
   background-color: #ffd700;
+}
+
+.carousel-item {
+  height: 400px;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  height: 100px;
+  width: 100px;
+}
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  height: 100px;
+  width: 100px;
+}
+
+.carousel-image-asian {
+  background: url("https://www.101corpuschristi.com/uploads/media/default/0001/23/fef92b31aa597167a112c932f2777db7941a79d3.jpeg");
+  background-size: cover;
+}
+
+.carousel-image-italian {
+  background: url("https://bstatic.com/xdata/images/xphoto/1182x887/68794608.jpg?k=155689446d1aa48adbda2d0977fcd6d7608a9f9151562b5055f4baa366583eed&o=?size=S");
+  background-size: cover;
+}
+
+.carousel-image-mexican {
+  background: url("https://res.cloudinary.com/popmenu/image/upload/c_limit,f_auto,h_1440,q_auto,w_1440/o0oohveni7vnesjyhd8a.jpg");
+  background-size: cover;
+}
+
+.carousel-image-mediterranean {
+  background: url("https://res.cloudinary.com/popmenu/image/upload/c_limit,f_auto,h_1440,q_auto,w_1440/eravk4xxappila2pn4sg.jpg");
+  background-size: cover;
+}
+
+.carousel-image-indian {
+  background: url("https://www.blueosa.com/wp-content/uploads/2020/01/the-best-top-10-indian-dishes.jpg");
+  background-size: cover;
+}
+
+.carousel-image-american {
+  background: url("https://naturallysavvy.com/wp-content/uploads/2018/11/Why-is-the-American-Diet-so-full-of-Unhealthy-Foods-696x436.jpg");
+  background-size: cover;
+}
+
+.display-1 {
+  color: red;
+  font-weight: 900;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffd700;
+}
+.lead {
+  color: red;
+  font-weight: 900;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #ffd700;
 }
