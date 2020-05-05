@@ -44,6 +44,33 @@ body {
   background-color: #ffd700;
 }
 
+#rest-profile {
+  background: url(../img/FoodBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 1200px;
+}
+
+#rest-profile .home-inner {
+  padding-top: 100px;
+}
+
+#rest-profile .card-form {
+  opacity: 0.8;
+}
+
+#rest-profile .h2 {
+  color: #ffd700;
+}
+
+#rest-profile hr {
+  border: none;
+  height: 5px;
+  color: #ffd700;
+  background-color: #ffd700;
+}
+
 #profile-section {
   background: url(../img/FoodBackground.jpg);
   background-repeat: no-repeat;
