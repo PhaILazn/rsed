@@ -1,6 +1,7 @@
 body {
   background: #333;
   color: #fff;
+  height: 100%;
 }
 
 .navbar {
@@ -84,24 +85,26 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 1500px;
+  min-height: 100%;
+  position: relative;
 }
 
 #profile-section .shamelessly-copied-dark-overlay {
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: 60px;
   left: 0;
   width: 100%;
-  min-height: 1500px;
+  min-height: 1000px;
   background: rgba(0, 0, 0, 0.7);
 }
 
 #profile-section .profile-inner-thing {
+  position: relative;
   padding: 50px;
   padding-top: 80px;
-  width: 80%;
+  width: 100%;
   /*background: rgba(256, 256, 0, 0.5);*/
-  min-height: 2000px;
+  min-height: 100%;
 }
 #delete-form {
   display: inline;
@@ -113,6 +116,11 @@ body {
   background-size: cover;
   background-attachment: fixed;
   min-height: 2000px;
+}
+#main-footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 .user {
   display: inline-block;
@@ -193,9 +201,8 @@ a.thumbnail:focus {
 }
 
 #container {
-  padding-right: 25px;
-  padding-left: 25px;
-  padding-bottom: 25px;
+  position: relative;
+  min-height: 100%;
 }
 .cols {
   column-count: 3;
