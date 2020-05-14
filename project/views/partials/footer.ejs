@@ -7,36 +7,29 @@
             Get to Know Us
           </div>
           <div class="col font-weight-bold" style="font-size: 20px">
-            Let Us Help You
+            Account
           </div>
 
           <div class="w-100" style="padding-top: 5px"></div>
           <div class="col">
             <a href="https://sites.google.com/view/rsed/" style="color: white;">About Us</a>
           </div>
+          <% if(!currentUser){ %>
+            <div class="col">
+              <a href="/signin" style="color: white;">Account Details</a>
+            </div>
+          <% }else{ %>
           <div class="col">
-            <a href="#" style="color: white;">Account Details</a>
+            <a href="/profile/<%=currentUser._id%>" style="color: white;">Account Details</a>
           </div>
+          <% } %>
         </div>
         <div class="row" style="padding-bottom: 15px">
           <a href="/">
             <img src="/public/img/rSedLogo.png" style="width: 30px; height: 30px" />
-          </a>
-          <a href="#" style="color:grey">
-            <span class="mr-3" style="padding-left: 15px; font-size: 12px;">Terms of Service</span>
-          </a>
-          <a href="#" style="color:grey">
-            <span class="mr-3" style="font-size: 12px;">Privacy</span>
-          </a>
-          <a href="#" style="color:grey">
-            <span class="mr-3" style="font-size: 12px;">Delivery Locations</span>
-          </a>
+          </a>                     
           <a style="color:grey">
-            <span class="mr-3" style="font-size: 12px;">&#169 2020 rSed</span>
-          </a>
-
-          <a href="/receipt" style="color:grey">
-            <span class="mr-3" style="font-size: 12px;">Receipt</span>
+            <span class="mr-3" style="font-size: 12px; padding-left:5px">&#169 2020 rSed</span>
           </a>
         </div>
       </div>
