@@ -9,12 +9,26 @@ body {
   opacity: 0.8;
 }
 
+#profile-section {
+  background: url(../img/FoodBackground.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#profile-section .dark-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
 #home-section {
   background: url(../img/FoodBackground.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  min-height: 600px;
+  min-height: 800px;
 }
 
 #home-section .dark-overlay {
@@ -22,7 +36,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 600px;
+  min-height: 800px;
   background: rgba(0, 0, 0, 0.7);
 }
 
@@ -350,6 +364,13 @@ a.thumbnail:focus {
 .display-1 {
   color: red;
   font-weight: 900;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #ffd700;
+}
+
+.display-2 {
+  color: red;
+  font-weight: 600;
   -webkit-text-stroke-width: 2px;
   -webkit-text-stroke-color: #ffd700;
 }
