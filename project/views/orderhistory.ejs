@@ -52,8 +52,8 @@
                     There are no orders yet!
                   </b>
                 </h1>
-                <% } else { %> <%
-                order.orderHistory.forEach(function(order) { %>
+                <% } else { %> <% order.orderHistory.forEach(function(order) {
+                %>
                 <li class="list-group-item" style="background: darkred;">
                   <%=moment(order.date).format('MMMM Do YYYY, h:mm a')%>
                   <a

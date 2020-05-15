@@ -4,7 +4,7 @@ var express = require("express"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose"),
   session = require("express-session"),
-  methodOverride = require('method-override'),
+  methodOverride = require("method-override"),
   mongoStore = require("connect-mongo")(session);
 
 var preferences = require("./routes/preferences"),
@@ -25,7 +25,8 @@ var preferences = require("./routes/preferences"),
   indian = require("./routes/restauranttypes/indian"),
   italian = require("./routes/restauranttypes/italian"),
   mediterranean = require("./routes/restauranttypes/mediterranean"),
-  mexican = require("./routes/restauranttypes/mexican");
+  mexican = require("./routes/restauranttypes/mexican"),
+  checkoutConfirmation = require("./routes/checkoutConfirmation");
 addshoppingcart = require("./routes/addshoppingcart");
 editpreferences = require("./routes/editpreferences");
 
@@ -58,7 +59,6 @@ app.use(
     saveUninitialized: false,
     store: new mongoStore({ mongooseConnection: mongoose.connection }),
     cookie: { maxAge: 30 * 60 * 1000 },
-
   })
 );
 app.use(passport.initialize());
@@ -78,7 +78,7 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
 app.use("/public", express.static("./public"));
 
@@ -102,6 +102,7 @@ app.use("/mexican", mexican);
 app.use("/receipt", receipt);
 app.use("/addshoppingcart", addshoppingcart);
 app.use("/editpreferences", editpreferences);
+app.use("/checkoutConfirmation", checkoutConfirmation);
 
 //added this for testing purposes
 app.get("/secret", isLoggedIn, function (req, res) {

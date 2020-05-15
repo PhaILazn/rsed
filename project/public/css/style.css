@@ -26,8 +26,14 @@ body {
   background: rgba(0, 0, 0, 0.7);
 }
 
-#home-section .home-inner {
+.home-inner {
   padding-top: 100px;
+  justify-content: center;
+}
+
+#itemc {
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 #home-section .card-form {
