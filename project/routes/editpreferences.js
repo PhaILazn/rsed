@@ -1,7 +1,5 @@
 const express = require("express");
-const User = require("../models/user");
 const Preference = require("../models/preference");
-const methodoverride = require("method-override");
 
 const router = express.Router();
 
@@ -24,7 +22,6 @@ router.post("/add", isLoggedIn, async function(req, res) {
         }
         else{
             if(addedCategory == ""){
-                
             }
             else if(foundPreference.foodCategories.includes(addedCategory)){
 
@@ -41,22 +38,6 @@ router.post("/add", isLoggedIn, async function(req, res) {
 });
 
 router.get("/remove/:category", isLoggedIn, async function (req, res) {
-    var fetchedPref = await Preference.findById(req.user.preferences)
-    .exec(async function(err, foundPreference) {
-        if(err){
-            res.redirect("/")
-        }
-        else{
-            for(var i = 0; i < foundPreference.foodCategories.length; i++){
-                if(req.params.category == foundPreference.foodCategories[i]){
-                    foundPreference.foodCategories.splice(i, 1);
-                }
-            }
-            await foundPreference.save();
-
-            res.render("editpreferences", {preference: foundPreference});
-        }
-    });
 });
 
 function isLoggedIn(req, res, next){

@@ -35,7 +35,6 @@ router.post("/signup", function(req, res) {
       firstName: newUser.firstName,
       lastName: newUser.lastName,
       email: newUser.email,
-      phone: newUser.phone,
       username: newUser.username,
       image: newUser.image,
       shoppingCart: userCart._id,
@@ -74,4 +73,15 @@ router.get("/logout", function(req, res) {
   res.redirect("/");
 });
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/signin");
+}
+
+module.exports = router;
+>>>>>>> 482cb8d9b6a8be9498ebefee0f24669355e02619
