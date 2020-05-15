@@ -24,9 +24,9 @@
 
 <body>
   <%- include("./partials/header.ejs") %>
-  <header id="rest-profile">
+  <header id="rest-profile" >
     <div class="dark-overlay">
-      <h1 align="center" style="padding-top: 75px; color: white">
+      <h1 align="center" style="padding-top: 75px; color: white;">
         <b>
           <u>
             <%=restaurant.name%>
@@ -59,13 +59,14 @@
         </i>
       </h3>
       <hr />
-      <% restaurant.menus.forEach(function(menu) { %>
+    </header>
       <h1 align="center" style="padding-top: 5px; color: #ffd700;">
         <b>
-          <%=menu.name%>
-        </b>
+          Menu
+       </b>
       </h1>
-      <div id="container" class="cols" align="center">
+      <% restaurant.menus.forEach(function(menu) { %>
+      <div class="restcols">
         <% menu.menuItems.forEach(function(menuItem) { %>
         <div class="box">
           <a href="/itemconfirm/<%=restaurant._id%>/<%=menuItem._id%>" style="text-decoration: none;">
@@ -80,14 +81,12 @@
         <% } ); %>
       </div>
       <% } ); %>
-      <h1 align="center" style="padding-top: 75px; color: #ffd700;">
+      <h1 align="center" style="padding-bottom: 10px;padding-top: 75px; color: #ffd700;">
         <b>
-          <u>
-            Reviews
-          </u>
+          <u>Reviews</u>          
         </b>
         <a class="btn btn-outline-light mx-2" href="/restaurantprofile/<%=restaurant._id%>/review/new" role="button">
-          Leave Review
+          Leave a Review
         </a>
       </h1>
       <% var number_in_row = 0 %>
@@ -101,9 +100,9 @@
       <% restaurant.reviews.forEach(function(review) { %>
 
       <% if (number_in_row % 4 == 0) { %>
-      <div class="row h-100">
+      <div class="row h-100" >
         <% } %>
-        <div class="col">
+        <div class="col" >
           <div class="card" style="width: 20rem; margin:0 auto">
             <div class="card-body" style="color: black">
               <h5 class="card-title">
@@ -120,7 +119,7 @@
               </h6>
               <p class="card-text"><%=review.comment%></p>
               <%if((currentUser && review.author.id.equals(currentUser._id))||review.author.id==null){ %>
-              <div>
+              <div >
                 <a type="button" href="/restaurantprofile/<%=restaurant._id%>/review/<%=review._id%>/edit" class="btn"
                   style="
                         background-color: black;
@@ -146,9 +145,10 @@
       <% }) %>
     </div>
     <% }; %>
-  </header>
+   
   
-  <%- include("./partials/footer.ejs") %>
+ 
 </body>
-
+    <div style="padding-top:50px"></div>
+    <%- include("./partials/footer.ejs") %>
 </html>
