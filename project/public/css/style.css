@@ -221,7 +221,6 @@ a.thumbnail:focus {
 .restcols {
   column-count: 2;
   column-gap: 0.5px;
-  padding-left: 2%;
 }
 
 .box {
