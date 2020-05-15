@@ -116,5 +116,6 @@ function isLoggedIn(req, res, next) {
   }
   res.redirect("/signin");
 }
+console.log('butthole');
 
 app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`));

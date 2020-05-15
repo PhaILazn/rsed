@@ -35,7 +35,6 @@ router.post("/signup", function(req, res) {
       firstName: newUser.firstName,
       lastName: newUser.lastName,
       email: newUser.email,
-      phone: newUser.phone,
       username: newUser.username,
       image: newUser.image,
       shoppingCart: userCart._id,
