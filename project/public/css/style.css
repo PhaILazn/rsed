@@ -196,9 +196,17 @@ a.thumbnail:focus {
 }
 
 .name {
-  text-align: center;
+  justify-content: space-between;
   color: #ffd700;
   font-weight: bold;
+  padding-right: 6px;
+  padding-left: 4px;
+}
+.name .n {
+  float: left;
+}
+.name .price {
+  float: right;
 }
 
 #container {
@@ -212,7 +220,8 @@ a.thumbnail:focus {
 
 .restcols {
   column-count: 2;
-  column-gap: 20px;
+  column-gap: 0.5px;
+  padding-left: 2%;
 }
 
 .box {
@@ -222,7 +231,8 @@ a.thumbnail:focus {
 
   margin-bottom: 20px;
   height: 250px;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
 
   background: red;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
